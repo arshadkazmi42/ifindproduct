@@ -9,9 +9,15 @@
     "category": "AI / Automation",
     "maker": "Arshad Kazmi",
     "price": "$49 source code",
-    "colors": ["#7c3aed", "#4f46e5"],
+    "colors": [
+      "#7c3aed",
+      "#4f46e5"
+    ],
     "pattern": "circuit",
-    "tags": ["solo maker", "source available"],
+    "tags": [
+      "solo maker",
+      "source available"
+    ],
     "problem": "You spend hours doing repetitive browser tasks manually"
   },
   {
@@ -24,9 +30,15 @@
     "category": "Security",
     "maker": "Arshad Kazmi",
     "price": "Free tier available",
-    "colors": ["#84cc16", "#22c55e"],
+    "colors": [
+      "#84cc16",
+      "#22c55e"
+    ],
     "pattern": "grid",
-    "tags": ["solo maker", "freemium"],
+    "tags": [
+      "solo maker",
+      "freemium"
+    ],
     "problem": "Leaked API keys can cost you thousands before you notice"
   },
   {
@@ -39,9 +51,16 @@
     "category": "Social Media",
     "maker": "Arshad Kazmi",
     "price": "Free",
-    "colors": ["#ef4444", "#f97316"],
+    "colors": [
+      "#ef4444",
+      "#f97316"
+    ],
     "pattern": "dots",
-    "tags": ["solo maker", "free", "chrome extension"],
+    "tags": [
+      "solo maker",
+      "free",
+      "chrome extension"
+    ],
     "problem": "AI bots are ruining Twitter/X replies with spam"
   },
   {
@@ -54,9 +73,16 @@
     "category": "Privacy / Security",
     "maker": "Arshad Kazmi",
     "price": "Free",
-    "colors": ["#06b6d4", "#3b82f6"],
+    "colors": [
+      "#06b6d4",
+      "#3b82f6"
+    ],
     "pattern": "waves",
-    "tags": ["solo maker", "free", "encrypted"],
+    "tags": [
+      "solo maker",
+      "free",
+      "encrypted"
+    ],
     "problem": "Sharing passwords over Slack or email is a security risk"
   },
   {
@@ -69,9 +95,15 @@
     "category": "DevOps / Security",
     "maker": "Arshad Kazmi",
     "price": "Free tier available",
-    "colors": ["#eab308", "#f59e0b"],
+    "colors": [
+      "#eab308",
+      "#f59e0b"
+    ],
     "pattern": "circuit",
-    "tags": ["solo maker", "freemium"],
+    "tags": [
+      "solo maker",
+      "freemium"
+    ],
     "problem": "Expired SSL certs break trust and SEO overnight"
   },
   {
@@ -84,9 +116,16 @@
     "category": "Developer Tools",
     "maker": "Arshad Kazmi",
     "price": "Free",
-    "colors": ["#8b5cf6", "#a855f7"],
+    "colors": [
+      "#8b5cf6",
+      "#a855f7"
+    ],
     "pattern": "grid",
-    "tags": ["solo maker", "free", "chrome extension"],
+    "tags": [
+      "solo maker",
+      "free",
+      "chrome extension"
+    ],
     "problem": "Switching between CLI and GitHub for code review is tedious"
   },
   {
@@ -99,9 +138,16 @@
     "category": "Indie Maker Tools",
     "maker": "Arshad Kazmi",
     "price": "Free",
-    "colors": ["#ec4899", "#f43f5e"],
+    "colors": [
+      "#ec4899",
+      "#f43f5e"
+    ],
     "pattern": "dots",
-    "tags": ["solo maker", "free", "for makers"],
+    "tags": [
+      "solo maker",
+      "free",
+      "for makers"
+    ],
     "problem": "You miss the dopamine hit when a sale happens while you're away"
   },
   {
@@ -114,9 +160,15 @@
     "category": "Security",
     "maker": "Arshad Kazmi",
     "price": "Free",
-    "colors": ["#14b8a6", "#06b6d4"],
+    "colors": [
+      "#14b8a6",
+      "#06b6d4"
+    ],
     "pattern": "waves",
-    "tags": ["solo maker", "free"],
+    "tags": [
+      "solo maker",
+      "free"
+    ],
     "problem": "You found a GitHub token but have no idea what it can access"
   },
   {
@@ -129,9 +181,16 @@
     "category": "Backend / Database",
     "maker": "Gani Georgiev",
     "price": "Free & Open Source",
-    "colors": ["#3b82f6", "#1d4ed8"],
+    "colors": [
+      "#3b82f6",
+      "#1d4ed8"
+    ],
     "pattern": "grid",
-    "tags": ["open source", "solo maker", "self-hostable"],
+    "tags": [
+      "open source",
+      "solo maker",
+      "self-hostable"
+    ],
     "problem": "Setting up a backend takes days of boilerplate"
   },
   {
@@ -144,9 +203,16 @@
     "category": "Analytics",
     "maker": "Plausible Team",
     "price": "From $9/mo",
-    "colors": ["#6366f1", "#4f46e5"],
+    "colors": [
+      "#6366f1",
+      "#4f46e5"
+    ],
     "pattern": "dots",
-    "tags": ["open source", "bootstrapped", "privacy-first"],
+    "tags": [
+      "open source",
+      "bootstrapped",
+      "privacy-first"
+    ],
     "problem": "Google Analytics is bloated, invasive, and overkill for most sites"
   },
   {
@@ -159,9 +225,15 @@
     "category": "Search / Infrastructure",
     "maker": "Typesense Team",
     "price": "Free & Open Source",
-    "colors": ["#ef4444", "#dc2626"],
+    "colors": [
+      "#ef4444",
+      "#dc2626"
+    ],
     "pattern": "circuit",
-    "tags": ["open source", "self-hostable"],
+    "tags": [
+      "open source",
+      "self-hostable"
+    ],
     "problem": "Algolia is expensive and you don't need enterprise search"
   },
   {
@@ -174,9 +246,16 @@
     "category": "Marketing",
     "maker": "Steven Tey",
     "price": "Free tier available",
-    "colors": ["#2563eb", "#7c3aed"],
+    "colors": [
+      "#2563eb",
+      "#7c3aed"
+    ],
     "pattern": "waves",
-    "tags": ["open source", "solo maker", "YC backed"],
+    "tags": [
+      "open source",
+      "solo maker",
+      "YC backed"
+    ],
     "problem": "Bitly charges a fortune and you can't self-host it"
   },
   {
@@ -189,9 +268,15 @@
     "category": "Developer Tools",
     "maker": "Tolgee Team",
     "price": "Free & Open Source",
-    "colors": ["#ec4899", "#f472b6"],
+    "colors": [
+      "#ec4899",
+      "#f472b6"
+    ],
     "pattern": "dots",
-    "tags": ["open source", "self-hostable"],
+    "tags": [
+      "open source",
+      "self-hostable"
+    ],
     "problem": "Managing translation JSON files across languages is a nightmare"
   },
   {
@@ -204,9 +289,15 @@
     "category": "Productivity",
     "maker": "Documenso Team",
     "price": "Free & Open Source",
-    "colors": ["#22c55e", "#16a34a"],
+    "colors": [
+      "#22c55e",
+      "#16a34a"
+    ],
     "pattern": "grid",
-    "tags": ["open source", "bootstrapped"],
+    "tags": [
+      "open source",
+      "bootstrapped"
+    ],
     "problem": "DocuSign costs $25/mo just to send a few documents"
   },
   {
@@ -219,9 +310,15 @@
     "category": "Infrastructure",
     "maker": "Novu Team",
     "price": "Free tier available",
-    "colors": ["#f59e0b", "#d97706"],
+    "colors": [
+      "#f59e0b",
+      "#d97706"
+    ],
     "pattern": "circuit",
-    "tags": ["open source", "YC backed"],
+    "tags": [
+      "open source",
+      "YC backed"
+    ],
     "problem": "Building notifications for 5 channels means 5 different integrations"
   },
   {
@@ -234,9 +331,15 @@
     "category": "Developer Tools",
     "maker": "Trigger.dev Team",
     "price": "Free tier available",
-    "colors": ["#a855f7", "#7c3aed"],
+    "colors": [
+      "#a855f7",
+      "#7c3aed"
+    ],
     "pattern": "waves",
-    "tags": ["open source", "YC backed"],
+    "tags": [
+      "open source",
+      "YC backed"
+    ],
     "problem": "Managing Redis + Bull + workers just to run background jobs"
   },
   {
@@ -249,9 +352,15 @@
     "category": "Productivity",
     "maker": "Cal.com Team",
     "price": "Free & Open Source",
-    "colors": ["#111827", "#374151"],
+    "colors": [
+      "#111827",
+      "#374151"
+    ],
     "pattern": "grid",
-    "tags": ["open source", "bootstrapped"],
+    "tags": [
+      "open source",
+      "bootstrapped"
+    ],
     "problem": "Calendly charges $12/mo for basic scheduling features"
   },
   {
@@ -264,9 +373,15 @@
     "category": "Security / DevOps",
     "maker": "Infisical Team",
     "price": "Free tier available",
-    "colors": ["#eab308", "#a3e635"],
+    "colors": [
+      "#eab308",
+      "#a3e635"
+    ],
     "pattern": "circuit",
-    "tags": ["open source", "YC backed"],
+    "tags": [
+      "open source",
+      "YC backed"
+    ],
     "problem": "Sharing .env files over Slack is how secrets get leaked"
   },
   {
@@ -279,9 +394,15 @@
     "category": "Developer Tools",
     "maker": "Hoppscotch Team",
     "price": "Free & Open Source",
-    "colors": ["#22d3ee", "#06b6d4"],
+    "colors": [
+      "#22d3ee",
+      "#06b6d4"
+    ],
     "pattern": "dots",
-    "tags": ["open source", "bootstrapped"],
+    "tags": [
+      "open source",
+      "bootstrapped"
+    ],
     "problem": "Postman became bloated and requires an account for everything"
   },
   {
@@ -294,9 +415,15 @@
     "category": "Backend / Platform",
     "maker": "Appwrite Team",
     "price": "Free & Open Source",
-    "colors": ["#f02e65", "#e91e63"],
+    "colors": [
+      "#f02e65",
+      "#e91e63"
+    ],
     "pattern": "waves",
-    "tags": ["open source", "self-hostable"],
+    "tags": [
+      "open source",
+      "self-hostable"
+    ],
     "problem": "Firebase locks you in and pricing is unpredictable"
   },
   {
@@ -309,9 +436,15 @@
     "category": "Infrastructure",
     "maker": "Zeno Rocha",
     "price": "Free tier available",
-    "colors": ["#000000", "#333333"],
+    "colors": [
+      "#000000",
+      "#333333"
+    ],
     "pattern": "grid",
-    "tags": ["solo maker", "YC backed"],
+    "tags": [
+      "solo maker",
+      "YC backed"
+    ],
     "problem": "SendGrid and Mailgun APIs feel like they were designed in 2010"
   },
   {
@@ -324,9 +457,16 @@
     "category": "Backend / Platform",
     "maker": "Supabase Team",
     "price": "Free tier available",
-    "colors": ["#3ecf8e", "#1c8656"],
+    "colors": [
+      "#3ecf8e",
+      "#1c8656"
+    ],
     "pattern": "circuit",
-    "tags": ["open source", "YC backed", "self-hostable"],
+    "tags": [
+      "open source",
+      "YC backed",
+      "self-hostable"
+    ],
     "problem": "Firebase locks you into Google's ecosystem with no exit plan"
   },
   {
@@ -339,9 +479,14 @@
     "category": "Developer Tools",
     "maker": "Mintlify Team",
     "price": "Free tier available",
-    "colors": ["#0ea5e9", "#0284c7"],
+    "colors": [
+      "#0ea5e9",
+      "#0284c7"
+    ],
     "pattern": "waves",
-    "tags": ["YC backed"],
+    "tags": [
+      "YC backed"
+    ],
     "problem": "Writing great docs is hard and ugly docs drive users away"
   },
   {
@@ -354,9 +499,15 @@
     "category": "Billing / Fintech",
     "maker": "Lago Team",
     "price": "Free & Open Source",
-    "colors": ["#4f46e5", "#6366f1"],
+    "colors": [
+      "#4f46e5",
+      "#6366f1"
+    ],
     "pattern": "grid",
-    "tags": ["open source", "self-hostable"],
+    "tags": [
+      "open source",
+      "self-hostable"
+    ],
     "problem": "Stripe Billing can't handle usage-based pricing well"
   },
   {
@@ -369,9 +520,14 @@
     "category": "Productivity",
     "maker": "Eraser Team",
     "price": "Free tier available",
-    "colors": ["#2563eb", "#1d4ed8"],
+    "colors": [
+      "#2563eb",
+      "#1d4ed8"
+    ],
     "pattern": "circuit",
-    "tags": ["YC backed"],
+    "tags": [
+      "YC backed"
+    ],
     "problem": "Your architecture diagrams are scattered across 3 different tools"
   },
   {
@@ -384,9 +540,15 @@
     "category": "Indie Maker Tools",
     "maker": "Polar Team",
     "price": "Free + transaction fee",
-    "colors": ["#0062ff", "#003dcc"],
+    "colors": [
+      "#0062ff",
+      "#003dcc"
+    ],
     "pattern": "dots",
-    "tags": ["open source", "for makers"],
+    "tags": [
+      "open source",
+      "for makers"
+    ],
     "problem": "Monetizing open source projects is awkward and fragmented"
   },
   {
@@ -399,9 +561,15 @@
     "category": "Infrastructure",
     "maker": "Andreas Thomas",
     "price": "Free tier available",
-    "colors": ["#171717", "#404040"],
+    "colors": [
+      "#171717",
+      "#404040"
+    ],
     "pattern": "grid",
-    "tags": ["open source", "solo maker"],
+    "tags": [
+      "open source",
+      "solo maker"
+    ],
     "problem": "Rolling your own API key auth is error-prone and slow"
   },
   {
@@ -414,9 +582,16 @@
     "category": "Productivity",
     "maker": "Papermark Team",
     "price": "Free & Open Source",
-    "colors": ["#000000", "#262626"],
+    "colors": [
+      "#000000",
+      "#262626"
+    ],
     "pattern": "dots",
-    "tags": ["open source", "bootstrapped", "self-hostable"],
+    "tags": [
+      "open source",
+      "bootstrapped",
+      "self-hostable"
+    ],
     "problem": "DocSend charges $15/mo to share a PDF with view tracking"
   },
   {
@@ -429,9 +604,16 @@
     "category": "Analytics",
     "maker": "Formbricks Team",
     "price": "Free & Open Source",
-    "colors": ["#00c4b8", "#009688"],
+    "colors": [
+      "#00c4b8",
+      "#009688"
+    ],
     "pattern": "waves",
-    "tags": ["open source", "self-hostable", "privacy-first"],
+    "tags": [
+      "open source",
+      "self-hostable",
+      "privacy-first"
+    ],
     "problem": "Typeform is expensive and sends your user data to their servers"
   },
   {
@@ -444,9 +626,776 @@
     "category": "Productivity",
     "maker": "Twenty Team",
     "price": "Free & Open Source",
-    "colors": ["#fbbf24", "#f59e0b"],
+    "colors": [
+      "#fbbf24",
+      "#f59e0b"
+    ],
     "pattern": "circuit",
-    "tags": ["open source", "self-hostable"],
+    "tags": [
+      "open source",
+      "self-hostable"
+    ],
     "problem": "Salesforce costs $300/seat and takes 6 months to set up"
+  },
+  {
+    "id": 100,
+    "name": "Spira for Product Hunt Makers",
+    "tagline": "Social media growth agents that build your momentum ",
+    "description": "Drop your Product Hunt link and unlock your brand agent, persona clones of your founding team and AI Influencers that autonomously plan, create, and publish across TikTok, IG, X and Linkedin. It's your biggest launch day, don't let it slide away!",
+    "url": "https://www.producthunt.com/r/T7AK4DSW7OYURG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Social Media",
+    "maker": "Long Ma",
+    "price": "Check website",
+    "colors": [
+      "#7c3aed",
+      "#4f46e5"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "new"
+    ],
+    "problem": "Social media growth agents that build your momentum ",
+    "votes": 339,
+    "ph_url": "https://www.producthunt.com/products/spira-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 101,
+    "name": "Agent Mode by Receiptor AI",
+    "tagline": "Bookkeeping assistant that runs receipt workflows end-to-end",
+    "description": "Receiptor AI is an agentic bookkeeping assistant that runs your receipt workflow end-to-end: it collects receipts from your inbox and your mobile, organizes them in your cloud or accounting software, and matches them to your bank transactions. It works quietly in the background with 99% accuracy, and only asks questions when it needs more context. The result: clean books and organized receipt data you can query from anywhere: the app, WhatsApp, or right inside Claude and ChatGPT.",
+    "url": "https://www.producthunt.com/r/DVSAWE2SN72E2P?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Fintech",
+    "maker": "[REDACTED]",
+    "price": "Check website",
+    "colors": [
+      "#84cc16",
+      "#22c55e"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "new"
+    ],
+    "problem": "Bookkeeping assistant that runs receipt workflows end-to-end",
+    "votes": 335,
+    "ph_url": "https://www.producthunt.com/products/receiptor-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 102,
+    "name": "ClinePass",
+    "tagline": "Run the best open-weights models in Cline",
+    "description": "ClinePass gives Cline users one $9.99/month subscription for top open-weight coding models like GLM, Kimi, DeepSeek, and more. Use powerful models inside Cline with 2–5x standard API rate limits, without juggling provider accounts, API keys, billing pages, or model availability. Built for developers who want Cline’s agentic coding workflow with a simpler, faster open-model stack.",
+    "url": "https://www.producthunt.com/r/4XBT2KCNTOUDKC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Developer Tools",
+    "maker": "[REDACTED]",
+    "price": "Check website",
+    "colors": [
+      "#ef4444",
+      "#f97316"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "new"
+    ],
+    "problem": "Run the best open-weights models in Cline",
+    "votes": 266,
+    "ph_url": "https://www.producthunt.com/products/cline-4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 103,
+    "name": "VisibAI",
+    "tagline": "Are you in AI answers? Find out and fix it in minutes",
+    "description": "VisibAI shows whether your business appears when people ask AI for recommendations, and helps you fix it. It runs queries across six AI platforms (ChatGPT, Perplexity, Claude, Gemini, Mistral, You.com), scores your visibility 0-100, reveals which competitors show up instead, and returns a prioritized fix list plus ready-to-ship fix files and a branded report. One-off audits or monthly tracking. White-label for agencies. EU-hosted and GDPR-native.",
+    "url": "https://www.producthunt.com/r/RZKKIOKZE7VJEC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Marketing",
+    "maker": "Francesco Bianchi",
+    "price": "Check website",
+    "colors": [
+      "#06b6d4",
+      "#3b82f6"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Are you in AI answers? Find out and fix it in minutes",
+    "votes": 205,
+    "ph_url": "https://www.producthunt.com/products/visibai-ai-visibility-audit-tool?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 104,
+    "name": "PMB",
+    "tagline": "Stop re-explaining your project to AI coding agents",
+    "description": "PMB gives Claude Code, Cursor, Codex and Zed persistent project memory through MCP. It stores decisions, lessons, goals, recent work, project facts and docs in one SQLite workspace on your disk. No cloud, no API keys, no LLM call on the read path. It is open source, offline-first, inspectable/exportable, with a local dashboard and honest impact tracking so you can see which memories actually help.",
+    "url": "https://www.producthunt.com/r/XHBXGWG3FHAQJZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Open Source",
+    "maker": "Oleksii Bondar",
+    "price": "Check website",
+    "colors": [
+      "#eab308",
+      "#f59e0b"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "open source",
+      "solo maker"
+    ],
+    "problem": "Stop re-explaining your project to AI coding agents",
+    "votes": 181,
+    "ph_url": "https://www.producthunt.com/products/pmb-local-first-memory-for-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 105,
+    "name": "Crest",
+    "tagline": "System stats and translation on your Mac's notch",
+    "description": "Crest is a Mac notch app that turns your MacBook's notch into a hub: Now Playing, a dashboard, system stats, calendar, tasks, translation and more. Free, Pro $19.99.",
+    "url": "https://www.producthunt.com/r/HLYRDPGX2RV3IF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Design",
+    "maker": "zack",
+    "price": "Check website",
+    "colors": [
+      "#8b5cf6",
+      "#a855f7"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "System stats and translation on your Mac's notch",
+    "votes": 135,
+    "ph_url": "https://www.producthunt.com/products/crest-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 106,
+    "name": "Sami",
+    "tagline": "Automate ad budgets across Google, LinkedIn & Meta ads",
+    "description": "Still manually checking ad performance across 4 different platforms? Sami automates it. Build rules that pause underperformers, control budgets, and adjust pacing in real time — across Google, Meta, LinkedIn, and YouTube. One platform. Zero babysitting. Trusted by marketers managing $3M+ in ad spend. Start your free trial.",
+    "url": "https://www.producthunt.com/r/SJ53R526CISYNF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Marketing",
+    "maker": "[REDACTED]",
+    "price": "Check website",
+    "colors": [
+      "#ec4899",
+      "#f43f5e"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "small team"
+    ],
+    "problem": "Automate ad budgets across Google, LinkedIn & Meta ads",
+    "votes": 131,
+    "ph_url": "https://www.producthunt.com/products/sami-automate-pace-scale-your-ads?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 107,
+    "name": "ReadHere",
+    "tagline": "Lightweight PDF & EPUB reader in your browser",
+    "description": "A lightweight reader for your PDFs and EPUBs, entirely in your browser; no install, no account, no ecosystem. Highlight both formats, keep a per-book journal, and read offline. Your files stay on your device. Sync to your own Google Drive coming soon.",
+    "url": "https://www.producthunt.com/r/5MCAKZT73D2NF4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "eBook Reader",
+    "maker": "Quazi Marufur Rahman",
+    "price": "Check website",
+    "colors": [
+      "#14b8a6",
+      "#06b6d4"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Lightweight PDF & EPUB reader in your browser",
+    "votes": 131,
+    "ph_url": "https://www.producthunt.com/products/readhere-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 108,
+    "name": "Outpaint - Ad Reframe",
+    "tagline": "AI to turn vertical UGC into widescreen ads",
+    "description": "UGC ads reframed for TV by Outpaint.com. Vertical ads (9:16) expanded into widescreen (16:9) for connected TV, while keeping the original footage pixel perfect. Outperforms pillarboxing and side blur.",
+    "url": "https://www.producthunt.com/r/A7GDUKYZTIZURJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "AI / Automation",
+    "maker": "[REDACTED]",
+    "price": "Check website",
+    "colors": [
+      "#3b82f6",
+      "#1d4ed8"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "new"
+    ],
+    "problem": "AI to turn vertical UGC into widescreen ads",
+    "votes": 126,
+    "ph_url": "https://www.producthunt.com/products/outpaint-com-ad-reframe?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 109,
+    "name": "Intelli",
+    "tagline": "Convert leads into customers with AI conversations",
+    "description": "Intelli is a WhatsApp Business API platform for SMBs in emerging markets. Automate customer engagement, run broadcast campaigns, collect payments, and manage support from one place across WhatsApp, web chat, Instagram, Messenger, and email. AI assistants are trained on your own data, with customer journey workflows and local payment rails.",
+    "url": "https://www.producthunt.com/r/IPQVVBWWY4JTR5?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "SaaS",
+    "maker": "[REDACTED]",
+    "price": "Check website",
+    "colors": [
+      "#6366f1",
+      "#4f46e5"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "small team"
+    ],
+    "problem": "Convert leads into customers with AI conversations",
+    "votes": 112,
+    "ph_url": "https://www.producthunt.com/products/intelli?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 110,
+    "name": "Upstream FTP",
+    "tagline": "A fast, beautiful, and native FTP/SFTP client for macOS",
+    "description": "Upstream is a native, modern, and lightweight FTP/SFTP client built exclusively for macOS. Designed for speed and seamless integration, it ditches heavy, outdated interfaces to give developers and sysadmins a fast, secure, and beautiful file transfer experience.",
+    "url": "https://www.producthunt.com/r/4HSMRCNLO57MWW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Developer Tools",
+    "maker": "Carlo Di Giuseppe",
+    "price": "Check website",
+    "colors": [
+      "#22c55e",
+      "#16a34a"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "A fast, beautiful, and native FTP/SFTP client for macOS",
+    "votes": 99,
+    "ph_url": "https://www.producthunt.com/products/upstream-ftp?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 111,
+    "name": "Mailgent",
+    "tagline": " AI agents that can email, pay APIs, sign, and store secrets",
+    "description": "Agents keep hitting the same walls: no inbox, no safe credential store, no way past a 2FA gate, no way to pay for a downstream API, no verifiable identity. Mailgent fixes this in one curl call. Every agent gets a real inbox (DKIM, threading), encrypted vault, TOTP/2FA, USDC wallet for x402-priced API payments, verifiable DID (Ed25519), and a calendar. MCP-native. Works with Claude, Cursor, OpenAI, LangChain, CrewAI, Hermes Agent, OpenClaw, NemoClaw, n8n, and more. Everything live in seconds.",
+    "url": "https://www.producthunt.com/r/GLB7W37ZZMHG6V?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Developer Tools",
+    "maker": "[REDACTED]",
+    "price": "Check website",
+    "colors": [
+      "#f59e0b",
+      "#d97706"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "small team"
+    ],
+    "problem": " AI agents that can email, pay APIs, sign, and store secrets",
+    "votes": 46,
+    "ph_url": "https://www.producthunt.com/products/mailgent-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 112,
+    "name": "Loop by ads.expert",
+    "tagline": "The flight simulator for paid media, with built in AI coach",
+    "description": "Most people learn Google Ads two ways: watch a course, or burn real budget making mistakes. Loop is the third way. Build a real campaign, run it through a live auction simulation, and watch impressions, clicks, and conversions play out week by week against simulated competitors. ARIA, an AI coach, explains why every number moved and what to fix next. VERA can even audit your real Google Ads account against the same engine. Risk-free. Free to start.",
+    "url": "https://www.producthunt.com/r/7I3E2BYT2R4F2D?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Marketing",
+    "maker": "Unknown Maker",
+    "price": "Check website",
+    "colors": [
+      "#a855f7",
+      "#7c3aed"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "small team"
+    ],
+    "problem": "The flight simulator for paid media, with built in AI coach",
+    "votes": 27,
+    "ph_url": "https://www.producthunt.com/products/loop-by-ads-expert?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 113,
+    "name": "Blinked",
+    "tagline": "LinkedIn outreach without breaking the law",
+    "description": "A free Chrome extension that helps you research leads, personalize messages, and manage outreach on LinkedIn. Local first. Your data never leaves your browser.",
+    "url": "https://www.producthunt.com/r/4EKV6UCVRYEEU3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Chrome Extension",
+    "maker": "Malith Gamage",
+    "price": "Check website",
+    "colors": [
+      "#0ea5e9",
+      "#0284c7"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "chrome extension",
+      "solo maker"
+    ],
+    "problem": "LinkedIn outreach without breaking the law",
+    "votes": 27,
+    "ph_url": "https://www.producthunt.com/products/blinked-your-linkedin-outreach-copilot?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 114,
+    "name": "TanStarter",
+    "tagline": "Ship Faster with TanStack, Cost Less with Cloudflare",
+    "description": "TanStarter is the complete TanStack Start boilerplate for building profitable SaaS, packed with AI, auth, database, storage, blog, email, newsletter, payments, dashboard, SEO, and more, fully deployed on Cloudflare Workers",
+    "url": "https://www.producthunt.com/r/R4DE2WH5PSZHVC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "SaaS",
+    "maker": "Fox",
+    "price": "Check website",
+    "colors": [
+      "#f02e65",
+      "#e91e63"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Ship Faster with TanStack, Cost Less with Cloudflare",
+    "votes": 23,
+    "ph_url": "https://www.producthunt.com/products/tanstarter?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 115,
+    "name": "KEEP",
+    "tagline": "The connected keychain that keeps your people close",
+    "description": "KEEP is a connected keychain with an e-ink screen that holds one note — a word, a drawing, a sticker — sent from someone's phone, from anywhere. No WiFi, no Bluetooth, no battery. Just a piece of someone you love, with you wherever you go. From the team behind Lovebox: 300,000+ shipped to 40+ countries, 26M+ notes sent since 2017. Live on Kickstarter now! Funded in under 2 hours and 300% funded as of today! 12 days remaining to pre-order on Kickstarter.",
+    "url": "https://www.producthunt.com/r/FUILULD5TRE2MF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Messaging",
+    "maker": "Jean Gregoire",
+    "price": "Check website",
+    "colors": [
+      "#22d3ee",
+      "#06b6d4"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "The connected keychain that keeps your people close",
+    "votes": 18,
+    "ph_url": "https://www.producthunt.com/products/keep-9?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 116,
+    "name": "Downbar",
+    "tagline": "Know the moment a service breaks, and the moment it's back",
+    "description": "Downbar is a $2.99 macOS menu-bar app that watches 110+ public status pages. AI, cloud, dev tools, payments — and tells you the moment something goes down, and the moment it recovers.",
+    "url": "https://www.producthunt.com/r/BJLIU6HBUXSDR4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "SaaS",
+    "maker": "Nathan Tarasiuk",
+    "price": "Check website",
+    "colors": [
+      "#7c3aed",
+      "#4f46e5"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Know the moment a service breaks, and the moment it's back",
+    "votes": 15,
+    "ph_url": "https://www.producthunt.com/products/downbar?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 117,
+    "name": "Oculta",
+    "tagline": "Invisible notes for meetings and presentations",
+    "description": "Oculta is a Mac app that lets you read notes while presenting, sharing your screen, or joining video calls without anyone else seeing them. Keep scripts, talking points, and reminders visible only to you while maintaining eye contact. Oculta stays invisible in screen sharing, screenshots, and recordings. Works with Zoom, Google Meet, Microsoft Teams, Slack, FaceTime, and every other app on macOS.",
+    "url": "https://www.producthunt.com/r/UPV6Z2MDSRVYGB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Productivity",
+    "maker": "Andy GC",
+    "price": "Check website",
+    "colors": [
+      "#84cc16",
+      "#22c55e"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Invisible notes for meetings and presentations",
+    "votes": 15,
+    "ph_url": "https://www.producthunt.com/products/oculta-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 118,
+    "name": "LocoPast - Discover History All Around",
+    "tagline": "The location-based history app - explore the world's history",
+    "description": "LocoPast reveals the remarkable history hidden around you - battles, artists, scandals and wonders, mapped to the streets where they happened. Select your own location or search any location, city or sites in the world, to reveal everything that happened there. Filter between \"most significant\" and \"nearest\" and filter by categories such as wars and battles, politics, science and trade, arts and culture, and much more.",
+    "url": "https://www.producthunt.com/r/NM2ES4LVKDJ6LN?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Education",
+    "maker": "Ed Johnson",
+    "price": "Check website",
+    "colors": [
+      "#ef4444",
+      "#f97316"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "The location-based history app - explore the world's history",
+    "votes": 15,
+    "ph_url": "https://www.producthunt.com/products/locopast-discover-history-all-around?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 119,
+    "name": "NerdSip - Microlearning App",
+    "tagline": "Replace social media with real learning - and get educated.",
+    "description": "NerdSip is the AI learning app that creates custom micro-courses on any topic in seconds. Gamified streaks, RPG elements, and 5-minute lessons for curious minds.",
+    "url": "https://www.producthunt.com/r/QCKTDXZXXHDUHE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Productivity",
+    "maker": "curlh1",
+    "price": "Check website",
+    "colors": [
+      "#06b6d4",
+      "#3b82f6"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Replace social media with real learning - and get educated.",
+    "votes": 14,
+    "ph_url": "https://www.producthunt.com/products/nerdsip-com?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 120,
+    "name": "PRISM — Learn System Design",
+    "tagline": "Learn System Design by Building Real Architectures",
+    "description": "PRISM helps software engineers master System Design through interactive learning. Instead of memorizing architecture diagrams, you design real-world systems, simulate traffic, identify bottlenecks, and understand why architectures evolve. Learn with guided roadmaps, practice on an interactive canvas, and evaluate your designs with interview-focused feedback. Built for engineers preparing for System Design interviews and designing production-scale systems.",
+    "url": "https://www.producthunt.com/r/X2D5LADDSGEA6Y?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Productivity",
+    "maker": "Prajwal AhluWalia",
+    "price": "Check website",
+    "colors": [
+      "#eab308",
+      "#f59e0b"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Learn System Design by Building Real Architectures",
+    "votes": 4,
+    "ph_url": "https://www.producthunt.com/products/prism-learn-system-design?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 121,
+    "name": "Nomscore",
+    "tagline": "Food tracking so easy it feels like a game",
+    "description": "Most food trackers die in a week. They're tedious, cluttered, and feel like data entry. Nomscore flips that. Every meal gets a simple score, so logging feels less like a chore and more like a game you want to keep playing. No endless forms, no guilt, no setup marathon. Open it, log in seconds, watch your score climb. Built solo for people who've quit every other tracker. If staying consistent was always the hard part, Nomscore is designed to fix exactly that.",
+    "url": "https://www.producthunt.com/r/K2VJEZCY6N4G52?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Health",
+    "maker": "rSvpa",
+    "price": "Check website",
+    "colors": [
+      "#8b5cf6",
+      "#a855f7"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Food tracking so easy it feels like a game",
+    "votes": 3,
+    "ph_url": "https://www.producthunt.com/products/nomscore?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 122,
+    "name": "Income and Expense Tracking",
+    "tagline": "Your Budget Is Under Control.",
+    "description": "Manage your financial life in a single app with a professional perspective. From income and expenses to investments, from credit cards to subscriptions, all your financial data stays secure and under control. This is not just an expense tracker; it is a smart finance assistant that reminds you of what you might have missed.",
+    "url": "https://www.producthunt.com/r/TWE6PK5YHIKKLJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Fintech",
+    "maker": "Serkan Subayaz",
+    "price": "Check website",
+    "colors": [
+      "#ec4899",
+      "#f43f5e"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Your Budget Is Under Control.",
+    "votes": 2,
+    "ph_url": "https://www.producthunt.com/products/income-and-expense-tracking?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 123,
+    "name": "Formfolio",
+    "tagline": "A global invoice to PDF generation tool, light & in-browser",
+    "description": "Fill a form, download a polished invoice or quote as a PDF. No signup, multi-currency, VAT-aware, with country-native conventions - local scan-to-pay QR codes, tax terms, e-signature or other specific to nations conventions. Around 130 supported jurisdictions, 40+ languages and growing. Free-tier is completely usable, Pro-tier is a one-time unlock for life (39€) with many extra features one could want from such an application.",
+    "url": "https://www.producthunt.com/r/OPDD5GLAMVSNQZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Money",
+    "maker": "Marty O",
+    "price": "Check website",
+    "colors": [
+      "#14b8a6",
+      "#06b6d4"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "A global invoice to PDF generation tool, light & in-browser",
+    "votes": 4,
+    "ph_url": "https://www.producthunt.com/products/formfolio?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 124,
+    "name": "Dashflow",
+    "tagline": "One app for tasks, habits, goals, and your routine. No ads",
+    "description": "I kept switching between apps just to manage my day: tasks in one, habits in another, notes somewhere else. Nothing felt connected. So I built Dashflow, one clean space for your daily routine. It brings together tasks, goals, habits, sleep tracking, hydration, Pomodoro, study sessions, calendar, and notes. It’s completely free, has no ads, works offline as a PWA, and syncs across devices in real time. I’m improving it every week, and your feedback shapes what comes next.",
+    "url": "https://www.producthunt.com/r/SCKOJIT2WZFU53?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Productivity",
+    "maker": "Dashflow App",
+    "price": "Check website",
+    "colors": [
+      "#3b82f6",
+      "#1d4ed8"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "One app for tasks, habits, goals, and your routine. No ads",
+    "votes": 4,
+    "ph_url": "https://www.producthunt.com/products/dashflow-6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 125,
+    "name": "Color Picker - Photo to RAL, HEX, RGB",
+    "tagline": "Find the nearest RAL for free, then unlock Smart Palette",
+    "description": "RAL is the European standard for industrial coatings — used on furniture, machinery, signage, and architecture. Instead of carrying a fan deck, RAL Picker turns your phone camera into a quick color reader. It reads the pixel under your aim point, matches it against the full RAL Classic library, and shows the closest code with a side-by-side comparison.",
+    "url": "https://www.producthunt.com/r/AOU427RGBWZM2Y?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Design",
+    "maker": "Kavela",
+    "price": "Check website",
+    "colors": [
+      "#6366f1",
+      "#4f46e5"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Find the nearest RAL for free, then unlock Smart Palette",
+    "votes": 2,
+    "ph_url": "https://www.producthunt.com/products/color-picker-photo-to-ral-hex-rgb?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 126,
+    "name": "Fullpilot",
+    "tagline": "Search 250M+ local business leads",
+    "description": "Search 250M+ local business records, unlock available contact data, export accurate records, or turn on Fullpilot AI SDR to run outreach and handle replies.",
+    "url": "https://www.producthunt.com/r/BA32P43AD4SDVE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Marketing",
+    "maker": "Brandon Hays",
+    "price": "Check website",
+    "colors": [
+      "#22c55e",
+      "#16a34a"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Search 250M+ local business leads",
+    "votes": 3,
+    "ph_url": "https://www.producthunt.com/products/fullpilot?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 127,
+    "name": "Sel Screen & Window Sharing",
+    "tagline": "A cleaner way to share and present your Mac screen",
+    "description": "Sel makes screen sharing clean. Choose the exact windows to show and keep the rest of your desktop private. Share your selection two ways: - As a window any meeting or recording app can pick up. - On a second display as a full-screen projector. Features: - Show one window or a group, everything else stays private. - Add a webcam overlay and a clean background. - Save named scenes and switch between them instantly. - Record your composed output to a file. - Annotate your screen, live",
+    "url": "https://www.producthunt.com/r/EQ7K2LVBAIARAP?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Productivity",
+    "maker": "Aria Ghora Prabono",
+    "price": "Check website",
+    "colors": [
+      "#f59e0b",
+      "#d97706"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "A cleaner way to share and present your Mac screen",
+    "votes": 2,
+    "ph_url": "https://www.producthunt.com/products/sel-screen-window-sharing?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 128,
+    "name": "PotenAI",
+    "tagline": "Helping people discover their true potential through AI.",
+    "description": "PotenAI helps you discover hidden talents, career fit, and future potential through intelligent AI-powered self-discovery. Join the waitlist today. https://nopick.site",
+    "url": "https://www.producthunt.com/r/RLNO6EUVDKSCIV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Career",
+    "maker": "Abdullah Huseynli",
+    "price": "Check website",
+    "colors": [
+      "#a855f7",
+      "#7c3aed"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Helping people discover their true potential through AI.",
+    "votes": 3,
+    "ph_url": "https://www.producthunt.com/products/potenai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 129,
+    "name": "ASCEND AI",
+    "tagline": "Ascend — World-class AI face analysis + personalised ",
+    "description": "1. Deep Face Analysis We run your photo through a multi-model computer vision pipeline built for precision. Symmetry ratios, facial thirds, canthal tilt, jawline geometry, skin quality, brow positioning — every structural element scored and explained in plain language. Not a black-box number. An actual breakdown. 3. Personalised 75-Day Transformation Protocol** This is what nobody else is doing. Based on your specific scan results, 4. Daily AI Coaching",
+    "url": "https://www.producthunt.com/r/BRZ22DIBWV7BD5?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Health",
+    "maker": "Pratik Patil",
+    "price": "Check website",
+    "colors": [
+      "#0ea5e9",
+      "#0284c7"
+    ],
+    "pattern": "grid",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Ascend — World-class AI face analysis + personalised ",
+    "votes": 11,
+    "ph_url": "https://www.producthunt.com/products/ascend-ai-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 130,
+    "name": "Lustra - Professional Camera App",
+    "tagline": "DSLR level control, in your pocket",
+    "description": "Hey Product Hunt! I’m excited to finally share Lustra. I’m a product designer by trade, but photography has always been one of my favorite hobbies. Over the years I’ve tried just about every professional camera app on the App Store, and while they all had great features, I always found myself fighting the interface. So I started building the camera app I wanted to use. The idea behind Lustra is simple: Professional camera controls should be at your fingertips, not hidden behind layers of menus.",
+    "url": "https://www.producthunt.com/r/O3ZWKTOKCTMJBV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Productivity",
+    "maker": "Taron Ghazaryan",
+    "price": "Check website",
+    "colors": [
+      "#f02e65",
+      "#e91e63"
+    ],
+    "pattern": "dots",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "DSLR level control, in your pocket",
+    "votes": 10,
+    "ph_url": "https://www.producthunt.com/products/lustra-professional-camera-app?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 131,
+    "name": "BLACKBIRD: Vacuum Canister for Coffee",
+    "tagline": "BLACKBIRD Coffee Canister that seals in peak flavor",
+    "description": "BLACKBIRD is a science-guided vacuum canister system designed to reduce oxygen exposure and protect coffee’s aroma and flavor after every brew. With one-touch automatic sealing and powerful 40kPa suction, a single detachable wireless pump can manage multiple canisters—unlike traditional systems that require a motor in every lid. A date dial, vacuum indicator, wireless charging, and premium aluminum design make freshness effortless.",
+    "url": "https://www.producthunt.com/r/VIAMDQHKMIZOLX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Home",
+    "maker": "Unknown Maker",
+    "price": "Check website",
+    "colors": [
+      "#22d3ee",
+      "#06b6d4"
+    ],
+    "pattern": "waves",
+    "tags": [
+      "small team"
+    ],
+    "problem": "BLACKBIRD Coffee Canister that seals in peak flavor",
+    "votes": 2,
+    "ph_url": "https://www.producthunt.com/products/blackbird-vacuum-canister-for-coffee?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
+  },
+  {
+    "id": 132,
+    "name": "RemindShot",
+    "tagline": "Turn screenshots into smart reminders",
+    "description": "RemindShot turns forgotten screenshots into actionable reminders. Select a screenshot, let AI extract the important context, and schedule a notification for exactly when you need it. It is useful for products you want to buy later, deadlines, travel details, documents, study notes, recipes, events, work tasks, and anything else you save as a screenshot to revisit. Instead of simply storing screenshots, RemindShot helps you act on them.",
+    "url": "https://www.producthunt.com/r/NPGLKUNE5AWLDV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "domain": "producthunt.com",
+    "category": "Productivity",
+    "maker": "Ali Raza",
+    "price": "Check website",
+    "colors": [
+      "#7c3aed",
+      "#4f46e5"
+    ],
+    "pattern": "circuit",
+    "tags": [
+      "solo maker"
+    ],
+    "problem": "Turn screenshots into smart reminders",
+    "votes": 3,
+    "ph_url": "https://www.producthunt.com/products/remindshot?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "created_at": "2026-06-29T07:01:00Z"
   }
 ]

@@ -1,0 +1,17 @@
+{
+  "name": "iFound.today",
+  "short_name": "iFound",
+  "description": "Discover indie products you'll actually use",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

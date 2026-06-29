@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Discover indie products you'll actually use. One at a time.">
+  <title>iFound.today</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-top">
+        <div class="topbar-brand">
+          <div class="topbar-logo">if</div>
+          <span class="topbar-name">iFound<span class="topbar-tld">.today</span></span>
+        </div>
+        <span class="topbar-counter" id="counter"></span>
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">For you</button>
+        <button class="filter-btn" data-filter="Security">Security</button>
+        <button class="filter-btn" data-filter="Developer Tools">Dev Tools</button>
+        <button class="filter-btn" data-filter="AI">AI</button>
+        <button class="filter-btn" data-filter="Productivity">Productivity</button>
+        <button class="filter-btn" data-filter="Infrastructure">Infra</button>
+      </div>
+    </header>
+
+    <main class="feed" id="feed"></main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

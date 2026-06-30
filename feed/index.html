@@ -13,7 +13,9 @@
   <meta property="og:title" content="iFound.today — Discover indie products">
   <meta property="og:description" content="A TikTok-style feed of indie products. Swipe through tools built by real makers.">
   <meta property="og:image" content="/og-image.png">
-  <meta property="og:url" content="https://ifound.today/feed">
+  <meta property="og:url" content="https://products.ifound.today/">
+  <meta property="og:site_name" content="iFound.today">
+  <link rel="canonical" href="https://products.ifound.today/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="iFound.today — Discover indie products">
   <meta name="twitter:description" content="A TikTok-style feed of indie products. Swipe through tools built by real makers.">
@@ -47,5 +49,46 @@
     }
   </script>
   <script src="/app.js"></script>
+
+  <!-- Cookie consent + Microsoft Clarity (loads only after the user accepts) -->
+  <script>
+  (function () {
+    if (window.top !== window.self) return; // skip inside the landing's phone-preview iframe
+    var KEY = 'ifound-consent';
+    var CLARITY_ID = 'xfa264iyug';
+
+    function loadClarity() {
+      if (window.__clarityLoaded) return;
+      window.__clarityLoaded = true;
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", CLARITY_ID);
+    }
+
+    var consent = null;
+    try { consent = localStorage.getItem(KEY); } catch (e) {}
+    if (consent === 'accepted') { loadClarity(); return; }
+    if (consent === 'rejected') { return; }
+
+    function showBanner() {
+      var s = document.createElement('style');
+      s.textContent = '#cookie-banner{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:99999;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;max-width:min(680px,calc(100% - 24px));background:#111016;color:#f4f4f5;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 18px;font-family:Lexend,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;line-height:1.45;box-shadow:0 16px 50px rgba(0,0,0,.45)}#cookie-banner .cb-actions{display:flex;gap:10px;flex-shrink:0}#cookie-banner button{font:inherit;font-weight:600;cursor:pointer;border-radius:9px;padding:9px 16px;border:0}#cb-reject{background:transparent;color:#a1a1aa;border:1px solid rgba(255,255,255,.18)}#cb-accept{background:#a855f7;color:#0a0a0f}@media(max-width:520px){#cookie-banner{flex-direction:column;text-align:center}}';
+      document.head.appendChild(s);
+      var bar = document.createElement('div');
+      bar.id = 'cookie-banner';
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Cookie consent');
+      bar.innerHTML = '<span>We use privacy-friendly analytics to improve iFound. Enable it?</span><span class="cb-actions"><button id="cb-reject">Decline</button><button id="cb-accept">Accept</button></span>';
+      document.body.appendChild(bar);
+      function choose(v) { try { localStorage.setItem(KEY, v); } catch (e) {} bar.remove(); if (v === 'accepted') loadClarity(); }
+      document.getElementById('cb-accept').onclick = function () { choose('accepted'); };
+      document.getElementById('cb-reject').onclick = function () { choose('rejected'); };
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', showBanner);
+    else showBanner();
+  })();
+  </script>
 </body>
 </html>

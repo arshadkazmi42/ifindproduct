@@ -639,13 +639,13 @@
   },
   {
     "id": 100,
-    "name": "EatSense 2.0",
-    "tagline": "Gut tracking with a mascot that mirrors your day ",
-    "description": "EatSense is a gut health journal. You log meals, symptoms, and bathroom trips, and it surfaces the patterns behind how you feel. This update is all about Bella, our mascot. She is now fully hand-animated (We use Rive btw) and reacts to your day in real time. The more you log, the happier she gets. Calm on a quiet morning, beaming on a full day of tracking. Gut tracking is usually a chore. Bella makes it something you actually want to come back to : )",
-    "url": "https://www.producthunt.com/r/H6R4ABGYES2WM3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Eluvo",
+    "tagline": "Shoot analog film on iPhone, view only after development",
+    "description": "A native SwiftUI app that brings the deliberate, mindful experience of film photography to your iPhone. Choose a roll, shoot with fixed constraints, and wait for your photos to \"develop\" before you can see them. No instant previews, just pure nostalgia.",
+    "url": "https://www.producthunt.com/r/2J2XS6TSH3HFKY?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "iOS",
-    "maker": "Renjith N",
+    "category": "Productivity",
+    "maker": "Unknown Maker",
     "price": "Check website",
     "colors": [
       "#7c3aed",
@@ -655,20 +655,20 @@
     "tags": [
       "small team"
     ],
-    "problem": "Gut tracking with a mascot that mirrors your day ",
+    "problem": "Shoot analog film on iPhone, view only after development",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/eatsense-ai-food-diary?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/eluvo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 101,
-    "name": "Cahoot Peer-to-Peer Returns",
-    "tagline": "Stop Sending Returns Back to Your Warehouse",
-    "description": "Stop sending every return back to your warehouse. Cahoot Peer-to-Peer Returns matches verified returned items to new customer demand and ships them directly to the next buyer. Recover value before issuing refunds, eliminate unnecessary reverse logistics, and reduce total cost per return with 64% lower handling cost, a 4x faster resale cycle, and up to 60% of returns resellable without reverse logistics.",
-    "url": "https://www.producthunt.com/r/AMHL5AN2DNF7PD?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Muvy",
+    "tagline": "One app for your Movies, TV shows and watchlist",
+    "description": "Muvy is a beautifully designed movie and TV tracking app for discovering what to watch, saving titles to your watchlist, tracking episodes, rating what you watch, building custom lists, exploring cast, keywords, awards and where-to-watch info, and following friends’ activity. It brings discovery, personal library, episode progress and social recommendations into one clean app.",
+    "url": "https://www.producthunt.com/r/SOH32I67MG7NEH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "SaaS",
-    "maker": "[REDACTED]",
+    "category": "Movies",
+    "maker": "Hasan Aydın",
     "price": "Check website",
     "colors": [
       "#84cc16",
@@ -676,22 +676,22 @@
     ],
     "pattern": "grid",
     "tags": [
-      "small team"
+      "solo maker"
     ],
-    "problem": "Stop Sending Returns Back to Your Warehouse",
+    "problem": "One app for your Movies, TV shows and watchlist",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/cahoot-peer-to-peer-returns?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/muvy?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 102,
-    "name": "OutboundQA",
-    "tagline": "Catch cold email launch blockers before you send ",
-    "description": "Catch cold email launch blockers before you send. Upload sending domains, inboxes, and tracking domains to get a Ready, Needs Fix, or Do Not Launch verdict with exact fixes and a shareable report. Upload a CSV of your sending domains, inboxes, and tracking domains. OutboundQA runs 15 infrastructure checks (SPF, DKIM, DMARC, MX, domain age, blacklists, tracking SSL) and returns one verdict: Ready, Needs Fix, or Do Not Launch. Plus a report you can send a client.",
-    "url": "https://www.producthunt.com/r/4QWABJIVMUWV4Y?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Partnac",
+    "tagline": "Scale Your Revenue Through Automated Partnerships",
+    "description": "Partnac is a partnership management platform that enables brands to build, manage, and optimize every stage of their partnerships, including affiliates, creators, influencers and advocates, commerce content publishers, B2B, and more. Through automated workflows, performance tracking, and intelligent insights, Partnac makes it easy for brands to discover the right partners, streamline collaboration, measure results, and scale predictable, data-driven growth with confidence.",
+    "url": "https://www.producthunt.com/r/N62ZCIGP3O4SWW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
     "category": "SaaS",
-    "maker": "[REDACTED]",
+    "maker": "Ekene Izukanne",
     "price": "Check website",
     "colors": [
       "#ef4444",
@@ -699,22 +699,22 @@
     ],
     "pattern": "dots",
     "tags": [
-      "small team"
+      "solo maker"
     ],
-    "problem": "Catch cold email launch blockers before you send ",
+    "problem": "Scale Your Revenue Through Automated Partnerships",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/outboundqa?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/partnac?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 103,
-    "name": "Gyro Bottle",
-    "tagline": "Insulated bottle with a built-in phone and 1/4\" camera mount",
-    "description": "The premium water bottle with built-in universal1/4\" port. Mount your phone, GoPro, or camera. One bottle, endless setups.",
-    "url": "https://www.producthunt.com/r/I42FBOC2I6EDH3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Delhi Metro Route Planner",
+    "tagline": "Free, open source Delhi Metro Route Planner, Video export",
+    "description": "I was frustrated with metro route UX, so I built my own. Create Delhi Metro Route Planner Videos. Feature: - - Animated Metro View - you can see the metro animating to the destination - Video Export - You can export video of the animation - Share Link -",
+    "url": "https://www.producthunt.com/r/VKMKIPJ6KG2663?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Health",
-    "maker": "Charles Scott",
+    "category": "Developer Tools",
+    "maker": "Pratik Sharma",
     "price": "Check website",
     "colors": [
       "#06b6d4",
@@ -724,20 +724,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Insulated bottle with a built-in phone and 1/4\" camera mount",
+    "problem": "Free, open source Delhi Metro Route Planner, Video export",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/gyro-bottle?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/delhi-metro-route-planner?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 104,
-    "name": "TinyOps",
-    "tagline": "Container Orchestration Made Easy (OS PaaS Self Hosted)",
-    "description": "TinyOps is an OpenSource Alternative to Vercel and Netlify. It transforms your single blueprint.yaml into a deployed cluster of applications and databases reachable via SSL. Point to your Git Projects and it will automatically build and deploy them via the integrated pipeline in seconds. Runs on any Server that uses Docker.",
-    "url": "https://www.producthunt.com/r/MDAD6CTWRBPFIV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "CurrencySpot",
+    "tagline": "A currency converter for every journey.",
+    "description": "Travel smarter and spend confidently. CurrencySpot instantly converts prices, scans menus and receipts, and tracks exchange rates across 150+ currencies.",
+    "url": "https://www.producthunt.com/r/NEU5NEUFNO753Q?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Open Source",
-    "maker": "Tarik Gün",
+    "category": "iOS",
+    "maker": "Dingze",
     "price": "Check website",
     "colors": [
       "#eab308",
@@ -745,23 +745,22 @@
     ],
     "pattern": "circuit",
     "tags": [
-      "open source",
       "solo maker"
     ],
-    "problem": "Container Orchestration Made Easy (OS PaaS Self Hosted)",
+    "problem": "A currency converter for every journey.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/tinyops?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/currencyspot?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 105,
-    "name": "Recipunk",
-    "tagline": "Save recipes from the web without ads, popups or SEO-slop.",
-    "description": "A dead-simple web app for saving your favourite internet recipes in a kitchen-friendly format — without the ads, trackers, pop-ups and auto-play videos. Copy, paste and you're done.",
-    "url": "https://www.producthunt.com/r/CGHQHCG5AA536P?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Carithm",
+    "tagline": "Carithm AI: Data-Backed Service Needs.",
+    "description": "Garage says you need a service? Before you approve it, check if it's actually due. Free independent AI check in 30 seconds. No signup. UAE & GCC.",
+    "url": "https://www.producthunt.com/r/UHN4SAFZRBNP64?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Web App",
-    "maker": "Justin Baker",
+    "category": "AI / Automation",
+    "maker": "Shaun Basu",
     "price": "Check website",
     "colors": [
       "#8b5cf6",
@@ -771,20 +770,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Save recipes from the web without ads, popups or SEO-slop.",
+    "problem": "Carithm AI: Data-Backed Service Needs.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/recipunk?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/carithm?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 106,
-    "name": "Splitman",
-    "tagline": "The free, ad-free alternative to Splitwise",
-    "description": "Splitman is a free, unlimited, ad-free alternative to Splitwise for splitting expenses with friends and groups. Every feature is free — no paywalls, no upsells, no ads. Split any expense equally, by percentage, or by shares, reconciled to the exact cent. Splitman uses your phone contacts, so there are no usernames to add. And group debts are auto-simplified, so everyone settles up in the fewest payments possible. Track balances across friends and groups, and settle in a tap.",
-    "url": "https://www.producthunt.com/r/CSJBJM7M3F5FYG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Foresight by Lightning Rod",
+    "tagline": "Predict anything with AI",
+    "description": "Foresight by Lightning Rod is an OpenAI-compatible forecasting API for developers building agents, prediction-market bots, and decision tools. Ask a question about a future event and get a scored, calibrated forecast back. Unlike general-purpose LLMs, Foresight is trained and evaluated on real-world outcomes, with benchmark-verified accuracy, cheaper inference, and a drop-in API for forecasting workflows.",
+    "url": "https://www.producthunt.com/r/ERAFMCUYCEPACK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Productivity",
-    "maker": "Jithin Lal K",
+    "category": "Developer Tools",
+    "maker": "[REDACTED]",
     "price": "Check website",
     "colors": [
       "#ec4899",
@@ -792,22 +791,22 @@
     ],
     "pattern": "dots",
     "tags": [
-      "solo maker"
+      "new"
     ],
-    "problem": "The free, ad-free alternative to Splitwise",
+    "problem": "Predict anything with AI",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/splitman-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/training-data-generator?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 107,
-    "name": "Akiflow",
-    "tagline": "Manage tasks and calendars from Claude, ChatGPT or Cursor",
-    "description": "Akiflow is a digital planner and calendar for centralising tasks, unifying schedules, and optimising productivity., built for busy professionals! Experience the world's #1 Time Blocking app.",
-    "url": "https://www.producthunt.com/r/J3YXH74BARWKOC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Ugly Baby ",
+    "tagline": "Know what investors will think before you pitch",
+    "description": "The ultimate fundraising operating system built by VCs. Used by 1,000+ founders, Ugly Baby helps startups understand whether they have a venture-backable investment opportunity before spending months fundraising. Receive a 100+ page VC audit, investment memorandum, fundraising roadmap, and access to 10,000+ investors. Most fundraising tools improve presentations. Ugly Baby evaluates the business behind them. Built from 10 years of venture capital experience. No subscription. One-time purchase.",
+    "url": "https://www.producthunt.com/r/3WQOLQUMJ2POKD?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Productivity",
-    "maker": "[REDACTED]",
+    "category": "AI / Automation",
+    "maker": "Kevin Chavanne",
     "price": "Check website",
     "colors": [
       "#14b8a6",
@@ -815,22 +814,22 @@
     ],
     "pattern": "waves",
     "tags": [
-      "small team"
+      "solo maker"
     ],
-    "problem": "Manage tasks and calendars from Claude, ChatGPT or Cursor",
+    "problem": "Know what investors will think before you pitch",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/akiflow?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/ugly-baby?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 108,
-    "name": "Talon",
-    "tagline": "AI builds your daily habit. One goal. One action at a time.",
-    "description": "Most habit apps give you a plan and leave you alone. Talon gives you actions to take every day. Set one goal. Talon's AI generates a focused action based on your experience and progress. Complete it. Check in. The next one adapts. No crazy dashboards. No guilt-driven streaks. One action per day that builds real momentum. Inspired by Atomic Habits: small daily actions compound into real results. You don't need motivation. You need a system. Built for people done planning and ready to move.",
-    "url": "https://www.producthunt.com/r/DO4DF4D4JHZI23?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "FrameForge - Screenshot Framer",
+    "tagline": "Create ready to ship screenshots in just a couple of minutes",
+    "description": "FrameForge is the ultimate tool for creating professional-looking screenshots. With our user-friendly interface, you can easily customize frames with various directions and styles. Localize screenshots to any language and directly ship them to the App Store Connect. Save time and effort with FrameForge!",
+    "url": "https://www.producthunt.com/r/54AQAQPLBJBZJ5?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Health",
-    "maker": "Marcos Fernandez",
+    "category": "Design",
+    "maker": "Maximilian Berndt",
     "price": "Check website",
     "colors": [
       "#3b82f6",
@@ -840,20 +839,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "AI builds your daily habit. One goal. One action at a time.",
+    "problem": "Create ready to ship screenshots in just a couple of minutes",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/talon-habit-builder?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/frameforge-screenshot-framer?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 109,
-    "name": "Quote & Invoice Builder",
-    "tagline": "Quote to invoice in one click — no subscription",
-    "description": "Most invoice tools want a monthly subscription. This one doesn't. Quote & Invoice Builder is a single HTML file that runs in your browser. Build a professional quote, convert it to an invoice in one click — all your data carries over automatically. Features: 4 design styles · logo upload · PAID stamp · payment details · auto-numbered references · discount & tax · multi-currency · save/load JSON · no account needed. One-time purchase. Your data stays on your device. Forever.",
-    "url": "https://www.producthunt.com/r/723YQJY5HDFWH3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "APROPOS",
+    "tagline": "your hire starts with the clarity of the role",
+    "description": "Momentum is built, not hired. The right person only exists in the right context. Stop screening for who's available. Start asking what you're building for. Apropos uncovers what your role truly needs, and who fits what you're actually building.",
+    "url": "https://www.producthunt.com/r/6E6WV6PPYIDW53?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Design",
-    "maker": "Ron de Winter",
+    "category": "SaaS",
+    "maker": "[REDACTED]",
     "price": "Check website",
     "colors": [
       "#6366f1",
@@ -861,22 +860,22 @@
     ],
     "pattern": "grid",
     "tags": [
-      "solo maker"
+      "new"
     ],
-    "problem": "Quote to invoice in one click — no subscription",
+    "problem": "your hire starts with the clarity of the role",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/quote-invoice-builder?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/apropos?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 110,
-    "name": "TabPilot",
-    "tagline": "Safe tab cleanup for AI-heavy workflows.",
-    "description": "TabPilot is live on Product Hunt. It’s a safer Chrome tab cleanup tool for developers, researchers, and AI-heavy workflows. It protects active work tabs and puts only inactive tabs to sleep — with no tracking or external servers.",
-    "url": "https://www.producthunt.com/r/7QJKBVRHCBJGGW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "GumStory",
+    "tagline": "Plan, track, and test software in one workspace",
+    "description": "GumStory keeps planning, testing, and status reporting in one place for software teams. The daily status report is built from the work that actually got done that day (status changes, closed items, test runs), so nobody stays late writing it. Plan sprints, move work on a kanban board, write and run test cases, and track progress on graph dashboards for scrum, QA, and product views. Work Assistant drafts user stories, bugs, and test cases. Connects with Jira. Open it on the web, no signup.",
+    "url": "https://www.producthunt.com/r/CXND3RYGI35SKM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Chrome Extension",
-    "maker": "Jake Park",
+    "category": "Productivity",
+    "maker": "Tarun",
     "price": "Check website",
     "colors": [
       "#22c55e",
@@ -884,23 +883,22 @@
     ],
     "pattern": "dots",
     "tags": [
-      "chrome extension",
       "solo maker"
     ],
-    "problem": "Safe tab cleanup for AI-heavy workflows.",
+    "problem": "Plan, track, and test software in one workspace",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/tabpilot-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/gumstory?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 111,
-    "name": "Tollgate",
-    "tagline": "Real-time gross margin for every AI agent run",
-    "description": "Real-time gross-margin observability for AI agent companies. See where you make and lose money on every customer, agent, and run.",
-    "url": "https://www.producthunt.com/r/RVT7DYJHAMNTMC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Sonar",
+    "tagline": "Understand Any Codebase, Explained for Your Role",
+    "description": "Sonar reads any codebase and writes a briefing tailored to your role: what the product does, who uses it, the main workflows, the risks, and what to ask next. Two things make it different: 1. It is grounded, and it proves it. Every claim links to the exact file and line behind it. If the evidence is not there, Sonar says so instead of inventing it. 2. It runs on your machine. Local-first, with a local model or any OpenAI-compatible endpoint you choose. Your code never has to leave your laptop.",
+    "url": "https://www.producthunt.com/r/7QGJAMKSY3VT7K?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Fintech",
-    "maker": "Syed Naazim Hussain",
+    "category": "Open Source",
+    "maker": "Gautam Dhameja",
     "price": "Check website",
     "colors": [
       "#f59e0b",
@@ -908,22 +906,23 @@
     ],
     "pattern": "waves",
     "tags": [
+      "open source",
       "solo maker"
     ],
-    "problem": "Real-time gross margin for every AI agent run",
+    "problem": "Understand Any Codebase, Explained for Your Role",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/tollgate?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/sonar-9?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 112,
-    "name": "Guardpress- Security WP Plugin",
-    "tagline": "Real WAF, real 2FA, real audit log. No cloud",
-    "description": "Most WordPress security plugins do keyword matching on SQL injection: if the request contains \"UNION\" and \"SELECT,\" block it. They false-positive on legitimate blog comments and miss most real attacks. GuardPress uses grammar-based detection across all 7 classical injection vectors, plus a real WAF, malware scanner, per-role 2FA, file integrity monitoring, security headers, and 30-day audit log. 100% server-side, no cloud dependency. Premium from $59/yr.",
-    "url": "https://www.producthunt.com/r/TSYI5PWQ4ANSW3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "BIRK",
+    "tagline": "Four bite-size word puzzles, fresh every day. No ads.",
+    "description": "Birk is a calm, ad-free daily word game with four small puzzles: a seven-letter word builder, a one-word maze, a tile-placing logic puzzle, and a daily anagram. New puzzles every day, on iOS and Android, in English and Swedish. Built for a short, satisfying daily brain break — not for endless scrolling.",
+    "url": "https://www.producthunt.com/r/6RLQRLSBUVAPVV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Developer Tools",
-    "maker": "Jameson",
+    "category": "Android",
+    "maker": "Olle",
     "price": "Check website",
     "colors": [
       "#a855f7",
@@ -933,20 +932,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Real WAF, real 2FA, real audit log. No cloud",
+    "problem": "Four bite-size word puzzles, fresh every day. No ads.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/guardpress-security-wp-plugin?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/birk-daily-word-games?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 113,
-    "name": "Gensfield",
-    "tagline": "Because your business deserves better visuals.",
-    "description": "Gensfield creates professional promotional designs for small businesses in minutes. Brief it, get it, use it — no designer needed.",
-    "url": "https://www.producthunt.com/r/2YTVZYM3RRCOAE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Missed Call Opportunity Calculator",
+    "tagline": "Estimate revenue lost from missed calls",
+    "description": "A free calculator for contractors and home service businesses to estimate monthly and annual revenue opportunity from missed calls.",
+    "url": "https://www.producthunt.com/r/K464G3OI23CKK7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Design",
-    "maker": "wisdom bassey",
+    "category": "Productivity",
+    "maker": "Unknown Maker",
     "price": "Check website",
     "colors": [
       "#0ea5e9",
@@ -954,22 +953,22 @@
     ],
     "pattern": "grid",
     "tags": [
-      "solo maker"
+      "small team"
     ],
-    "problem": "Because your business deserves better visuals.",
+    "problem": "Estimate revenue lost from missed calls",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/gensfield?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/missed-call-opportunity-calculator?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 114,
-    "name": "SeoLoupe",
-    "tagline": "Find and fix the SEO issues holding your website back.",
-    "description": "SeoLoupe helps you find and fix SEO issues on your website. Just enter your website URL and get an easy-to-understand SEO audit with clear steps to improve your rankings, performance, and overall SEO. It's built for startups, small businesses, and anyone who wants a simple SEO tool without the complexity.",
-    "url": "https://www.producthunt.com/r/SFTD5S5SJN7PCL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "FeverPlanet — Famous Sights Near You",
+    "tagline": "Find amazing places near you and around the world.",
+    "description": "FeverPlanet finds world-famous landmarks, museums, and hidden gems near your location — with photos, hours, and travel guides.",
+    "url": "https://www.producthunt.com/r/7IXLOS6SRW4STI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Marketing",
-    "maker": "Slava Vechir",
+    "category": "Android",
+    "maker": "Se Ana",
     "price": "Check website",
     "colors": [
       "#f02e65",
@@ -979,20 +978,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Find and fix the SEO issues holding your website back.",
+    "problem": "Find amazing places near you and around the world.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/seoloupe?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/feverplanet-famous-sights-near-you?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 115,
-    "name": "Deletutu",
-    "tagline": "Fall in love with your gallery, 100% on your iPhone",
-    "description": "Deletutu isn't another photo cleaner. It's how you fall back in love with your gallery. Nostalgia resurfaces moments you forgot. Similar Photos pulls up the shots you took ten times so you pick the keeper. You swipe right to keep, left to delete, and nothing is removed until you confirm. Your gallery just gets lighter along the way. 100% on-device. Your photos never leave your iPhone, and no account is needed.",
-    "url": "https://www.producthunt.com/r/M4V23QVMJCPKSY?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Claudete",
+    "tagline": "Command a legion of Claude Code instances",
+    "description": "Claudete is a native macOS control panel for running 10+ Claude Code instances in one window—grid view, shells, usage tracking, and broadcast prompts.",
+    "url": "https://www.producthunt.com/r/KKP6WSLRRG42SQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "iOS",
-    "maker": "Unknown Maker",
+    "category": "Productivity",
+    "maker": "Ionut Moraru",
     "price": "Check website",
     "colors": [
       "#22d3ee",
@@ -1000,22 +999,22 @@
     ],
     "pattern": "waves",
     "tags": [
-      "small team"
+      "solo maker"
     ],
-    "problem": "Fall in love with your gallery, 100% on your iPhone",
+    "problem": "Command a legion of Claude Code instances",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/deletutu?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/claudete?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 116,
-    "name": "BurgerPassport",
-    "tagline": "The burger journal that scores, ranks, and connects friends",
-    "description": "BurgerPassport is a social burger-tracking app for iOS. Log every burger you eat, score it across categories like bun, patty, sauce and more, and build your personal burger passport over time. v3.0.0 brings BurgerPassport Pro, a one-time purchase unlocking custom scoring weights, your own scoring categories, advanced stats, and up to 5 photos per burger. Compare scores with friends, explore what others are eating, and find out which restaurant really serves the best burger.",
-    "url": "https://www.producthunt.com/r/PKMP7Z73IYIU3J?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "VoiceFront",
+    "tagline": "Hear the dialogue. Silence the noise",
+    "description": "Ever rewound a movie three times because the background music buried the dialogue? Or muted a comedy show because the crowd laughter was unbearable? Built for people who watch content with heavy background music, non-native language viewers, and anyone with hearing difficulty. 🎙 Voice — boost the dialogue 🎵 Background — duck the music or crowd noise 🎯 Sharpness — dial in separation aggressiveness ✅ Works on YouTube, Netflix, Prime Video, Hotstar, Spotify",
+    "url": "https://www.producthunt.com/r/ZWA7L3XYS5FHKX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "iOS",
-    "maker": "Demir Akarsu",
+    "category": "Chrome Extension",
+    "maker": "K Sriharika",
     "price": "Check website",
     "colors": [
       "#7c3aed",
@@ -1023,22 +1022,24 @@
     ],
     "pattern": "circuit",
     "tags": [
+      "open source",
+      "chrome extension",
       "solo maker"
     ],
-    "problem": "The burger journal that scores, ranks, and connects friends",
+    "problem": "Hear the dialogue. Silence the noise",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/burgerpassport?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/voicefront-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 117,
-    "name": "wipe.photos. Remove anything from photos",
-    "tagline": "Private and free. Runs in your browser",
-    "description": "Paint over any object in your photo and watch AI erase it instantly. Powered by LaMa (Large Mask Inpainting) and WebGPU. No uploads, no server, no sign-up. Your photos never leave your device.",
-    "url": "https://www.producthunt.com/r/EOCV5PJKAHBFSW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "LexAPI",
+    "tagline": "Authoritative EU law for your AI agent, via MCP",
+    "description": "One MCP server that gives any AI agent — Claude, Cursor, or your own — authoritative EU law: semantic search across EU legislation and Court of Justice case law, citation graphs, and full documents from EUR-Lex. Open-source. Free to explore.",
+    "url": "https://www.producthunt.com/r/R34J6FE3L3EMKG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Design",
-    "maker": "Geronimo Labs",
+    "category": "Developer Tools",
+    "maker": "Nejc Fosnaric",
     "price": "Check website",
     "colors": [
       "#84cc16",
@@ -1048,20 +1049,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Private and free. Runs in your browser",
+    "problem": "Authoritative EU law for your AI agent, via MCP",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/wipe-photos?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/lexapi?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 118,
-    "name": "Beasley Labs",
-    "tagline": "Governed AI agents that run inside your own AWS account",
-    "description": "The control plane for building, deploying, and operating AI agents in regulated environments. Installs into your own AWS account — GovCloud or commercial — and stays partition-aware end to end.",
-    "url": "https://www.producthunt.com/r/WOSZX76DHQFDXW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Deletutu",
+    "tagline": "Fall in love with your gallery, 100% on your iPhone",
+    "description": "Deletutu isn't another photo cleaner. It's how you fall back in love with your gallery. Nostalgia resurfaces moments you forgot. Similar Photos pulls up the shots you took ten times so you pick the keeper. You swipe right to keep, left to delete, and nothing is removed until you confirm. Your gallery just gets lighter along the way. 100% on-device. Your photos never leave your iPhone, and no account is needed.",
+    "url": "https://www.producthunt.com/r/M4V23QVMJCPKSY?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Developer Tools",
-    "maker": "David Beasley",
+    "category": "iOS",
+    "maker": "Unknown Maker",
     "price": "Check website",
     "colors": [
       "#ef4444",
@@ -1069,22 +1070,22 @@
     ],
     "pattern": "dots",
     "tags": [
-      "solo maker"
+      "small team"
     ],
-    "problem": "Governed AI agents that run inside your own AWS account",
+    "problem": "Fall in love with your gallery, 100% on your iPhone",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/beasley-labs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/deletutu?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 119,
-    "name": "SilkChat",
-    "tagline": "Chat with leading AI models in one beautiful workspace",
-    "description": "SilkChat is a clean AI workspace for chatting with leading models, generating images, and keeping your conversations organized in one place. Switch between models without jumping across apps, subscriptions, or messy dashboards. Built for students, developers, creators, roleplayers, and anyone who uses AI every day. Use PH50OFF for 50% off at launch.",
-    "url": "https://www.producthunt.com/r/ST46XFK2WYFM63?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Tracks",
+    "tagline": "Pro-grade music production in your browser — free, no signup",
+    "description": "Tracks is a complete music production studio that runs entirely in your browser — multi-track recording, piano roll, synths, drums, a real mixer, effects, autotune, and WAV/MP3 export. No download, no account, no paywall. Recent builds add parametric EQ with LUFS metering, group buses, track freeze, SoundFont (.sf2) instruments, automation on anything, time-stretch, Web MIDI, a tempo map, and a session view — the pro-grade stuff usually locked behind a desktop DAW, free in a tab.",
+    "url": "https://www.producthunt.com/r/OUQKM4QYL3NLI7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Productivity",
-    "maker": "Ahmed Arat",
+    "category": "Developer Tools",
+    "maker": "JFound",
     "price": "Check website",
     "colors": [
       "#06b6d4",
@@ -1094,9 +1095,9 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Chat with leading AI models in one beautiful workspace",
+    "problem": "Pro-grade music production in your browser — free, no signup",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/silkchat?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/tracks-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
@@ -1171,13 +1172,13 @@
   },
   {
     "id": 123,
-    "name": "Notebida",
-    "tagline": "An AI tool that drafts study notes from lectures & PDFs",
-    "description": "Notebida is an academic/research demo exploring how AI can help with studying. Give it a lecture video (YouTube/Bilibili/upload) or a PDF and it drafts structured, bilingual (中/EN) notes shown next to the source — click a line to jump to that moment or page. The same notes power a few study tools: • AI Q&A over your notes • Auto-graded quizzes (can follow a sample exam's format) • One-page cheat sheets • Sharing & collaboration with classmates Free to try.",
-    "url": "https://www.producthunt.com/r/CS5BUEOFETLSV6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Chronicle",
+    "tagline": "Break the fourth wall with Chronicle - the AI novel reader",
+    "description": "A self-hosted novel reader that turns a plaintxt,epub, orpdf into a rich, interactive experience. Turn your favourite book into reality. Reads it in a clean, distraction-free reader with progress, bookmarks, and auto-scroll. Extract characters, attributing every line of dialogue, tagging emotions, and assigning each character a voice. Narrates it with per-character and emotionally aware text-to-speech engine. Talk with your favourite characters directly!",
+    "url": "https://www.producthunt.com/r/JNIO7F6XXSWSSG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Productivity",
-    "maker": "Yixia Yu",
+    "category": "Developer Tools",
+    "maker": "Parv Mittal",
     "price": "Check website",
     "colors": [
       "#14b8a6",
@@ -1187,20 +1188,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "An AI tool that drafts study notes from lectures & PDFs",
+    "problem": "Break the fourth wall with Chronicle - the AI novel reader",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/notebida?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/chronicle-12?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 124,
-    "name": "TryAgent",
-    "tagline": "On-call for the decisions your AI agents escalate",
-    "description": "AI agents now handle real work like refunds, writes, and approvals, but sometimes they hit a decision they shouldn't make alone. LangGraph can pause the run; the hard part is everything after. TryAgent is the incident-response layer for those moments. Your agent sends one escalation. TryAgent routes it by policy to the right human, runs an SLA with a safe-default fallback, captures a structured decision, logs an audit trail, and resumes your run via signed webhook. TS + Python SDKs.",
-    "url": "https://www.producthunt.com/r/V3ZTV4RX6HC7HV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Northing",
+    "tagline": "Your net worth, tax position & FIRE date - no bank login.",
+    "description": "Northing is the UK wealth cockpit for people who manage their own money. Track net worth across every wrapper - ISAs, SIPPs, GIAs and pensions - see your tax allowances at a glance, and model your FIRE and retirement date with tax-accurate drawdown, Monte-Carlo confidence and a house-affordability check (stamp duty built in). No bank logins, no budgeting nags - just your real position, kept private and current by you.",
+    "url": "https://www.producthunt.com/r/CBEFT6G3DGOXYX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "SaaS",
-    "maker": "Tony Rojas",
+    "category": "Fintech",
+    "maker": "James",
     "price": "Check website",
     "colors": [
       "#3b82f6",
@@ -1210,20 +1211,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "On-call for the decisions your AI agents escalate",
+    "problem": "Your net worth, tax position & FIRE date - no bank login.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/tryagent?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/northing?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 125,
-    "name": "LocalEmu",
-    "tagline": "Run 132 AWS services locally. Free, open-source emulator",
-    "description": "Stop waiting on cloud deploys and paying for dev AWS accounts. LocalEmu is a free, open-source AWS emulator. One pip install and one command gives you 132 AWS services on localhost:4566. Point the AWS CLI, boto3, Terraform, CDK or Pulumi straight at it, with zero config. Real Docker engines for Lambda, EC2, RDS, ECS and EKS. State persists across restarts. No account, no token, no telemetry. Apache 2.0. Build, test and learn AWS locally in seconds, not minutes.",
-    "url": "https://www.producthunt.com/r/T62D7UDZ4ZDA6E?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Nodoo",
+    "tagline": "One More Thing",
+    "description": "A lightweight, Things 3–inspired task manager built for fast, real-time team collaboration. Nodoo strips away the bloated complexity of traditional project tools, keeping your workflow clean and execution-focused. Easily share task lists, attach photos/images directly to to-dos for visual context, and stay perfectly synchronized with zero configuration. It merges personal to-do clarity with seamless group execution. Built for small teams who want less overhead and more doing.",
+    "url": "https://www.producthunt.com/r/6MVI5ZUZMY3BHM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Open Source",
-    "maker": "Tarek CHEIKH",
+    "category": "Productivity",
+    "maker": "Leo",
     "price": "Check website",
     "colors": [
       "#6366f1",
@@ -1231,23 +1232,22 @@
     ],
     "pattern": "grid",
     "tags": [
-      "open source",
       "solo maker"
     ],
-    "problem": "Run 132 AWS services locally. Free, open-source emulator",
+    "problem": "One More Thing",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/localemu?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/nodoo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 126,
-    "name": "milc",
-    "tagline": "Edit text anywhere with voice + AI shortcuts",
-    "description": "milc is a desktop writing workspace that helps you improve text without copy-paste or switching apps. Highlight text in emails, Slack, Notion, docs, or anywhere you write, then use a shortcut or voice command to polish, shorten, translate, summarize, adjust tone, or reply faster. It is built for people who write every day and want small edits to feel lighter, faster, and more natural.",
-    "url": "https://www.producthunt.com/r/DFPX4VWLLRGG5M?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Talon",
+    "tagline": "AI builds your daily habit. One goal. One action at a time.",
+    "description": "Most habit apps give you a plan and leave you alone. Talon gives you actions to take every day. Set one goal. Talon's AI generates a focused action based on your experience and progress. Complete it. Check in. The next one adapts. No crazy dashboards. No guilt-driven streaks. One action per day that builds real momentum. Inspired by Atomic Habits: small daily actions compound into real results. You don't need motivation. You need a system. Built for people done planning and ready to move.",
+    "url": "https://www.producthunt.com/r/DO4DF4D4JHZI23?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Productivity",
-    "maker": "Milc",
+    "category": "Health",
+    "maker": "Marcos Fernandez",
     "price": "Check website",
     "colors": [
       "#22c55e",
@@ -1257,20 +1257,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Edit text anywhere with voice + AI shortcuts",
+    "problem": "AI builds your daily habit. One goal. One action at a time.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/milc?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/talon-habit-builder?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 127,
-    "name": "OmniLume Reel",
-    "tagline": "Search inside long videos by meaning",
-    "description": "OmniLume Reel is a local-first desktop workspace for the messy stage before editing. It turns long videos into searchable scenes, so you can find moments by objects, actions, quotes, or reactions, then collect useful clips into reusable libraries for review or editing.",
-    "url": "https://www.producthunt.com/r/5HOVGN2MELHWVE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "FitPlus AI",
+    "tagline": "AI-powered fitness coaching personalized to you",
+    "description": "FitPlus AI is your personal AI fitness coach that adapts in real-time to your body, injuries, sleep & goals — no generic plans, no guesswork. 🏋️ What makes it different: • Personalized workouts that evolve with you daily • Injury-aware programming • Sleep & recovery optimization • Nutrition guidance tailored to your targets Built for people who want results, not just another app. Join the free pre-launch waitlist before our July 2026 launch at fitplusai.com!",
+    "url": "https://www.producthunt.com/r/3ASQZDQLEZ52TZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Productivity",
-    "maker": "Garcia Relax",
+    "category": "Health",
+    "maker": "Unknown Maker",
     "price": "Check website",
     "colors": [
       "#f59e0b",
@@ -1278,22 +1278,22 @@
     ],
     "pattern": "waves",
     "tags": [
-      "solo maker"
+      "small team"
     ],
-    "problem": "Search inside long videos by meaning",
+    "problem": "AI-powered fitness coaching personalized to you",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/omnilume-reel?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/fitplus-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 128,
-    "name": "AI Tools UK",
-    "tagline": "The UK small business guide to AI tools",
-    "description": "UK-focused guides and reviews of AI tools for small business owners. Covers GBP pricing, UK-specific use cases like MTD and HMRC compliance, and honest pros and cons of tools UK businesses are actually using.",
-    "url": "https://www.producthunt.com/r/RBOT3TLKUSNBLU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Script Master Labs x402 Data API",
+    "tagline": "Pay-per-call federal data API — FDA, SEC, Treasury via x402",
+    "description": "Script Master Labs x402 Data API gives developers and AI agents instant access to 14 live U.S. government data sources with zero setup. No API keys, no subscriptions — just send an HTTP request and pay in $USDC on Base via x402. Covers federal grants, SAM.gov firm lookup, FDA drug data, clinical trials, SEC EDGAR Form 4 + 8-K filings, Treasury yield curve, claim fact-checking, and AI agent reputation scoring.",
+    "url": "https://www.producthunt.com/r/YMABJYFKH57MME?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Productivity",
-    "maker": "AI Tools UK",
+    "category": "Open Source",
+    "maker": "Tim w",
     "price": "Check website",
     "colors": [
       "#a855f7",
@@ -1301,22 +1301,23 @@
     ],
     "pattern": "circuit",
     "tags": [
+      "open source",
       "solo maker"
     ],
-    "problem": "The UK small business guide to AI tools",
+    "problem": "Pay-per-call federal data API — FDA, SEC, Treasury via x402",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/ai-tools-uk?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/script-master-labs-x402-data-api?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 129,
-    "name": "ScoreMarket",
-    "tagline": "Digital Sheet Music Marketplace",
-    "description": "ScoreMarket is a premium digital sheet music marketplace offering professional scores and parts for instant purchase and download.",
-    "url": "https://www.producthunt.com/r/57JAUPSQP5PKOI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Frontpage",
+    "tagline": "Lightning-fast RSS reader & community.",
+    "description": "Frontpage is a lightning-fast, high-fidelity RSS reader and community platform. Beat information overload with instant AI-powered article summaries. Start easily with curated Discover bundles (Tech, Dev, Finance), share your favorite reads via your public profile, and connect with other creators. Clean, fast, and designed for focus.",
+    "url": "https://www.producthunt.com/r/QVNJS7KMMCFAOW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Music",
-    "maker": "Anthony Daly",
+    "category": "Productivity",
+    "maker": "Ganesh Raikwar",
     "price": "Check website",
     "colors": [
       "#0ea5e9",
@@ -1326,20 +1327,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Digital Sheet Music Marketplace",
+    "problem": "Lightning-fast RSS reader & community.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/scoremarket-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/frontpage-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 130,
-    "name": "NudgeBadger",
-    "tagline": "Your words. Their payment.",
-    "description": "NudgeBadger writes professional, legally-aware invoice chase letters for UK freelancers and sole traders. Generate your first letter in under a minute.",
-    "url": "https://www.producthunt.com/r/FJNC3I7XB7OXUO?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Github Download Count Widget",
+    "tagline": "Widget to have the Count of relase assets download",
+    "description": "Github download counter widget for Android: •📊 Two Widget Sizes: A \"Full\" 4x2 widget with a detailed list of assets and a \"Small\" 1x1 minimal tile for total counts. •🎨 Material You Support: Dynamic colors that adapt to your wallpaper (Android 12+). •🔄 One-Tap Refresh: Animated refresh button to get the latest data instantly. •⚙️ Fully Customizable: Configure the API URL and release version in the settings. •🔓 100% Open Source: No trackers, no middleman, just direct calls to the GitHub API.",
+    "url": "https://www.producthunt.com/r/QLHKBU5KYAEBNE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Freelance",
-    "maker": "Craig Townley",
+    "category": "Analytics",
+    "maker": "Iosune Goñi Lecea",
     "price": "Check website",
     "colors": [
       "#f02e65",
@@ -1349,20 +1350,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Your words. Their payment.",
+    "problem": "Widget to have the Count of relase assets download",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/nudgebadger?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/github-download-count-widget?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 131,
-    "name": "Mock Jutsu",
-    "tagline": "390+ algorithmic mock data types for developers & testers ",
-    "description": "The Ultimate Algorithmic Mock Data Engine. Stop mocking with random strings. Mock Jutsu generates format-valid synthetic test data — IBAN, TCKN, Luhn, VIN, NHS, SWIFT, MRZ, crypto addresses and 380+ more types. Real checksums, 6 locales (TR/UK/US/DE/FR/RU), CLI + REST API + JMeter Plugin. Zero external dependencies. 5955 tests passed.",
-    "url": "https://www.producthunt.com/r/35RNRPP3FYWKCK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Cursor for iOS",
+    "tagline": "Build with coding agents from anywhere",
+    "description": "Cursor is now available as a native iOS app in public beta, so you can build from anywhere. Until now, developers have worked around the limits of their local machines, keeping laptops half-open and caffeinated everywhere they go. With Cursor for iOS, you can launch always-on agents in the cloud, or control agents running on your computer from your phone. Kick them off when ideas strike, get notified when work is ready for review, and merge PRs on the go.",
+    "url": "https://www.producthunt.com/r/KBJ3E75U6E6GTF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Open Source",
-    "maker": "Altan Sezer Ayan",
+    "category": "AI / Automation",
+    "maker": "[REDACTED]",
     "price": "Check website",
     "colors": [
       "#22d3ee",
@@ -1370,23 +1371,22 @@
     ],
     "pattern": "waves",
     "tags": [
-      "open source",
-      "solo maker"
+      "new"
     ],
-    "problem": "390+ algorithmic mock data types for developers & testers ",
+    "problem": "Build with coding agents from anywhere",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/mock-jutsu?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/cursor-for-ios?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 132,
-    "name": "The Redditrepreneur",
-    "tagline": "Community Intelligence Audits for brands",
-    "description": "The Redditrepreneur is a Community Intelligence platform that helps brands understand what people are saying across online communities. Our platform transforms conversations from communities into actionable business intelligence This launch introduces two products: **Analyse** – Upload community conversations and receive an Community Intelligence report with insights and recommendations. **Discover** – Enter details and the platform discovers and analyses relevant conversations for you.",
-    "url": "https://www.producthunt.com/r/FBLBXZKAP232OU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Pathway: College Admissions",
+    "tagline": "Completely free, on device, personalized college counselor",
+    "description": "Pathway replaces expensive counselors with a local, private personalized counselor. Features College-Specific Insights: Pathway is trained off of hundreds of accepted applications for tailored feedback per school. On-Device Tech: Pathway runs completely offline, and tracks none of your data. Core Features: Interactive mock interviews, extracurricular analysis, college admission chances, resume generator, brag sheet generator Cost: Free for first 1000 users, no code. After 1000, maybe pay.",
+    "url": "https://www.producthunt.com/r/UH7KAZ7JIAXIKN?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Analytics",
-    "maker": "Tonte Bo Douglas",
+    "category": "Productivity",
+    "maker": "Adarsh Sudheer",
     "price": "Check website",
     "colors": [
       "#7c3aed",
@@ -1396,20 +1396,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Community Intelligence Audits for brands",
+    "problem": "Completely free, on device, personalized college counselor",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/the-redditrepreneur?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/pathway-college-admissions?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 133,
-    "name": "ColorBook Studio",
-    "tagline": "Create KDP coloring books with AI — in minutes",
-    "description": "ColorBook Studio is a Windows desktop app that creates complete KDP coloring books using AI — from interior designs to cover, mockups and keyword generator. Pick a theme, choose a style, and the app guides you through 9 steps to a publish-ready book. AI generates all interior illustrations (Flux Pro), the full cover with spine, and even a promo video. One-time license. No subscription. Credits only for AI generation — buy what you need. Built for KDP publishers, creators and freelancers.",
-    "url": "https://www.producthunt.com/r/CS44MWABOLKLPL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Oakamo",
+    "tagline": "Your quiet space for reading articles later.",
+    "description": "The web is full of great content, but reading later often means distractions, ads, and endless tabs. I built Oakamo to make reading enjoyable again. Save articles from anywhere, organize them in your personal library, read in a clean distraction-free reader, highlight important passages, and listen on the go. Oakamo is built for people who love reading and want a calmer, more thoughtful way to enjoy the web.",
+    "url": "https://www.producthunt.com/r/TTCNBZAHRTTB2C?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Design",
-    "maker": "Alex Roy84",
+    "category": "Productivity",
+    "maker": "Nicola Piedimonte",
     "price": "Check website",
     "colors": [
       "#84cc16",
@@ -1419,20 +1419,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Create KDP coloring books with AI — in minutes",
+    "problem": "Your quiet space for reading articles later.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/colorbook-studio?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/oakamo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 134,
-    "name": "WebhookVault",
-    "tagline": "Webhook infrastructure you actually control",
-    "description": "WebhookVault is a self-hosted webhook infrastructure tool built for developers who want full control over their webhook data. Key features: - Capture & inspect incoming webhooks - Replay & retry failed webhooks - 30-day analytics dashboard - Multi-organization support - Real-time monitoring - Docker ready — deploy anywhere",
-    "url": "https://www.producthunt.com/r/RGLCBDYS3WZX6O?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "AgentPeek",
+    "tagline": "Claude Code & Codex in your Mac notch",
+    "description": "You're running more coding agents than ever, but you can't keep up with them. That's where AgentPeek comes in. It pulls every session up into your Mac notch, live. Glance up, approve a prompt, watch token usage and manage the entire flow without pausing your YouTube video. All local, all yours.",
+    "url": "https://www.producthunt.com/r/UJNQOTAPSSLD2L?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Open Source",
-    "maker": "Hydra97",
+    "category": "Developer Tools",
+    "maker": "Bren Huber",
     "price": "Check website",
     "colors": [
       "#ef4444",
@@ -1440,23 +1440,22 @@
     ],
     "pattern": "dots",
     "tags": [
-      "open source",
       "solo maker"
     ],
-    "problem": "Webhook infrastructure you actually control",
+    "problem": "Claude Code & Codex in your Mac notch",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/webhookvault?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/agentpeek?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 135,
-    "name": "Lucy",
-    "tagline": "Quantum-inspired financial AI Agent. No GPU required",
-    "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.A causal financial AI that employs quantum physics concepts within its core. It is unlike anything you have ever seen. It requires neither LLMs nor GPUs, consuming only 560 MB of RAM—despite comprising 340,000 lines of code and 59 modules.",
-    "url": "https://www.producthunt.com/r/HVTOSVGU4ECLE3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "MatchMyStars",
+    "tagline": "Making astrology simple, reliable, and accessible.",
+    "description": "What if you had a personalized AI astrologer that actually got the math right? That's MatchMyStars. Precise Vedic and Western astrology in one single platform. Whether you're checking relationship compatibility, analyzing your birth chart, or exploring astro placements, it's all right here. What you can do: - Personalized AI Astrologer - Kundli Reading/Matching based on Vedic system - Western Astrology and Compatibility Analysis - Fun games: FLAMES, name compatibility, fortune cookie",
+    "url": "https://www.producthunt.com/r/JE62VRMZ4T6GFZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Fintech",
-    "maker": "Manasses Ferreira da silva",
+    "category": "Dating",
+    "maker": "Arneesh Aima",
     "price": "Check website",
     "colors": [
       "#06b6d4",
@@ -1466,20 +1465,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Quantum-inspired financial AI Agent. No GPU required",
+    "problem": "Making astrology simple, reliable, and accessible.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/lucy_funcionando?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/matchmystars?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 136,
-    "name": "FontGen.in",
-    "tagline": "Generate beautiful fonts, text styles, and typography online",
-    "description": "FontGen.in transforms plain text into stylish, attention-grabbing typography in seconds. Create unique fonts for social media bios, usernames, branding, gaming profiles, and content creation. Browse hundreds of text styles, preview them instantly, and copy with one click. No design skills, downloads, or sign-up required. Fast, free, and built for creators who want their text to stand out everywhere online.",
-    "url": "https://www.producthunt.com/r/AZFBJDP5Q4NFG2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Council",
+    "tagline": "Open-source, serverless, multi-LLM group chat application",
+    "description": "-Talk to multiple custom AI agents at the same time in one unified chat window. -Send a message once and watch the AI agents discuss, debate, and collaborate with each other automatically. Turn it on or off with dedicated controls. -Your API keys, chat history, and settings are saved locally in your browser or desktop sandbox. No servers, no tracking. -Instantly scan and import your local Ollama models. -Automatically minifies code blocks and older texts in API prompts to save your tokens.",
+    "url": "https://www.producthunt.com/r/5VBYB3Z4ZW6UP7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Design",
-    "maker": "Rupesh",
+    "category": "Open Source",
+    "maker": "Satvik Kumar",
     "price": "Check website",
     "colors": [
       "#eab308",
@@ -1487,22 +1486,23 @@
     ],
     "pattern": "circuit",
     "tags": [
+      "open source",
       "solo maker"
     ],
-    "problem": "Generate beautiful fonts, text styles, and typography online",
+    "problem": "Open-source, serverless, multi-LLM group chat application",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/fontgen-in?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/council-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 137,
-    "name": "ContractAI",
-    "tagline": "Easy Analysis of Contracts and NDAs",
-    "description": "Contract AI analyzes contracts, NDAs, service agreements, and other legal documents in minutes. It translates complex legal language into plain English, highlights potential risks, identifies unfair clauses, and explains what each section means before you sign. Designed for founders, small businesses, freelancers, and individuals, Contract AI provides a clear risk score, red flags, and actionable insights so you can understand what you're agreeing to. It helps users spot costly mistakes early.",
-    "url": "https://www.producthunt.com/r/U33EIGOJOWEDSO?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "Consile",
+    "tagline": "Run your business. All in one place.",
+    "description": "Consile is an all-in-one people operations platform for growing businesses. Manage HR, payroll, attendance, recruitment, task management, and team collaboration in one workspace — no more switching between 5 different tools. Built for SMBs across the US, Africa, and Asia. Includes Otto, an AI assistant for workspace queries. Try it free at consile.app",
+    "url": "https://www.producthunt.com/r/HX2ZSMIWV2SV7Y?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Marketing",
-    "maker": "MEHUL PATEL",
+    "category": "Productivity",
+    "maker": "Emmanuel Njoroge",
     "price": "Check website",
     "colors": [
       "#8b5cf6",
@@ -1512,20 +1512,20 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "Easy Analysis of Contracts and NDAs",
+    "problem": "Run your business. All in one place.",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/contractai-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/consile?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   },
   {
     "id": 138,
-    "name": "Geondex",
-    "tagline": "See where AI engines cite you — and who's beating you",
-    "description": "Geondex is AI-citation tracking built for indie sites, not enterprise brand teams. It checks ChatGPT, Claude, Perplexity & Gemini every day and shows exactly where they cite you, at what position, the precise URL — and which competitors are beating you to the answer. You also get a share-of-voice %, lost-citation alerts, and a weekly AI-generated action plan of fixes ranked by impact. Free forever plan + a no-login scan; paid from $19/mo (rivals start at $69+).",
-    "url": "https://www.producthunt.com/r/DI5JIJQN3XLB37?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "name": "No Jargon, Just Warmth",
+    "tagline": "Local Boiler Experts in Rotherham, Sheffield & Doncaster:",
+    "description": "Need a boiler repair in Rotherham or Sheffield? Looking for a new installation in Doncaster? Kody Gas Ltd provides friendly, reliable service across South Yorkshire with no jargon and no fuss. Our Gas Safe registered engineers fix it properly, first time, every time. Call Kody Gas Ltd today and get back to enjoying your warm, comfortable home.",
+    "url": "https://www.producthunt.com/r/B6NR5RQJVAHBFT?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "domain": "producthunt.com",
-    "category": "Marketing",
-    "maker": "aigregator",
+    "category": "AI / Automation",
+    "maker": "kodygas",
     "price": "Check website",
     "colors": [
       "#ec4899",
@@ -1535,32 +1535,9 @@
     "tags": [
       "solo maker"
     ],
-    "problem": "See where AI engines cite you — and who's beating you",
+    "problem": "Local Boiler Experts in Rotherham, Sheffield & Doncaster:",
     "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/geondex?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
-    "created_at": "2026-06-30T07:01:00Z"
-  },
-  {
-    "id": 139,
-    "name": "Core Route",
-    "tagline": "Discover African APIs in one place.",
-    "description": "Find the best APIs for your next project. Browse and compare 500+ payment, KYC, SMS, banking, and developer APIs across Africa. Check real uptime, read documentation, and choose the right endpoint faster.",
-    "url": "https://www.producthunt.com/r/HHWJ6UNXHG4UVV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
-    "domain": "producthunt.com",
-    "category": "Developer Tools",
-    "maker": "Emmanuel",
-    "price": "Check website",
-    "colors": [
-      "#14b8a6",
-      "#06b6d4"
-    ],
-    "pattern": "waves",
-    "tags": [
-      "solo maker"
-    ],
-    "problem": "Discover African APIs in one place.",
-    "votes": 0,
-    "ph_url": "https://www.producthunt.com/products/core-route?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
+    "ph_url": "https://www.producthunt.com/products/kody-gas-ltd-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+ifound+%28ID%3A+289321%29",
     "created_at": "2026-06-30T07:01:00Z"
   }
 ]

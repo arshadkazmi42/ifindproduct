@@ -95,48 +95,40 @@ function inferPrice(post) {
   return 'Check website';
 }
 
-const QUERIES = {
-  newest: `{
-    posts(order: NEWEST, first: 50) {
-      edges {
-        node {
-          id
-          name
-          tagline
-          description
-          url
-          website
-          votesCount
-          createdAt
-          makers { name }
-          topics { edges { node { name slug } } }
-          thumbnail { url }
-        }
-      }
-    }
-  }`,
-  trending: `{
-    posts(order: RANKING, first: 50) {
-      edges {
-        node {
-          id
-          name
-          tagline
-          description
-          url
-          website
-          votesCount
-          createdAt
-          makers { name }
-          topics { edges { node { name slug } } }
-          thumbnail { url }
-        }
-      }
-    }
-  }`,
-};
+// PH enforces a 500k per-query complexity cap. The old queries used
+// posts(first: 50) with an UNBOUNDED nested topics connection -> 815k -> rejected.
+// Fix: bound topics, keep each page small, and paginate for volume instead.
+const PER_PAGE = 20;      // posts per page (keeps each query well under the cap)
+const MAX_PAGES = 8;      // up to ~160 posts per order
+const TOPICS_LIMIT = 5;   // bound the nested connection (only used for category/tags)
 
-async function fetchPH(query) {
+function buildQuery(order, after) {
+  const afterArg = after ? `, after: "${after}"` : '';
+  return `{
+    posts(order: ${order}, first: ${PER_PAGE}${afterArg}) {
+      pageInfo { hasNextPage endCursor }
+      edges {
+        node {
+          id
+          name
+          tagline
+          description
+          url
+          website
+          votesCount
+          createdAt
+          makers { name }
+          topics(first: ${TOPICS_LIMIT}) { edges { node { name slug } } }
+          thumbnail { url }
+        }
+      }
+    }
+  }`;
+}
+
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+async function fetchPHPage(query) {
   const res = await fetch(PH_API, {
     method: 'POST',
     headers: {
@@ -156,7 +148,39 @@ async function fetchPH(query) {
     throw new Error(`PH GraphQL: ${JSON.stringify(data.errors)}`);
   }
 
-  return (data.data?.posts?.edges || []).map(e => e.node);
+  const posts = data.data?.posts || {};
+  return {
+    nodes: (posts.edges || []).map(e => e.node),
+    pageInfo: posts.pageInfo || {},
+  };
+}
+
+// Paginate one order, accumulating posts. Resilient: a mid-pagination failure
+// (e.g. a rate limit) stops that order but keeps everything fetched so far; a
+// failure on the very first page (e.g. complexity/auth) is surfaced so we notice.
+async function fetchAllPosts(order) {
+  let after = null;
+  let pages = 0;
+  let firstPageErr = null;
+  const out = [];
+  while (pages < MAX_PAGES) {
+    let page;
+    try {
+      page = await fetchPHPage(buildQuery(order, after));
+    } catch (e) {
+      if (pages === 0) firstPageErr = e;
+      console.warn(`  ${order}: page ${pages + 1} failed (${e.message}) — stopping`);
+      break;
+    }
+    out.push(...page.nodes);
+    pages++;
+    console.log(`  ${order}: page ${pages} -> +${page.nodes.length} (running total ${out.length})`);
+    if (!page.pageInfo.hasNextPage || !page.pageInfo.endCursor) break;
+    after = page.pageInfo.endCursor;
+    await sleep(300); // be gentle on PH rate limits
+  }
+  if (out.length === 0 && firstPageErr) throw firstPageErr;
+  return out;
 }
 
 function transformPost(post, index) {
@@ -198,10 +222,9 @@ async function main() {
 
   console.log('Fetching from Product Hunt API...');
 
-  const [newest, trending] = await Promise.all([
-    fetchPH(QUERIES.newest),
-    fetchPH(QUERIES.trending),
-  ]);
+  // Sequential (gentler on rate limits than parallel pagination)
+  const trending = await fetchAllPosts('RANKING');
+  const newest = await fetchAllPosts('NEWEST');
 
   // Merge and deduplicate by PH id
   const seen = new Set();

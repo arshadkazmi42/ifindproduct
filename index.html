@@ -21,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { overflow-x: hidden; }
     body {
       font-family: 'Lexend', -apple-system, sans-serif;
       color: #1c1726;
@@ -133,9 +134,9 @@
 
     @media (max-width: 980px) {
       .stage { height: auto; padding-bottom: 30px; }
-      .phone { position: relative; left: auto; top: auto; transform: none; margin: 12px auto 0; }
+      .phone { position: relative; left: auto; top: auto; transform: none; margin: 12px auto 0; display: flex; justify-content: center; }
       .float, .swoosh, .swoosh-note { display: none; }
-      .watermark { top: 120px; font-size: 38vw; }
+      .watermark { top: 96px; font-size: 26vw; }
     }
   </style>
 </head>
@@ -211,7 +212,7 @@
       <div class="tl">Catch leaked secrets before hackers do</div>
     </div>
     <div class="float f-f stat">
-      <div class="nums">30+</div>
+      <div class="nums" id="product-count">700+</div>
       <div class="lbl">indie tools, shuffled daily</div>
       <div class="stack">
         <img src="https://www.google.com/s2/favicons?domain=cal.com&sz=64" alt="">
@@ -240,6 +241,20 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Keep the product count in sync with the live feed data (no manual updates).
+    fetch('/data/products.json')
+      .then(r => r.json())
+      .then(p => {
+        const el = document.getElementById('product-count');
+        if (el && Array.isArray(p) && p.length) {
+          const n = Math.floor(p.length / 50) * 50; // round down to a clean number
+          el.textContent = (n >= 50 ? n : p.length) + '+';
+        }
+      })
+      .catch(() => {});
+  </script>
 
   <!-- Cookie consent + Microsoft Clarity (loads only after the user accepts) -->
   <script>

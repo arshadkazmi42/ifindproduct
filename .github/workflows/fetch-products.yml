@@ -27,11 +27,22 @@ jobs:
         run: node scripts/fetch-products.js
         continue-on-error: true
 
+      # Persist PH data immediately so a later step's failure can't discard it.
+      - name: Commit Product Hunt results
+        if: always()
+        run: |
+          bash scripts/commit.sh "chore: fetch Product Hunt products"
+
       - name: Fetch from TrustMRR
         env:
           TRUSTMRR_TOKEN: ${{ secrets.TRUSTMRR_TOKEN }}
         run: node scripts/fetch-trustmrr.js
         continue-on-error: true
+
+      - name: Commit TrustMRR results
+        if: always()
+        run: |
+          bash scripts/commit.sh "chore: fetch TrustMRR products"
 
       - name: Set up Chrome
         id: setup-chrome
@@ -46,16 +57,7 @@ jobs:
           PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         continue-on-error: true
 
-      - name: Commit updated products and screenshots
+      - name: Commit screenshots
+        if: always()
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/products.json screenshots/
-          git diff --cached --quiet && echo "No changes" && exit 0
-          git commit -m "chore: daily product fetch and screenshots"
-          # Race-safe push: rebase onto any concurrent change, retry a few times
-          for i in 1 2 3 4 5; do
-            git pull --rebase --autostash origin main && git push origin main && exit 0
-            echo "push attempt $i rejected, retrying..."; sleep 5
-          done
-          echo "push failed after retries" && exit 1
+          bash scripts/commit.sh "chore: product screenshots"

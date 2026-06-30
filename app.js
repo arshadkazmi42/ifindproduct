@@ -102,6 +102,7 @@ function createCard(product) {
         <span class="card-info-maker">by <strong>${product.maker}</strong></span>
         <span class="card-info-price">${product.price}</span>
         <button class="card-info-fire ${userReactions.fire ? 'reacted' : ''}" data-product="${product.id}">🔥</button>
+        <a href="https://github.com/arshadkazmi42/ifindproduct/issues/new?template=claim-product.yml&title=${encodeURIComponent('[Claim] ' + product.name)}" target="_blank" rel="noopener" class="card-info-claim">Claim</a>
         <a href="${product.url}" target="_blank" rel="noopener" class="card-info-cta">Visit →</a>
       </div>
     </div>

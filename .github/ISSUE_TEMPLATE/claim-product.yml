@@ -1,0 +1,39 @@
+name: Claim a Product
+description: Claim a product you built that's already listed on iFound.today
+title: "[Claim] "
+labels: ["claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Claiming a product lets us verify you're the maker and add a verified badge to your listing.
+
+  - type: input
+    id: product_url
+    attributes:
+      label: Product URL
+      description: The URL of your product as it appears on iFound.today
+      placeholder: https://yourproduct.com
+    validations:
+      required: true
+
+  - type: input
+    id: github
+    attributes:
+      label: Your GitHub Username
+      placeholder: e.g. johndoe
+    validations:
+      required: true
+
+  - type: textarea
+    id: proof
+    attributes:
+      label: Proof of Ownership
+      description: |
+        How can we verify you own this product? Options:
+        - Link to your GitHub profile that matches the domain
+        - Add `<meta name="ifound-verify" content="your-github-username">` to your site's `<head>`
+        - Screenshot of your domain registrar/hosting dashboard
+      placeholder: Describe how we can verify you're the maker
+    validations:
+      required: true

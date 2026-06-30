@@ -4,12 +4,28 @@ Discover indie products you'll actually use. A TikTok-style feed for indie produ
 
 ## What is this?
 
-A PWA that shows indie products in a full-screen scrollable feed. No sign-ups, no database, no backend. Products are loaded from a JSON file that auto-updates from Product Hunt every 6 hours.
+A PWA that shows indie products in a full-screen scrollable feed. No sign-ups, no database, no backend. Products are loaded from a JSON file that auto-updates from Product Hunt daily.
+
+## Submit your product
+
+Anyone can submit a product by opening a GitHub Issue:
+
+1. Click the **+ Submit** button in the app, or go to [Submit a Product](https://github.com/arshadkazmi42/ifindproduct/issues/new?template=submit-product.yml)
+2. Fill in the details: name, URL, tagline, category, pricing
+3. A GitHub Action automatically creates a PR to add your product
+4. Once the PR is merged, your product goes live in the feed
+
+## Claim your product
+
+If your product is already listed and you want to verify ownership:
+
+1. Click the **Claim** button on your product's card, or go to [Claim a Product](https://github.com/arshadkazmi42/ifindproduct/issues/new?template=claim-product.yml)
+2. Provide proof of ownership (e.g. add `<meta name="ifound-verify" content="your-github-username">` to your site)
+3. Once verified, your listing gets a verified maker badge
 
 ## Run locally
 
 ```bash
-# Any static server works
 python3 -m http.server 8888
 # or
 npx serve .
@@ -41,50 +57,26 @@ Edit `data/products.json`. Manual entries use ids 1-99 (preserved across PH sync
 
 ## Auto-fetch from Product Hunt
 
-A GitHub Action runs every 6 hours to fetch trending and newest products from Product Hunt and merge them into `data/products.json`. Here's how to set it up:
+A GitHub Action runs daily at 08:00 UTC to fetch trending and newest products from Product Hunt.
 
-### Step 1: Create a Product Hunt API Token
+### Setup
 
 1. Go to [Product Hunt API Dashboard](https://www.producthunt.com/v2/oauth/applications)
 2. Click **Add an Application**
-3. Fill in:
-   - **Name**: `ifound-fetcher` (or anything you like)
-   - **Redirect URI**: `https://localhost` (not used, but required)
-4. Click **Create Token** — this generates a Developer Token
-5. Copy the token (you'll need it in the next step)
+3. Fill in **Name** (anything), **Redirect URI** (`https://localhost`)
+4. Click **Create Token** and copy the Developer Token
+5. In your repo: **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
+6. Name: `PH_TOKEN`, Value: your token
+7. Go to **Actions** tab → **Fetch Product Hunt Products** → **Run workflow** to test
 
-### Step 2: Add the Token to GitHub Secrets
+## How it works
 
-1. Go to your fork's GitHub repo → **Settings** → **Secrets and variables** → **Actions**
-2. Click **New repository secret**
-3. Set:
-   - **Name**: `PH_TOKEN`
-   - **Secret**: paste the Developer Token from Step 1
-4. Click **Add secret**
-
-### Step 3: Enable the GitHub Action
-
-The workflow at `.github/workflows/fetch-products.yml` runs automatically every 6 hours. To trigger it manually:
-
-1. Go to **Actions** tab in your repo
-2. Click **Fetch Product Hunt Products** in the sidebar
-3. Click **Run workflow** → **Run workflow**
-
-The action will fetch ~40 products (20 trending + 20 newest), deduplicate them, merge with your manual products (ids 1-99 are preserved), and commit the updated `data/products.json`.
-
-### Run fetch locally (optional)
-
-```bash
-PH_TOKEN=your_token_here node scripts/fetch-products.js
-```
-
-## Tech stack
-
-- Pure HTML/CSS/JS — no framework
+- Pure HTML/CSS/JS PWA — no framework, no backend
+- Products from static JSON + Product Hunt GraphQL API
+- Full-page screenshots via Puppeteer (768px viewport)
+- Submissions via GitHub Issues + Actions automation
 - PWA with service worker for offline support
-- Data from static JSON + Product Hunt GraphQL API
-- Screenshot previews via [image.thum.io](https://www.thum.io/)
-- Hosted as a static site (GitHub Pages, Cloudflare Pages, Vercel, etc.)
+- Mobile-first, notch-safe, scroll-snap feed
 
 ## License
 

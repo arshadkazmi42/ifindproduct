@@ -67,7 +67,7 @@ function createCard(product) {
   const localScreenshot = `/screenshots/${product.id}.jpg`;
   const remoteScreenshot = isPHUrl
     ? (product.thumbnail || '')
-    : `https://image.thum.io/get/width/430/crop/780/noanimate/${product.url}`;
+    : `https://image.thum.io/get/width/480/crop/960/noanimate/${product.url}`;
 
   const tagsHtml = product.tags.map(tag => {
     const hl = HIGHLIGHT_TAGS.includes(tag) ? 'highlight' : '';

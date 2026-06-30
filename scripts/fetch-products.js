@@ -162,18 +162,19 @@ async function fetchPH(query) {
 function transformPost(post, index) {
   const website = post.website || '';
   const phUrl = post.url || '';
-  const actualUrl = website || phUrl;
-  const domain = website ? extractDomain(website) : extractDomain(phUrl);
+  const domain = website ? extractDomain(website) : '';
   const makerName = post.makers?.[0]?.name || 'Unknown Maker';
   const topics = (post.topics?.edges || []).map(e => e.node);
   const thumbnail = post.thumbnail?.url || '';
+
+  if (!website || website.includes('producthunt.com')) return null;
 
   return {
     id: index + 1,
     name: post.name,
     tagline: post.tagline || '',
     description: post.description || post.tagline || '',
-    url: actualUrl,
+    url: website,
     domain: domain,
     category: mapCategory(topics),
     maker: makerName,
@@ -224,9 +225,10 @@ async function main() {
     console.log('No existing products.json, starting fresh');
   }
 
-  // Transform PH products starting from id 100
-  const phProducts = all.map((post, i) => transformPost(post, i));
+  // Transform PH products starting from id 100 (skip products without real website URLs)
+  const phProducts = all.map((post, i) => transformPost(post, i)).filter(Boolean);
   phProducts.forEach((p, i) => { p.id = 100 + i; });
+  console.log(`${phProducts.length} products have real website URLs (filtered from ${all.length})`);
 
   const merged = [...existing, ...phProducts];
   fs.writeFileSync(OUTPUT, JSON.stringify(merged, null, 2));

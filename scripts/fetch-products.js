@@ -102,6 +102,7 @@ const PER_PAGE = 20;                                       // confirmed under PH
 const MAX_PAGES = Number(process.env.PH_MAX_PAGES || 60);  // deep pagination for volume (~1200/order)
 const TOPICS_LIMIT = 5;                                    // bound the nested connection (category/tags only)
 const MAX_RETRIES = 4;                                     // backoff retries for transient rate limits
+const RESET_WAIT_CAP = Number(process.env.PH_RESET_WAIT || 20); // wait short quota resets; skip long ones (set high to ride windows for bulk)
 
 function buildQuery(order, after) {
   const afterArg = after ? `, after: "${after}"` : '';
@@ -175,14 +176,21 @@ async function fetchAllPosts(order) {
       } catch (e) {
         const msg = e.message || '';
         const transient = /\b429\b|rate.?limit|too many/i.test(msg);
-        if (transient && attempt < MAX_RETRIES) {
-          const wait = 2000 * Math.pow(2, attempt); // 2s, 4s, 8s, 16s
-          console.warn(`  ${order}: rate limited — retry ${attempt + 1}/${MAX_RETRIES} in ${wait}ms`);
-          await sleep(wait);
+        const m = msg.match(/reset_in["':\s]+(\d+)/i);
+        const resetIn = m ? Number(m[1]) : null;
+        // Short reset window → wait it out and retry. Long reset (budget drained
+        // for several minutes) → stop and keep the partial haul (NON-FATAL).
+        if (transient && resetIn !== null && resetIn <= RESET_WAIT_CAP && attempt < MAX_RETRIES) {
+          console.warn(`  ${order}: rate limited — waiting ${resetIn + 1}s for reset (retry ${attempt + 1})`);
+          await sleep((resetIn + 1) * 1000);
           continue;
         }
-        if (pages === 0) firstPageErr = e;
-        console.warn(`  ${order}: page ${pages + 1} failed (${msg}) — stopping`);
+        if (transient) {
+          console.warn(`  ${order}: PH quota reached (reset_in=${resetIn ?? '?'}s) — stopping with ${out.length} posts kept`);
+        } else {
+          if (pages === 0) firstPageErr = e;
+          console.warn(`  ${order}: page ${pages + 1} failed (${msg}) — stopping`);
+        }
         break;
       }
     }
@@ -194,7 +202,9 @@ async function fetchAllPosts(order) {
     after = page.pageInfo.endCursor;
     await sleep(300); // be gentle on PH rate limits
   }
-  if (out.length === 0 && firstPageErr) throw firstPageErr;
+  if (out.length === 0 && firstPageErr) {
+    console.warn(`  ${order}: nothing fetched (${firstPageErr.message})`);
+  }
   return out;
 }
 

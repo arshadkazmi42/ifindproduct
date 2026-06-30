@@ -32,8 +32,18 @@ jobs:
         run: node scripts/fetch-trustmrr.js
         continue-on-error: true
 
+      - name: Set up Chrome
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+        continue-on-error: true
+
       - name: Fetch screenshots for new products
         run: node scripts/fetch-screenshots.js
+        env:
+          PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+        continue-on-error: true
 
       - name: Commit updated products and screenshots
         run: |

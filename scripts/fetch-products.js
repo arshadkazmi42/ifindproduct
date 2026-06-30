@@ -98,9 +98,10 @@ function inferPrice(post) {
 // PH enforces a 500k per-query complexity cap. The old queries used
 // posts(first: 50) with an UNBOUNDED nested topics connection -> 815k -> rejected.
 // Fix: bound topics, keep each page small, and paginate for volume instead.
-const PER_PAGE = 20;      // posts per page (keeps each query well under the cap)
-const MAX_PAGES = 8;      // up to ~160 posts per order
-const TOPICS_LIMIT = 5;   // bound the nested connection (only used for category/tags)
+const PER_PAGE = 20;                                       // confirmed under PH's 500k complexity cap
+const MAX_PAGES = Number(process.env.PH_MAX_PAGES || 60);  // deep pagination for volume (~1200/order)
+const TOPICS_LIMIT = 5;                                    // bound the nested connection (category/tags only)
+const MAX_RETRIES = 4;                                     // backoff retries for transient rate limits
 
 function buildQuery(order, after) {
   const afterArg = after ? `, after: "${after}"` : '';
@@ -164,14 +165,28 @@ async function fetchAllPosts(order) {
   let firstPageErr = null;
   const out = [];
   while (pages < MAX_PAGES) {
-    let page;
-    try {
-      page = await fetchPHPage(buildQuery(order, after));
-    } catch (e) {
-      if (pages === 0) firstPageErr = e;
-      console.warn(`  ${order}: page ${pages + 1} failed (${e.message}) — stopping`);
-      break;
+    // Fetch one page, retrying transient rate limits (429 / "rate limit") with
+    // exponential backoff. Non-retryable errors (e.g. complexity) stop the order.
+    let page = null;
+    for (let attempt = 0; ; attempt++) {
+      try {
+        page = await fetchPHPage(buildQuery(order, after));
+        break;
+      } catch (e) {
+        const msg = e.message || '';
+        const transient = /\b429\b|rate.?limit|too many/i.test(msg);
+        if (transient && attempt < MAX_RETRIES) {
+          const wait = 2000 * Math.pow(2, attempt); // 2s, 4s, 8s, 16s
+          console.warn(`  ${order}: rate limited — retry ${attempt + 1}/${MAX_RETRIES} in ${wait}ms`);
+          await sleep(wait);
+          continue;
+        }
+        if (pages === 0) firstPageErr = e;
+        console.warn(`  ${order}: page ${pages + 1} failed (${msg}) — stopping`);
+        break;
+      }
     }
+    if (!page) break;
     out.push(...page.nodes);
     pages++;
     console.log(`  ${order}: page ${pages} -> +${page.nodes.length} (running total ${out.length})`);

@@ -86,8 +86,11 @@ async function main() {
 
   console.log('Fetching from TrustMRR API...');
 
+  // Paginate until an empty page (or the safety cap). The 3.1s delay below
+  // respects TrustMRR's rate limit; the loop stops naturally when startups run out.
+  const MAX_PAGES = Number(process.env.TRUSTMRR_MAX_PAGES || 100);
   let allStartups = [];
-  for (let page = 1; page <= 5; page++) {
+  for (let page = 1; page <= MAX_PAGES; page++) {
     try {
       const data = await fetchStartups(page);
       const startups = data.startups || data.data || data;

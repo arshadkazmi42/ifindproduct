@@ -130,6 +130,26 @@ function buildQuery(order, after) {
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
+// Follow redirects (PH's `website` is usually a producthunt.com/r/ link) to the
+// real destination URL. Returns '' on any failure/timeout — caller skips it.
+async function finalUrl(url, ms = 12000) {
+  const ac = new AbortController();
+  const t = setTimeout(() => ac.abort(), ms);
+  try {
+    const r = await fetch(url, {
+      redirect: 'follow',
+      signal: ac.signal,
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; iFoundBot/1.0)' },
+    });
+    try { await r.body?.cancel(); } catch {}
+    return r.url || '';
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(t);
+  }
+}
+
 async function fetchPHPage(query) {
   const res = await fetch(PH_API, {
     method: 'POST',
@@ -208,15 +228,23 @@ async function fetchAllPosts(order) {
   return out;
 }
 
-function transformPost(post, index) {
-  const website = post.website || '';
+async function transformPost(post, index) {
   const phUrl = post.url || '';
-  const domain = website ? extractDomain(website) : '';
+  let website = post.website || '';
+  if (!website) return null;
+
+  // PH's `website` is usually a producthunt.com/r/ redirect — follow it to the real site.
+  if (website.includes('producthunt.com')) {
+    website = await finalUrl(website);
+  }
+  if (!website || website.includes('producthunt.com')) return null;
+
+  const domain = extractDomain(website);
+  if (!domain) return null;
+
   const makerName = post.makers?.[0]?.name || 'Unknown Maker';
   const topics = (post.topics?.edges || []).map(e => e.node);
   const thumbnail = post.thumbnail?.url || '';
-
-  if (!website || website.includes('producthunt.com')) return null;
 
   return {
     id: index + 1,
@@ -241,8 +269,8 @@ function transformPost(post, index) {
 
 async function main() {
   if (!TOKEN) {
-    console.error('Missing PH_TOKEN env var. Get one from https://www.producthunt.com/v2/oauth/applications');
-    process.exit(1);
+    console.warn('Missing PH_TOKEN env var — skipping Product Hunt (other sources still run).');
+    return;
   }
 
   console.log('Fetching from Product Hunt API...');
@@ -276,26 +304,38 @@ async function main() {
   const maxId = existing.reduce((max, p) => Math.max(max, p.id), 99);
   let nextId = Math.max(maxId + 1, 100);
 
-  const phProducts = all.map((post, i) => transformPost(post, i)).filter(Boolean);
-  console.log(`${phProducts.length} products have real website URLs (filtered from ${all.length})`);
+  const save = () => fs.writeFileSync(OUTPUT, JSON.stringify(existing, null, 2));
 
+  // PROGRESSIVE: resolve redirects in parallel batches and checkpoint-save after
+  // each batch, so a later error never discards products already fetched/resolved.
+  const CONCURRENCY = 8;
   let added = 0;
-  for (const p of phProducts) {
-    if (existingDomains.has(p.domain)) continue;
-    p.id = nextId++;
-    p.source = 'producthunt';
-    existing.push(p);
-    existingDomains.add(p.domain);
-    added++;
+  try {
+    for (let i = 0; i < all.length; i += CONCURRENCY) {
+      const batch = all.slice(i, i + CONCURRENCY);
+      const resolved = await Promise.all(
+        batch.map((post, j) => transformPost(post, i + j).catch(() => null))
+      );
+      for (const p of resolved) {
+        if (!p || !p.domain || existingDomains.has(p.domain)) continue;
+        p.id = nextId++;
+        p.source = 'producthunt';
+        existing.push(p);
+        existingDomains.add(p.domain);
+        added++;
+      }
+      save(); // checkpoint
+      console.log(`  resolved ${Math.min(i + CONCURRENCY, all.length)}/${all.length} — +${added} new kept`);
+    }
+  } finally {
+    save();
+    console.log(`Added ${added} new products from Product Hunt. Wrote ${existing.length} total to ${OUTPUT}`);
   }
-
-  console.log(`Added ${added} new products from Product Hunt (${phProducts.length - added} duplicates skipped)`);
-
-  fs.writeFileSync(OUTPUT, JSON.stringify(existing, null, 2));
-  console.log(`Wrote ${existing.length} total products to ${OUTPUT}`);
 }
 
 main().catch(err => {
-  console.error('Failed:', err.message);
-  process.exit(1);
+  // Data is saved progressively inside main(); never abort the pipeline (the commit
+  // step still publishes whatever was fetched before the error).
+  console.warn('PH fetch ended with error (non-fatal):', err.message);
+  process.exit(0);
 });

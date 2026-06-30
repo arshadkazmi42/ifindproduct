@@ -56,16 +56,16 @@ function formatMRR(mrr) {
 
 function inferTags(startup) {
   const tags = [];
-  if (startup.customers_count <= 50) tags.push('early stage');
-  if (startup.customers_count > 500) tags.push('growing');
-  if (startup.mom_growth > 20) tags.push('trending');
+  const c = startup.customers || 0;
+  if (c > 0 && c <= 50) tags.push('early stage');
+  if (c > 500) tags.push('growing');
   if (startup.is_for_sale) tags.push('for sale');
   tags.push('verified revenue');
   return tags;
 }
 
 async function fetchStartups(page = 1) {
-  const url = `${API_BASE}/startups?page=${page}&per_page=50`;
+  const url = `${API_BASE}/startups?page=${page}&limit=50`;  // API caps page size at 50 (param is `limit`, not per_page)
   const res = await fetch(url, {
     headers: { 'Authorization': `Bearer ${TOKEN}` },
   });
@@ -114,9 +114,20 @@ async function main() {
     console.log('No existing products.json, starting fresh');
   }
 
+  // Refresh: drop prior TrustMRR rows so the corrected creator/MRR mapping is
+  // applied (dedup-by-domain would otherwise keep the old, wrong values).
+  // Manual (id<=99) and Product Hunt rows are kept.
+  const beforeLen = existing.length;
+  existing = existing.filter(p => p.source !== 'trustmrr');
+  if (beforeLen !== existing.length) {
+    console.log(`Dropped ${beforeLen - existing.length} old TrustMRR rows for refresh`);
+  }
+
   const existingDomains = new Set(existing.map(p => p.domain).filter(Boolean));
   const maxId = existing.reduce((max, p) => Math.max(max, p.id), 99);
   let nextId = Math.max(maxId + 1, 100);
+
+  const save = () => fs.writeFileSync(OUTPUT, JSON.stringify(existing, null, 2));
 
   let added = 0;
   for (let i = 0; i < allStartups.length; i++) {
@@ -127,6 +138,10 @@ async function main() {
     const domain = extractDomain(url);
     if (!domain || existingDomains.has(domain)) continue;
 
+    const mrrUsd = Math.round((s.revenue && s.revenue.mrr ? s.revenue.mrr : 0) / 100); // API returns cents
+    const handle = s.xHandle ? String(s.xHandle).replace(/^@/, '') : '';
+    const maker = s.xName || (handle ? '@' + handle : '') || s.founder || s.maker || 'Indie Maker';
+
     const product = {
       id: nextId++,
       name: s.name || '',
@@ -135,26 +150,25 @@ async function main() {
       url: url,
       domain: domain,
       category: mapCategory(s.category),
-      maker: s.founder || s.maker || 'Unknown Maker',
-      price: formatMRR(s.mrr || s.monthly_revenue),
+      maker: maker,
+      maker_url: handle ? 'https://x.com/' + handle : '',
+      price: formatMRR(mrrUsd),
       colors: COLOR_PALETTES[i % COLOR_PALETTES.length],
       pattern: PATTERN_TYPES[i % PATTERN_TYPES.length],
       tags: inferTags(s),
       problem: s.tagline || s.description || '',
       source: 'trustmrr',
-      mrr: s.mrr || s.monthly_revenue || 0,
-      growth: s.mom_growth || 0,
+      mrr: mrrUsd,
     };
 
     existing.push(product);
     existingDomains.add(domain);
     added++;
+    if (added % 100 === 0) save(); // progressive checkpoint
   }
 
-  console.log(`Added ${added} new products from TrustMRR`);
-
-  fs.writeFileSync(OUTPUT, JSON.stringify(existing, null, 2));
-  console.log(`Wrote ${existing.length} total products to ${OUTPUT}`);
+  save();
+  console.log(`Added ${added} new products from TrustMRR. Wrote ${existing.length} total to ${OUTPUT}`);
 }
 
 main().catch(err => {

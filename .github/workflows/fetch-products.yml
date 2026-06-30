@@ -25,6 +25,7 @@ jobs:
         env:
           PH_TOKEN: ${{ secrets.PH_TOKEN }}
         run: node scripts/fetch-products.js
+        continue-on-error: true
 
       - name: Fetch from TrustMRR
         env:

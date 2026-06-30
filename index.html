@@ -2,35 +2,704 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#000000">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="Discover indie products you'll actually use. One at a time.">
-  <title>iFound.today</title>
-  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iFound.today — The open source product directory</title>
+  <meta name="description" content="Full-screen feed of indie products. No rankings, no paid promotions, no algorithm. Every maker gets a fair shot. Open source.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="iFound.today">
+  <meta property="og:description" content="Discover indie products you'll actually use. Swipe through tools built by real makers.">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:url" content="https://ifound.today">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="iFound.today">
+  <meta name="twitter:description" content="Discover indie products you'll actually use. Swipe through tools built by real makers.">
+  <meta name="twitter:image" content="/og-image.png">
+
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="/icons/icon-192.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      background: #0a0a0f;
+      color: #fafafa;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .accent { font-family: 'Permanent Marker', cursive; }
+    .purple { color: #a855f7; }
+    .cyan { color: #06b6d4; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      padding: 80px 32px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 14px;
+      color: #a855f7;
+      padding: 6px 16px;
+      border: 2px solid #a855f7;
+      border-radius: 0;
+      margin-bottom: 32px;
+      transform: rotate(-1deg);
+      box-shadow: 4px 4px 0 #a855f7;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+      max-width: 800px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 .line2 {
+      display: block;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 0.6em;
+      color: #a855f7;
+      transform: rotate(-1.5deg);
+      transform-origin: left;
+      margin-top: 8px;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: #52525b;
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .hero-desc em {
+      font-style: normal;
+      color: #a1a1aa;
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 18px 40px;
+      background: #fafafa;
+      color: #0a0a0f;
+      font-family: 'Lexend', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 3px solid #fafafa;
+      box-shadow: 6px 6px 0 #a855f7;
+      transition: all 0.15s;
+    }
+
+    .hero-cta:hover {
+      box-shadow: 2px 2px 0 #a855f7;
+      transform: translate(4px, 4px);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 32px;
+      font-size: 12px;
+      color: #27272a;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Floating cards on hero ── */
+    .hero-cards {
+      position: absolute;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 320px;
+      height: 500px;
+    }
+
+    .hero-card {
+      position: absolute;
+      width: 280px;
+      border: 2px solid #1a1a1a;
+      background: #0f0f14;
+      overflow: hidden;
+      box-shadow: 8px 8px 0 rgba(168, 85, 247, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hero-card:hover {
+      transform: rotate(0deg) !important;
+      box-shadow: 4px 4px 0 #a855f7;
+      z-index: 10;
+    }
+
+    .hero-card:nth-child(1) { top: 0; left: 0; transform: rotate(-3deg); z-index: 3; }
+    .hero-card:nth-child(2) { top: 60px; left: 40px; transform: rotate(2deg); z-index: 2; }
+    .hero-card:nth-child(3) { top: 120px; left: 10px; transform: rotate(-1deg); z-index: 1; }
+
+    .hero-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-bottom: 2px solid #1a1a1a;
+    }
+
+    .hero-card-body { padding: 12px 14px; }
+
+    .hero-card-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hero-card-check {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .hero-card-desc {
+      font-size: 11px;
+      color: #52525b;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-card-maker {
+      font-size: 10px;
+      color: #3f3f46;
+    }
+
+    .hero-card-maker strong { color: #71717a; }
+
+    .hero-card-visit {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 10px;
+      background: #fafafa;
+      color: #0a0a0f;
+      text-decoration: none;
+      border: 1px solid #fafafa;
+    }
+
+    /* ── Marquee ── */
+    .marquee-wrap {
+      border-top: 2px solid #1a1a1a;
+      border-bottom: 2px solid #1a1a1a;
+      padding: 14px 0;
+      overflow: hidden;
+      background: #0f0f14;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 48px;
+      animation: marquee 20s linear infinite;
+      width: max-content;
+    }
+
+    .marquee span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #27272a;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .marquee span.hl { color: #a855f7; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── What it is ── */
+    .what {
+      padding: 100px 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: #1a1a1a;
+      border: 2px solid #1a1a1a;
+    }
+
+    .what-cell {
+      background: #0a0a0f;
+      padding: 32px 24px;
+    }
+
+    .what-cell-num {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 36px;
+      color: #a855f7;
+      margin-bottom: 12px;
+    }
+
+    .what-cell h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .what-cell p {
+      font-size: 12px;
+      color: #3f3f46;
+      line-height: 1.5;
+    }
+
+    /* ── Anti-section ── */
+    .anti {
+      padding: 80px 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .anti h2 {
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 48px;
+    }
+
+    .anti-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .anti-card {
+      padding: 28px;
+      border: 2px solid #1a1a1a;
+      position: relative;
+      background: #0a0a0f;
+    }
+
+    .anti-card::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 11px;
+      padding: 2px 10px;
+      background: #0a0a0f;
+    }
+
+    .anti-card[data-label="Them"]::before { color: #ef4444; border: 1px solid #ef4444; }
+    .anti-card[data-label="Us"]::before { color: #22c55e; border: 1px solid #22c55e; }
+
+    .anti-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      margin-top: 4px;
+    }
+
+    .anti-card p {
+      font-size: 12px;
+      color: #3f3f46;
+      line-height: 1.5;
+    }
+
+    /* ── For makers ── */
+    .makers {
+      padding: 80px 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .makers h2 {
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .makers-sub {
+      font-size: 16px;
+      color: #3f3f46;
+      margin-bottom: 40px;
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    .makers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 2px solid #1a1a1a;
+    }
+
+    .makers-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .makers-item:last-child { border-bottom: none; }
+
+    .makers-item-icon {
+      font-size: 20px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #1a1a1a;
+      flex-shrink: 0;
+    }
+
+    .makers-item h4 {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .makers-item p {
+      font-size: 12px;
+      color: #3f3f46;
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    /* ── OSS ── */
+    .oss {
+      padding: 80px 32px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .oss-tag {
+      display: inline-block;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 13px;
+      color: #06b6d4;
+      border: 2px solid #06b6d4;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+      box-shadow: 3px 3px 0 #06b6d4;
+    }
+
+    .oss h2 {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .oss p {
+      font-size: 15px;
+      color: #3f3f46;
+      max-width: 500px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .oss-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      border: 2px solid #fafafa;
+      color: #fafafa;
+      font-family: 'Lexend', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 #06b6d4;
+      transition: all 0.15s;
+    }
+
+    .oss-cta:hover { box-shadow: 2px 2px 0 #06b6d4; transform: translate(2px, 2px); }
+    .oss-cta svg { opacity: 0.8; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 2px solid #1a1a1a;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-brand { font-size: 13px; font-weight: 800; color: #27272a; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: #27272a; text-decoration: none; }
+    .footer-links a:hover { color: #71717a; }
+
+    /* ── Mobile ── */
+    @media (max-width: 860px) {
+      .hero { padding: 48px 20px 40px; }
+      .hero h1 { font-size: 42px; }
+      .hero-cards { display: none; }
+      .hero-scroll-hint { display: none; }
+      .what-grid { grid-template-columns: 1fr; }
+      .anti-grid { grid-template-columns: 1fr; }
+      .anti h2, .makers h2 { font-size: 30px; }
+      .what, .anti, .makers, .oss { padding: 60px 20px; }
+      footer { padding: 20px; }
+    }
+
+    @media (min-width: 861px) {
+      .hero-mobile-cards { display: none; }
+    }
+
+    /* Mobile cards fallback */
+    .hero-mobile-cards {
+      display: flex;
+      gap: 12px;
+      margin-top: 40px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 8px;
+    }
+
+    .hero-mobile-cards::-webkit-scrollbar { display: none; }
+
+    .hero-mobile-card {
+      flex-shrink: 0;
+      width: 220px;
+      border: 2px solid #1a1a1a;
+      background: #0f0f14;
+      overflow: hidden;
+    }
+
+    .hero-mobile-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 2px solid #1a1a1a;
+    }
+
+    .hero-mobile-card-body {
+      padding: 10px 12px;
+    }
+
+    .hero-mobile-card-name {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .hero-mobile-card-desc {
+      font-size: 10px;
+      color: #52525b;
+    }
+  </style>
 </head>
 <body>
-  <div class="app-shell">
-    <div class="filter-bar">
-      <div class="filter-row">
-        <button class="filter-btn active" data-filter="all">For you</button>
-        <button class="filter-btn" data-filter="Security">Security</button>
-        <button class="filter-btn" data-filter="Developer Tools">Dev Tools</button>
-        <button class="filter-btn" data-filter="AI">AI</button>
-        <button class="filter-btn" data-filter="Productivity">Productivity</button>
-        <button class="filter-btn" data-filter="Infrastructure">Infra</button>
-        <a href="https://github.com/arshadkazmi42/ifindproduct/issues/new?template=submit-product.yml" target="_blank" rel="noopener" class="filter-btn submit-btn">+ Submit</a>
-      </div>
-    </div>
 
-    <main class="feed" id="feed"></main>
+  <section class="hero">
+    <div class="hero-tag">OPEN SOURCE</div>
+    <h1>
+      Product directories<br>are broken.
+      <span class="line2">We fixed it.</span>
+    </h1>
+    <p class="hero-desc">No rankings. No paid placements. No algorithm deciding who wins. Every product gets the <em>full screen</em>. Every maker gets a <em>fair shot</em>. You just swipe.</p>
+    <a href="/feed" class="hero-cta">Open the feed &rarr;</a>
+
+    <div class="hero-cards" id="heroCards"></div>
+
+    <div class="hero-mobile-cards" id="heroMobileCards"></div>
+
+    <div class="hero-scroll-hint">Scroll &darr;</div>
+  </section>
+
+  <div class="marquee-wrap">
+    <div class="marquee" id="marquee"></div>
   </div>
 
-  <script src="/app.js"></script>
+  <section class="what">
+    <div class="what-grid">
+      <div class="what-cell">
+        <div class="what-cell-num">01</div>
+        <h3>Swipe, don't scroll</h3>
+        <p>Full-screen cards with live website screenshots. See the actual product, not a pitch.</p>
+      </div>
+      <div class="what-cell">
+        <div class="what-cell-num">02</div>
+        <h3>No gatekeepers</h3>
+        <p>No editorial ranking, no pay-to-play. Products are shuffled. Everyone starts equal.</p>
+      </div>
+      <div class="what-cell">
+        <div class="what-cell-num">03</div>
+        <h3>One tap away</h3>
+        <p>Every card links direct to the product. No interstitials, no tracking, no sign-up walls.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="anti">
+    <h2>Not another<br>product directory.</h2>
+    <div class="anti-grid">
+      <div class="anti-card" data-label="Them">
+        <h4>Ranked by upvotes</h4>
+        <p>Early voters decide everything. Launch timing matters more than the product itself.</p>
+      </div>
+      <div class="anti-card" data-label="Us">
+        <h4>Random & fair</h4>
+        <p>Products are shuffled. No launch day pressure. Your product is discovered over time, not in a 24-hour sprint.</p>
+      </div>
+      <div class="anti-card" data-label="Them">
+        <h4>Tiny thumbnails in a list</h4>
+        <p>You're one of 50 links on a page. The top 3 get all the clicks.</p>
+      </div>
+      <div class="anti-card" data-label="Us">
+        <h4>Full-screen showcase</h4>
+        <p>Every product gets the entire viewport. Real screenshot of your actual website.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="makers">
+    <h2>Built for makers,<br>not marketers.</h2>
+    <p class="makers-sub">If you built something, we want people to find it. No marketing budget required.</p>
+    <div class="makers-list">
+      <div class="makers-item">
+        <div class="makers-item-icon">$0</div>
+        <div>
+          <h4>Free to list. Always.</h4>
+          <p>Submit through GitHub Issues. No accounts, no fees, no "premium tier."</p>
+        </div>
+      </div>
+      <div class="makers-item">
+        <div class="makers-item-icon">✓</div>
+        <div>
+          <h4>Verified maker badge</h4>
+          <p>Prove you built it. Green checkmark on your card so users know it's real.</p>
+        </div>
+      </div>
+      <div class="makers-item">
+        <div class="makers-item-icon">📸</div>
+        <div>
+          <h4>Auto-captured previews</h4>
+          <p>We screenshot your website automatically. Ship your product, not marketing assets.</p>
+        </div>
+      </div>
+      <div class="makers-item">
+        <div class="makers-item-icon">↗</div>
+        <div>
+          <h4>Direct traffic</h4>
+          <p>Every visitor goes straight to your site. Zero middleman pages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oss">
+    <div class="oss-tag">MIT LICENSED</div>
+    <h2>The whole thing is open source.</h2>
+    <p>Feed engine, screenshot pipeline, submission system, landing page. Fork it, run your own directory, contribute back.</p>
+    <a href="https://github.com/arshadkazmi42/ifindproduct" target="_blank" rel="noopener" class="oss-cta">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      View on GitHub
+    </a>
+  </section>
+
+  <footer>
+    <span class="footer-brand">iFound.today</span>
+    <div class="footer-links">
+      <a href="/feed">Feed</a>
+      <a href="https://github.com/arshadkazmi42/ifindproduct" target="_blank">GitHub</a>
+      <a href="https://github.com/arshadkazmi42/ifindproduct/issues/new?template=submit-product.yml" target="_blank">Submit</a>
+      <a href="https://github.com/arshadkazmi42/ifindproduct/issues/new?template=claim-product.yml" target="_blank">Claim</a>
+    </div>
+  </footer>
+
+  <script>
+    const CARDS = [
+      { id: 2, name: 'iScan.today', desc: 'Catch leaked secrets before hackers do', maker: 'Arshad Kazmi', domain: 'iscan.today', v: true },
+      { id: 17, name: 'Cal.com', desc: 'Open source scheduling infrastructure', maker: 'Cal.com', domain: 'cal.com', v: false },
+      { id: 4, name: 'iLink.today', desc: 'Self-destructing encrypted links', maker: 'Arshad Kazmi', domain: 'ilink.today', v: true },
+    ];
+
+    // Desktop hero cards
+    const hc = document.getElementById('heroCards');
+    CARDS.forEach(c => {
+      const d = document.createElement('div');
+      d.className = 'hero-card';
+      d.innerHTML = `
+        <img src="/screenshots/${c.id}.jpg" alt="${c.name}">
+        <div class="hero-card-body">
+          <div class="hero-card-name">${c.name} ${c.v ? '<span class="hero-card-check">✓</span>' : ''}</div>
+          <div class="hero-card-desc">${c.desc}</div>
+          <div class="hero-card-footer">
+            <span class="hero-card-maker">by <strong>${c.maker}</strong></span>
+            <a href="/feed" class="hero-card-visit">Visit ↗</a>
+          </div>
+        </div>
+      `;
+      hc.appendChild(d);
+    });
+
+    // Mobile cards
+    const mc = document.getElementById('heroMobileCards');
+    CARDS.forEach(c => {
+      const d = document.createElement('div');
+      d.className = 'hero-mobile-card';
+      d.innerHTML = `
+        <img src="/screenshots/${c.id}.jpg" alt="${c.name}">
+        <div class="hero-mobile-card-body">
+          <div class="hero-mobile-card-name">${c.name} ${c.v ? '✓' : ''}</div>
+          <div class="hero-mobile-card-desc">${c.desc}</div>
+        </div>
+      `;
+      mc.appendChild(d);
+    });
+
+    // Marquee
+    const items = ['NO RANKINGS', 'NO PAID PROMOTIONS', 'NO ALGORITHM', 'EVERY MAKER GETS A FAIR SHOT', 'OPEN SOURCE', 'FULL-SCREEN CARDS', 'LIVE WEBSITE PREVIEWS', 'ZERO SIGN-UPS'];
+    const mq = document.getElementById('marquee');
+    const content = items.map((t, i) => `<span class="${i % 2 === 0 ? 'hl' : ''}">${t}</span>`).join('');
+    mq.innerHTML = content + content;
+  </script>
 </body>
 </html>

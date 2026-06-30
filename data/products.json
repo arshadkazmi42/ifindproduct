@@ -3,7 +3,7 @@
     "id": 1,
     "name": "iChat.today",
     "tagline": "An autonomous AI agent for your browser",
-    "description": "Give it a goal and it works the web for you. Not a chat sidebar — a full browser copilot that navigates, clicks, fills forms, and gets things done across any website.",
+    "description": "Give it a goal and it works the web for you. Not a chat sidebar \u2014 a full browser copilot that navigates, clicks, fills forms, and gets things done across any website.",
     "url": "https://ichat.today",
     "domain": "ichat.today",
     "category": "AI / Automation",
@@ -18,7 +18,8 @@
       "solo maker",
       "source available"
     ],
-    "problem": "You spend hours doing repetitive browser tasks manually"
+    "problem": "You spend hours doing repetitive browser tasks manually",
+    "verified": true
   },
   {
     "id": 2,
@@ -39,7 +40,8 @@
       "solo maker",
       "freemium"
     ],
-    "problem": "Leaked API keys can cost you thousands before you notice"
+    "problem": "Leaked API keys can cost you thousands before you notice",
+    "verified": true
   },
   {
     "id": 3,
@@ -61,13 +63,14 @@
       "free",
       "chrome extension"
     ],
-    "problem": "AI bots are ruining Twitter/X replies with spam"
+    "problem": "AI bots are ruining Twitter/X replies with spam",
+    "verified": true
   },
   {
     "id": 4,
     "name": "iLink.today",
     "tagline": "Self-destructing encrypted links",
-    "description": "Share passwords, keys, or sensitive text through links that auto-expire after being viewed. End-to-end encrypted — even the server can't read your content.",
+    "description": "Share passwords, keys, or sensitive text through links that auto-expire after being viewed. End-to-end encrypted \u2014 even the server can't read your content.",
     "url": "https://ilink.today",
     "domain": "ilink.today",
     "category": "Privacy / Security",
@@ -83,7 +86,8 @@
       "free",
       "encrypted"
     ],
-    "problem": "Sharing passwords over Slack or email is a security risk"
+    "problem": "Sharing passwords over Slack or email is a security risk",
+    "verified": true
   },
   {
     "id": 5,
@@ -104,7 +108,8 @@
       "solo maker",
       "freemium"
     ],
-    "problem": "Expired SSL certs break trust and SEO overnight"
+    "problem": "Expired SSL certs break trust and SEO overnight",
+    "verified": true
   },
   {
     "id": 6,
@@ -126,7 +131,8 @@
       "free",
       "chrome extension"
     ],
-    "problem": "Switching between CLI and GitHub for code review is tedious"
+    "problem": "Switching between CLI and GitHub for code review is tedious",
+    "verified": true
   },
   {
     "id": 7,
@@ -148,7 +154,8 @@
       "free",
       "for makers"
     ],
-    "problem": "You miss the dopamine hit when a sale happens while you're away"
+    "problem": "You miss the dopamine hit when a sale happens while you're away",
+    "verified": true
   },
   {
     "id": 8,
@@ -169,13 +176,14 @@
       "solo maker",
       "free"
     ],
-    "problem": "You found a GitHub token but have no idea what it can access"
+    "problem": "You found a GitHub token but have no idea what it can access",
+    "verified": true
   },
   {
     "id": 9,
     "name": "Pocketbase",
     "tagline": "Open source backend in a single file",
-    "description": "Realtime database, auth, file storage, and admin dashboard — all in one executable. No dependencies, no Docker, just download and run. SQLite under the hood.",
+    "description": "Realtime database, auth, file storage, and admin dashboard \u2014 all in one executable. No dependencies, no Docker, just download and run. SQLite under the hood.",
     "url": "https://pocketbase.io",
     "domain": "pocketbase.io",
     "category": "Backend / Database",
@@ -197,7 +205,7 @@
     "id": 10,
     "name": "Plausible Analytics",
     "tagline": "Privacy-friendly Google Analytics alternative",
-    "description": "Lightweight, open source web analytics. No cookies, no personal data collection, fully GDPR compliant. Script is under 1KB — won't slow your site down.",
+    "description": "Lightweight, open source web analytics. No cookies, no personal data collection, fully GDPR compliant. Script is under 1KB \u2014 won't slow your site down.",
     "url": "https://plausible.io",
     "domain": "plausible.io",
     "category": "Analytics",

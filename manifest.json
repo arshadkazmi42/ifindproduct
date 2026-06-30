@@ -2,7 +2,7 @@
   "name": "iFound.today",
   "short_name": "iFound",
   "description": "Discover indie products you'll actually use",
-  "start_url": "/",
+  "start_url": "/feed",
   "display": "standalone",
   "background_color": "#0a0a0f",
   "theme_color": "#0a0a0f",

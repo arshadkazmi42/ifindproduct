@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#111118"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="orb1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="orb2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="200" fill="url(#orb1)"/>
+  <circle cx="1000" cy="480" r="250" fill="url(#orb2)"/>
+  <rect x="100" y="290" width="80" height="4" rx="2" fill="url(#accent)"/>
+  <text x="100" y="250" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" letter-spacing="-2">iFound.today</text>
+  <text x="100" y="350" fill="#a1a1aa" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="32">Discover indie products you'll actually use.</text>
+  <text x="100" y="400" fill="#52525b" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="32">Swipe through. No sign-ups. No rankings.</text>
+  <rect x="100" y="460" width="240" height="52" rx="26" fill="url(#accent)"/>
+  <text x="220" y="494" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="20">Browse Feed</text>
+  <text x="1100" y="590" text-anchor="end" fill="#3f3f46" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="18">ifound.today</text>
+</svg>

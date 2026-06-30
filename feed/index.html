@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Discover indie products you'll actually use. Swipe through tools built by real makers.">
+  <title>iFound.today — Feed</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="iFound.today — Discover indie products">
+  <meta property="og:description" content="A TikTok-style feed of indie products. Swipe through tools built by real makers.">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:url" content="https://ifound.today/feed">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="iFound.today — Discover indie products">
+  <meta name="twitter:description" content="A TikTok-style feed of indie products. Swipe through tools built by real makers.">
+  <meta name="twitter:image" content="/og-image.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <button class="filter-fab" id="filterFab">☰</button>
+
+    <div class="filter-panel" id="filterPanel">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Security">Security</button>
+      <button class="filter-btn" data-filter="Developer Tools">Dev Tools</button>
+      <button class="filter-btn" data-filter="AI">AI</button>
+      <button class="filter-btn" data-filter="Productivity">Productivity</button>
+      <button class="filter-btn" data-filter="Infrastructure">Infra</button>
+    </div>
+
+    <main class="feed" id="feed"></main>
+  </div>
+
+  <script>
+    // Force clear old service worker cache
+    if ('serviceWorker' in navigator) {
+      caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+    }
+  </script>
+  <script src="/app.js"></script>
+</body>
+</html>

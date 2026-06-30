@@ -68,11 +68,6 @@ function createCard(product) {
     ? (product.thumbnail || '')
     : `https://image.thum.io/get/width/768/crop/4000/noanimate/${product.url}`;
 
-  const tagsHtml = product.tags.map(tag => {
-    const hl = HIGHLIGHT_TAGS.includes(tag) ? 'highlight' : '';
-    return `<span class="card-info-tag ${hl}">${tag}</span>`;
-  }).join('');
-
   card.innerHTML = `
     <div class="card-hero">
       <div class="card-hero-shimmer" id="shimmer-${product.id}"></div>
@@ -92,18 +87,16 @@ function createCard(product) {
           <img src="${faviconUrl}" alt="" onerror="this.parentElement.innerHTML='<span class=card-info-logo-fallback>${fallbackLetter}</span>'">
         </div>
         <div class="card-info-text">
-          <div class="card-info-name">${product.name}</div>
+          <div class="card-info-name">${product.name}${product.verified ? ' <span class="verified-badge" title="Verified maker">✓</span>' : ''}</div>
           <div class="card-info-category">${product.category}</div>
         </div>
       </div>
       <div class="card-info-tagline">${product.tagline}</div>
-      <div class="card-info-tags">${tagsHtml}</div>
       <div class="card-info-footer">
         <span class="card-info-maker">by <strong>${product.maker}</strong></span>
         <span class="card-info-price">${product.price}</span>
-        <button class="card-info-fire ${userReactions.fire ? 'reacted' : ''}" data-product="${product.id}">🔥</button>
-        <a href="https://github.com/arshadkazmi42/ifindproduct/issues/new?template=claim-product.yml&title=${encodeURIComponent('[Claim] ' + product.name)}" target="_blank" rel="noopener" class="card-info-claim">Claim</a>
-        <a href="${product.url}" target="_blank" rel="noopener" class="card-info-cta">Visit →</a>
+        <button class="card-info-fire fire-btn ${userReactions.fire ? 'reacted' : ''}" data-product="${product.id}">🔥</button>
+        <a href="${product.url}" target="_blank" rel="noopener" class="card-info-visit">Visit ↗</a>
       </div>
     </div>
   `;
@@ -187,34 +180,45 @@ function observeCards() {
   document.querySelectorAll('.card').forEach(c => observer.observe(c));
 }
 
-// Filters
+// Filter panel
+const filterPanel = document.getElementById('filterPanel');
+const filterFab = document.getElementById('filterFab');
+
+if (filterFab) {
+  filterFab.addEventListener('click', () => filterPanel.classList.toggle('open'));
+}
+
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeFilter = btn.dataset.filter;
+    filterPanel.classList.remove('open');
     renderFeed();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
-// Fire reaction
+// Filter toggle + fire reaction + close panel on outside tap
 feed.addEventListener('click', (e) => {
-  const btn = e.target.closest('.card-info-fire');
-  if (!btn) return;
-
-  const productId = parseInt(btn.dataset.product);
-  if (!reactions[productId]) reactions[productId] = {};
-
-  if (reactions[productId].fire) {
-    delete reactions[productId].fire;
-    btn.classList.remove('reacted');
-  } else {
-    reactions[productId].fire = true;
-    btn.classList.add('reacted');
+  const btn = e.target.closest('.fire-btn');
+  if (btn) {
+    const productId = parseInt(btn.dataset.product);
+    if (!reactions[productId]) reactions[productId] = {};
+    if (reactions[productId].fire) {
+      delete reactions[productId].fire;
+      btn.classList.remove('reacted');
+    } else {
+      reactions[productId].fire = true;
+      btn.classList.add('reacted');
+    }
+    localStorage.setItem('ifound-reactions', JSON.stringify(reactions));
+    return;
   }
 
-  localStorage.setItem('ifound-reactions', JSON.stringify(reactions));
+  if (filterPanel.classList.contains('open')) {
+    filterPanel.classList.remove('open');
+  }
 });
 
 
@@ -222,4 +226,48 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
 
+// PWA install banner
+function showInstallBanner() {
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+    || navigator.standalone === true;
+  const dismissed = localStorage.getItem('ifound-install-dismissed');
+  if (isStandalone || dismissed) return;
+
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isAndroid = /android/i.test(navigator.userAgent);
+  if (!isIOS && !isAndroid) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'install-banner';
+  banner.innerHTML = isIOS
+    ? `<span>Tap <strong>Share</strong> then <strong>Add to Home Screen</strong> for the full app experience</span><button class="install-dismiss">&times;</button>`
+    : `<span>Add iFound to your home screen for the full app experience</span><button class="install-dismiss">&times;</button>`;
+  document.body.appendChild(banner);
+
+  setTimeout(() => banner.classList.add('visible'), 2000);
+
+  banner.querySelector('.install-dismiss').addEventListener('click', () => {
+    banner.classList.remove('visible');
+    localStorage.setItem('ifound-install-dismissed', '1');
+    setTimeout(() => banner.remove(), 300);
+  });
+
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    banner.innerHTML = `<span>Install iFound as an app</span><button class="install-btn-action">Install</button><button class="install-dismiss">&times;</button>`;
+    banner.querySelector('.install-btn-action').addEventListener('click', () => {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => { banner.remove(); });
+    });
+    banner.querySelector('.install-dismiss').addEventListener('click', () => {
+      banner.classList.remove('visible');
+      localStorage.setItem('ifound-install-dismissed', '1');
+      setTimeout(() => banner.remove(), 300);
+    });
+  });
+}
+
+showInstallBanner();
 loadProducts();

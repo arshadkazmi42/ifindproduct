@@ -97,7 +97,7 @@ function inferPrice(post) {
 
 const QUERIES = {
   newest: `{
-    posts(order: NEWEST, first: 20) {
+    posts(order: NEWEST, first: 50) {
       edges {
         node {
           id
@@ -116,7 +116,7 @@ const QUERIES = {
     }
   }`,
   trending: `{
-    posts(order: RANKING, first: 20) {
+    posts(order: RANKING, first: 50) {
       edges {
         node {
           id
@@ -215,24 +215,36 @@ async function main() {
 
   console.log(`Fetched ${all.length} unique products (${trending.length} trending + ${newest.length} newest)`);
 
-  // Load existing manual products (ids < 100 are reserved for manual entries)
+  // Load ALL existing products and accumulate new ones
   let existing = [];
   try {
     existing = JSON.parse(fs.readFileSync(OUTPUT, 'utf-8'));
-    existing = existing.filter(p => p.id < 100);
-    console.log(`Keeping ${existing.length} manual products`);
+    console.log(`Loaded ${existing.length} existing products`);
   } catch {
     console.log('No existing products.json, starting fresh');
   }
 
-  // Transform PH products starting from id 100 (skip products without real website URLs)
+  const existingDomains = new Set(existing.map(p => p.domain).filter(Boolean));
+  const maxId = existing.reduce((max, p) => Math.max(max, p.id), 99);
+  let nextId = Math.max(maxId + 1, 100);
+
   const phProducts = all.map((post, i) => transformPost(post, i)).filter(Boolean);
-  phProducts.forEach((p, i) => { p.id = 100 + i; });
   console.log(`${phProducts.length} products have real website URLs (filtered from ${all.length})`);
 
-  const merged = [...existing, ...phProducts];
-  fs.writeFileSync(OUTPUT, JSON.stringify(merged, null, 2));
-  console.log(`Wrote ${merged.length} total products to ${OUTPUT}`);
+  let added = 0;
+  for (const p of phProducts) {
+    if (existingDomains.has(p.domain)) continue;
+    p.id = nextId++;
+    p.source = 'producthunt';
+    existing.push(p);
+    existingDomains.add(p.domain);
+    added++;
+  }
+
+  console.log(`Added ${added} new products from Product Hunt (${phProducts.length - added} duplicates skipped)`);
+
+  fs.writeFileSync(OUTPUT, JSON.stringify(existing, null, 2));
+  console.log(`Wrote ${existing.length} total products to ${OUTPUT}`);
 }
 
 main().catch(err => {

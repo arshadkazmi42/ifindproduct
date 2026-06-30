@@ -1,0 +1,53 @@
+name: Process Product Claim
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process:
+    if: github.event.label.name == 'claim'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Process claim
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node scripts/process-claim.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/products.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          BRANCH="claim-${{ github.event.issue.number }}"
+          git checkout -b "$BRANCH"
+          git commit -m "feat: verify product from claim #${{ github.event.issue.number }}"
+          git push origin "$BRANCH"
+
+      - name: Create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --title "Verify product from claim #${{ github.event.issue.number }}" \
+            --body "Marks product as verified per claim #${{ github.event.issue.number }} by @${{ github.event.issue.user.login }}." \
+            --base main \
+            --head "claim-${{ github.event.issue.number }}"
+
+      - name: Comment on issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --body "Your claim is being processed! A PR has been created to add the verified badge to your product. Once merged, your listing will show the verified maker badge."

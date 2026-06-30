@@ -2,92 +2,15 @@
 
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
-const http = require('http');
+const puppeteer = require('puppeteer-core');
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'products.json');
 const SCREENSHOTS_DIR = path.join(__dirname, '..', 'screenshots');
 
-function download(url, maxRedirects = 5) {
-  return new Promise((resolve, reject) => {
-    if (maxRedirects <= 0) return reject(new Error('too many redirects'));
-    const client = url.startsWith('https') ? https : http;
-    const req = client.get(url, {
-      timeout: 15000,
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ifound-bot/1.0)' }
-    }, (res) => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        let loc = res.headers.location;
-        if (loc.startsWith('/')) loc = new URL(loc, url).href;
-        res.resume();
-        return download(loc, maxRedirects - 1).then(resolve).catch(reject);
-      }
-      if (res.statusCode !== 200) {
-        res.resume();
-        return reject(new Error(`HTTP ${res.statusCode}`));
-      }
-      const chunks = [];
-      res.on('data', c => chunks.push(c));
-      res.on('end', () => resolve(Buffer.concat(chunks)));
-      res.on('error', reject);
-    });
-    req.on('error', reject);
-    req.on('timeout', () => { req.destroy(); reject(new Error('timeout')); });
-  });
-}
-
-function fetchHtml(url) {
-  return new Promise((resolve, reject) => {
-    const client = url.startsWith('https') ? https : http;
-    const req = client.get(url, {
-      timeout: 10000,
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ifound-bot/1.0)' }
-    }, (res) => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        let loc = res.headers.location;
-        if (loc.startsWith('/')) loc = new URL(loc, url).href;
-        res.resume();
-        return fetchHtml(loc).then(resolve).catch(reject);
-      }
-      if (res.statusCode !== 200) {
-        res.resume();
-        return reject(new Error(`HTTP ${res.statusCode}`));
-      }
-      const chunks = [];
-      res.on('data', c => chunks.push(c));
-      res.on('end', () => resolve(Buffer.concat(chunks).toString('utf-8')));
-      res.on('error', reject);
-    });
-    req.on('error', reject);
-    req.on('timeout', () => { req.destroy(); reject(new Error('timeout')); });
-  });
-}
-
-function extractOgImage(html) {
-  const patterns = [
-    /<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["']/i,
-    /<meta[^>]*content=["']([^"']+)["'][^>]*property=["']og:image["']/i,
-    /<meta[^>]*name=["']twitter:image["'][^>]*content=["']([^"']+)["']/i,
-    /<meta[^>]*content=["']([^"']+)["'][^>]*name=["']twitter:image["']/i,
-  ];
-  for (const p of patterns) {
-    const m = html.match(p);
-    if (m && m[1] && !m[1].includes('favicon')) return m[1];
-  }
-  return null;
-}
+const WIDTH = 768;
+const HEIGHT = 1024;
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-async function fetchMobileScreenshot(product) {
-  const url = `https://image.thum.io/get/width/768/crop/1400/noanimate/${product.url}`;
-  try {
-    const buf = await download(url);
-    return buf.length > 5000 ? buf : null;
-  } catch {
-    return null;
-  }
-}
 
 async function main() {
   if (!fs.existsSync(SCREENSHOTS_DIR)) fs.mkdirSync(SCREENSHOTS_DIR);
@@ -95,7 +18,14 @@ async function main() {
   const products = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
   const toFetch = products.filter(p => !p.url.includes('producthunt.com'));
 
-  console.log(`Fetching mobile screenshots for ${toFetch.length} products (768px viewport)...\n`);
+  console.log(`Taking screenshots for ${toFetch.length} products (${WIDTH}x${HEIGHT} viewport)...\n`);
+
+  const chromePath = '/root/.cache/puppeteer/chrome/linux-149.0.7827.22/chrome-linux64/chrome';
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    executablePath: chromePath,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+  });
 
   let fetched = 0, skipped = 0, failed = 0;
 
@@ -110,19 +40,23 @@ async function main() {
       }
     }
 
-    const buf = await fetchMobileScreenshot(p);
-    if (buf) {
-      fs.writeFileSync(outFile, buf);
+    try {
+      const page = await browser.newPage();
+      await page.setViewport({ width: WIDTH, height: HEIGHT });
+      await page.goto(p.url, { waitUntil: 'networkidle2', timeout: 20000 });
+      await sleep(1500);
+      await page.screenshot({ path: outFile, type: 'jpeg', quality: 85, fullPage: true });
+      await page.close();
+      const sz = fs.statSync(outFile).size;
       fetched++;
-      console.log(`  ✓ ${p.name} (${Math.round(buf.length / 1024)}KB)`);
-    } else {
+      console.log(`  ✓ ${p.name} (${Math.round(sz / 1024)}KB)`);
+    } catch (err) {
       failed++;
-      console.log(`  ✗ ${p.name} — failed`);
+      console.log(`  ✗ ${p.name}: ${err.message.split('\n')[0]}`);
     }
-
-    await sleep(1500);
   }
 
+  await browser.close();
   console.log(`\nDone: ${fetched} fetched, ${skipped} cached, ${failed} failed`);
 }
 

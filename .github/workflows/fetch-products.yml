@@ -1,4 +1,4 @@
-name: Fetch Product Hunt Products
+name: Fetch Products
 
 on:
   schedule:
@@ -18,12 +18,21 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Fetch products from Product Hunt
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Fetch from Product Hunt
         env:
           PH_TOKEN: ${{ secrets.PH_TOKEN }}
         run: node scripts/fetch-products.js
 
-      - name: Fetch screenshots
+      - name: Fetch from TrustMRR
+        env:
+          TRUSTMRR_TOKEN: ${{ secrets.TRUSTMRR_TOKEN }}
+        run: node scripts/fetch-trustmrr.js
+        continue-on-error: true
+
+      - name: Fetch screenshots for new products
         run: node scripts/fetch-screenshots.js
 
       - name: Commit updated products and screenshots
@@ -32,5 +41,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/products.json screenshots/
           git diff --cached --quiet && echo "No changes" && exit 0
-          git commit -m "chore: update products and screenshots"
+          git commit -m "chore: daily product fetch and screenshots"
           git push

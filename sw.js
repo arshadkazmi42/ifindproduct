@@ -1,5 +1,5 @@
-const CACHE_NAME = 'ifound-v4';
-const ASSETS = ['/', '/style.css', '/app.js', '/data/products.json'];
+const CACHE_NAME = 'ifound-v19';
+const ASSETS = ['/', '/feed/', '/style.css', '/app.js', '/data/products.json'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));

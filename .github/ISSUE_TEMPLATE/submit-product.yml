@@ -1,0 +1,105 @@
+name: Submit a Product
+description: Submit your indie product to iFound.today
+title: "[Submit] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting your product! Fill in the details below and we'll add it to the feed.
+
+  - type: input
+    id: name
+    attributes:
+      label: Product Name
+      placeholder: e.g. My Awesome Tool
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Website URL
+      placeholder: https://myproduct.com
+    validations:
+      required: true
+
+  - type: input
+    id: tagline
+    attributes:
+      label: Tagline
+      description: One-line pitch (keep it under 80 characters)
+      placeholder: e.g. The fastest way to deploy static sites
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does it do? (2-3 sentences)
+      placeholder: Describe what your product does and why someone would use it.
+    validations:
+      required: true
+
+  - type: input
+    id: maker
+    attributes:
+      label: Maker Name
+      placeholder: Your name or team name
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Developer Tools
+        - AI / Automation
+        - Security
+        - Productivity
+        - Design
+        - Marketing
+        - Analytics
+        - Infrastructure
+        - DevOps
+        - Open Source
+        - Education
+        - Fintech
+        - Health
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: price
+    attributes:
+      label: Pricing
+      options:
+        - Free
+        - Free tier available
+        - Free & Open Source
+        - Paid
+        - Check website
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: tags
+    attributes:
+      label: Tags (select all that apply)
+      options:
+        - label: Solo maker
+        - label: Small team
+        - label: Open source
+        - label: Bootstrapped
+        - label: Free
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does it solve?
+      placeholder: e.g. You spend hours doing repetitive browser tasks manually
+    validations:
+      required: false

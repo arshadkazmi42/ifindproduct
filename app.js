@@ -1,6 +1,5 @@
 let PRODUCTS = [];
 const feed = document.getElementById('feed');
-const counter = document.getElementById('counter');
 let activeFilter = 'all';
 let reactions = JSON.parse(localStorage.getItem('ifound-reactions') || '{}');
 let seen = JSON.parse(localStorage.getItem('ifound-seen') || '[]');
@@ -67,7 +66,7 @@ function createCard(product) {
   const localScreenshot = `/screenshots/${product.id}.jpg`;
   const remoteScreenshot = isPHUrl
     ? (product.thumbnail || '')
-    : `https://image.thum.io/get/width/768/crop/1400/noanimate/${product.url}`;
+    : `https://image.thum.io/get/width/768/crop/4000/noanimate/${product.url}`;
 
   const tagsHtml = product.tags.map(tag => {
     const hl = HIGHLIGHT_TAGS.includes(tag) ? 'highlight' : '';
@@ -148,22 +147,6 @@ function loadScreenshot(card) {
   }
 }
 
-function updateCounter() {
-  const products = getFilteredProducts();
-  const idx = getCurrentCardIndex();
-  counter.textContent = `${Math.min(idx + 1, products.length)} / ${products.length}`;
-}
-
-function getCurrentCardIndex() {
-  const cards = document.querySelectorAll('.card');
-  const scrollY = window.scrollY;
-  let closest = 0, minDist = Infinity;
-  cards.forEach((card, i) => {
-    const dist = Math.abs(card.offsetTop - scrollY);
-    if (dist < minDist) { minDist = dist; closest = i; }
-  });
-  return closest;
-}
 
 function renderFeed() {
   feed.innerHTML = '';
@@ -179,13 +162,11 @@ function renderFeed() {
         </div>
       </div>
     `;
-    counter.textContent = '';
     return;
   }
 
   products.forEach(p => feed.appendChild(createCard(p)));
   observeCards();
-  updateCounter();
 }
 
 function observeCards() {
@@ -194,7 +175,6 @@ function observeCards() {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         markSeen(parseInt(entry.target.dataset.id));
-        updateCounter();
 
         if (!entry.target.dataset.screenshotLoaded) {
           entry.target.dataset.screenshotLoaded = 'true';
@@ -236,7 +216,6 @@ feed.addEventListener('click', (e) => {
   localStorage.setItem('ifound-reactions', JSON.stringify(reactions));
 });
 
-window.addEventListener('scroll', () => updateCounter(), { passive: true });
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');

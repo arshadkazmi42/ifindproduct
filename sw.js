@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ifound-v2';
+const CACHE_NAME = 'ifound-v3';
 const ASSETS = ['/', '/style.css', '/app.js', '/data/products.json'];
 
 self.addEventListener('install', e => {

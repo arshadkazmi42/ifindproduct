@@ -16,14 +16,7 @@
 </head>
 <body>
   <div class="app-shell">
-    <header class="topbar">
-      <div class="topbar-top">
-        <div class="topbar-brand">
-          <div class="topbar-logo">if</div>
-          <span class="topbar-name">iFound<span class="topbar-tld">.today</span></span>
-        </div>
-        <span class="topbar-counter" id="counter"></span>
-      </div>
+    <div class="filter-bar">
       <div class="filter-row">
         <button class="filter-btn active" data-filter="all">For you</button>
         <button class="filter-btn" data-filter="Security">Security</button>
@@ -31,8 +24,9 @@
         <button class="filter-btn" data-filter="AI">AI</button>
         <button class="filter-btn" data-filter="Productivity">Productivity</button>
         <button class="filter-btn" data-filter="Infrastructure">Infra</button>
+        <a href="https://github.com/arshadkazmi42/ifindproduct/issues/new?template=submit-product.yml" target="_blank" rel="noopener" class="filter-btn submit-btn">+ Submit</a>
       </div>
-    </header>
+    </div>
 
     <main class="feed" id="feed"></main>
   </div>

@@ -1,0 +1,55 @@
+name: Process Product Submission
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process:
+    if: contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Process submission
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: node scripts/process-submission.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/products.json screenshots/
+          git diff --cached --quiet && echo "No changes" && exit 0
+          BRANCH="submission-${{ github.event.issue.number }}"
+          git checkout -b "$BRANCH"
+          git commit -m "feat: add product from submission #${{ github.event.issue.number }}"
+          git push origin "$BRANCH"
+
+      - name: Create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --title "Add product from #${{ github.event.issue.number }}" \
+            --body "Adds product submitted in #${{ github.event.issue.number }} by @${{ github.event.issue.user.login }}." \
+            --base main \
+            --head "submission-${{ github.event.issue.number }}"
+
+      - name: Comment on issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --body "Thanks for submitting! A PR has been created to add your product. It'll go live once merged."

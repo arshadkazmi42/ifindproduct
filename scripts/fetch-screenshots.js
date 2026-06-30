@@ -52,7 +52,7 @@ async function main() {
       }
     }
 
-    const screenshotUrl = `https://image.thum.io/get/width/480/crop/960/noanimate/${p.url}`;
+    const screenshotUrl = `https://image.thum.io/get/width/1280/crop/900/noanimate/${p.url}`;
     try {
       const buf = await download(screenshotUrl);
       if (buf.length > 5000) {

@@ -160,17 +160,20 @@ async function fetchPH(query) {
 }
 
 function transformPost(post, index) {
-  const website = post.website || post.url;
-  const domain = extractDomain(website);
+  const website = post.website || '';
+  const phUrl = post.url || '';
+  const actualUrl = website || phUrl;
+  const domain = website ? extractDomain(website) : extractDomain(phUrl);
   const makerName = post.makers?.[0]?.name || 'Unknown Maker';
   const topics = (post.topics?.edges || []).map(e => e.node);
+  const thumbnail = post.thumbnail?.url || '';
 
   return {
     id: index + 1,
     name: post.name,
     tagline: post.tagline || '',
     description: post.description || post.tagline || '',
-    url: website,
+    url: actualUrl,
     domain: domain,
     category: mapCategory(topics),
     maker: makerName,
@@ -180,7 +183,8 @@ function transformPost(post, index) {
     tags: inferTags(post),
     problem: post.tagline || '',
     votes: post.votesCount || 0,
-    ph_url: post.url,
+    thumbnail: thumbnail,
+    ph_url: phUrl,
     created_at: post.createdAt,
   };
 }

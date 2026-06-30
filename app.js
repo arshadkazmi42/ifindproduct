@@ -63,7 +63,11 @@ function createCard(product) {
   const fallbackLetter = product.name[0].toUpperCase();
   const patternSvg = generatePattern(product.pattern, c1);
   const encodedPattern = `url("data:image/svg+xml,${patternSvg}")`;
-  const screenshotUrl = `https://image.thum.io/get/width/860/crop/1200/noanimate/${product.url}`;
+  const isPHUrl = product.url.includes('producthunt.com');
+  const localScreenshot = `/screenshots/${product.id}.jpg`;
+  const remoteScreenshot = isPHUrl
+    ? (product.thumbnail || '')
+    : `https://image.thum.io/get/width/430/crop/780/noanimate/${product.url}`;
 
   const tagsHtml = product.tags.map(tag => {
     const hl = HIGHLIGHT_TAGS.includes(tag) ? 'highlight' : '';
@@ -104,33 +108,44 @@ function createCard(product) {
     </div>
   `;
 
-  card.dataset.screenshotUrl = screenshotUrl;
+  card.dataset.localScreenshot = localScreenshot;
+  card.dataset.remoteScreenshot = remoteScreenshot;
   return card;
 }
 
 function loadScreenshot(card) {
-  const url = card.dataset.screenshotUrl;
-  if (!url) return;
-
+  const localUrl = card.dataset.localScreenshot;
+  const remoteUrl = card.dataset.remoteScreenshot;
   const hero = card.querySelector('.card-hero');
   const fallback = card.querySelector('.card-hero-fallback');
   const shimmer = card.querySelector('.card-hero-shimmer');
 
-  const img = new Image();
-  img.className = 'card-hero-screenshot';
-  img.alt = '';
+  function showImage(url) {
+    const img = new Image();
+    img.className = 'card-hero-screenshot';
+    img.alt = '';
+    img.onload = () => {
+      hero.insertBefore(img, fallback);
+      fallback.classList.add('hidden');
+      if (shimmer) shimmer.classList.add('hidden');
+    };
+    img.onerror = () => {
+      if (url === localUrl && remoteUrl) {
+        showImage(remoteUrl);
+      } else {
+        if (shimmer) shimmer.classList.add('hidden');
+      }
+    };
+    img.src = url;
+  }
 
-  img.onload = () => {
-    hero.insertBefore(img, fallback);
-    fallback.classList.add('hidden');
+  if (localUrl) {
+    showImage(localUrl);
+  } else if (remoteUrl) {
+    showImage(remoteUrl);
+  } else {
     if (shimmer) shimmer.classList.add('hidden');
-  };
-
-  img.onerror = () => {
-    if (shimmer) shimmer.classList.add('hidden');
-  };
-
-  img.src = url;
+  }
 }
 
 function updateCounter() {

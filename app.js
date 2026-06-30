@@ -64,9 +64,14 @@ function createCard(product) {
   const encodedPattern = `url("data:image/svg+xml,${patternSvg}")`;
   const isPHUrl = product.url.includes('producthunt.com');
   const localScreenshot = `/screenshots/${product.id}.jpg`;
+  // Remote preview: mShots renders a tall PORTRAIT capture (~430x930) whose aspect
+  // matches the card, so it fills the screen showing a real slice of the page
+  // (hero + below) instead of a zoomed square. (thum.io's full-page mode is paid.)
   const remoteScreenshot = isPHUrl
     ? (product.thumbnail || '')
-    : `https://image.thum.io/get/width/768/crop/4000/noanimate/${product.url}`;
+    : `https://s.wordpress.com/mshots/v1/${encodeURIComponent(product.url)}?w=430&h=930`;
+  // Secondary remote if mShots fails — keeps something rather than a blank card.
+  const remoteScreenshot2 = `https://image.thum.io/get/width/768/crop/4000/noanimate/${product.url}`;
 
   card.innerHTML = `
     <div class="card-hero">
@@ -103,17 +108,26 @@ function createCard(product) {
 
   card.dataset.localScreenshot = localScreenshot;
   card.dataset.remoteScreenshot = remoteScreenshot;
+  card.dataset.remoteScreenshot2 = remoteScreenshot2;
   return card;
 }
 
 function loadScreenshot(card) {
-  const localUrl = card.dataset.localScreenshot;
-  const remoteUrl = card.dataset.remoteScreenshot;
+  // Try sources in order: local full-page → mShots portrait → thum.io → gradient.
+  const sources = [
+    card.dataset.localScreenshot,
+    card.dataset.remoteScreenshot,
+    card.dataset.remoteScreenshot2,
+  ].filter(Boolean);
   const hero = card.querySelector('.card-hero');
   const fallback = card.querySelector('.card-hero-fallback');
   const shimmer = card.querySelector('.card-hero-shimmer');
 
-  function showImage(url) {
+  function tryNext(i) {
+    if (i >= sources.length) {
+      if (shimmer) shimmer.classList.add('hidden'); // show the branded gradient fallback
+      return;
+    }
     const img = new Image();
     img.className = 'card-hero-screenshot';
     img.alt = '';
@@ -122,23 +136,11 @@ function loadScreenshot(card) {
       fallback.classList.add('hidden');
       if (shimmer) shimmer.classList.add('hidden');
     };
-    img.onerror = () => {
-      if (url === localUrl && remoteUrl) {
-        showImage(remoteUrl);
-      } else {
-        if (shimmer) shimmer.classList.add('hidden');
-      }
-    };
-    img.src = url;
+    img.onerror = () => tryNext(i + 1);
+    img.src = sources[i];
   }
 
-  if (localUrl) {
-    showImage(localUrl);
-  } else if (remoteUrl) {
-    showImage(remoteUrl);
-  } else {
-    if (shimmer) shimmer.classList.add('hidden');
-  }
+  tryNext(0);
 }
 
 

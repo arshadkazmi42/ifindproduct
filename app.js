@@ -63,14 +63,9 @@ function createCard(product) {
   const patternSvg = generatePattern(product.pattern, c1);
   // URL-encode the SVG so its quotes/angle brackets don't break out of the inline style="".
   const encodedPattern = `url('data:image/svg+xml,${encodeURIComponent(patternSvg)}')`;
-  const isPHUrl = product.url.includes('producthunt.com');
+  // Pre-generated local screenshot only — instant, no on-the-fly generation.
+  // Missing ones fall back to the clean branded gradient (also instant).
   const localScreenshot = `/screenshots/${product.id}.jpg`;
-  // Remote preview: mShots renders a tall PORTRAIT capture (~430x930) whose aspect
-  // matches the card, so it fills the screen showing a real slice of the page
-  // (hero + below) instead of a zoomed square. (thum.io's full-page mode is paid.)
-  const remoteScreenshot = isPHUrl
-    ? (product.thumbnail || '')
-    : `https://s.wordpress.com/mshots/v1/${encodeURIComponent(product.url)}?w=430&h=930`;
 
   card.innerHTML = `
     <div class="card-hero">
@@ -106,16 +101,12 @@ function createCard(product) {
   `;
 
   card.dataset.localScreenshot = localScreenshot;
-  card.dataset.remoteScreenshot = remoteScreenshot;
   return card;
 }
 
 function loadScreenshot(card) {
-  // Try sources in order: local full-page → mShots portrait → branded gradient.
-  const sources = [
-    card.dataset.localScreenshot,
-    card.dataset.remoteScreenshot,
-  ].filter(Boolean);
+  // Pre-generated local screenshot, else the branded gradient fallback.
+  const sources = [card.dataset.localScreenshot].filter(Boolean);
   const hero = card.querySelector('.card-hero');
   const fallback = card.querySelector('.card-hero-fallback');
   const shimmer = card.querySelector('.card-hero-shimmer');
@@ -129,13 +120,7 @@ function loadScreenshot(card) {
     img.className = 'card-hero-screenshot';
     img.alt = '';
     img.onload = () => {
-      // Reject non-portrait results: the mShots "being generated" placeholder is
-      // 400x300 (landscape); real captures are portrait. This shows the clean
-      // gradient instead of the placeholder, and the real shot once it's ready.
-      if (img.naturalWidth < 120 || img.naturalHeight < img.naturalWidth * 1.3) {
-        tryNext(i + 1);
-        return;
-      }
+      if (img.naturalWidth < 60) { tryNext(i + 1); return; } // skip broken/tiny files
       hero.insertBefore(img, fallback);
       fallback.classList.add('hidden');
       if (shimmer) shimmer.classList.add('hidden');

@@ -33,7 +33,17 @@ async function main() {
   const products = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
   const toFetch = products.filter(p => !p.url.includes('producthunt.com'));
 
-  console.log(`Taking screenshots for ${toFetch.length} products (${WIDTH}x${HEIGHT} viewport)...\n`);
+  // Keep the on-disk screenshot set BOUNDED: never generate beyond TOTAL_CAP total
+  // (existing + new). Products without a screenshot just show the branded gradient.
+  const TOTAL_CAP = Number(process.env.SCREENSHOT_TOTAL_CAP || 600);
+  const existingCount = fs.readdirSync(SCREENSHOTS_DIR).filter(f => /\.(jpe?g|png)$/i.test(f)).length;
+  const MAX_SHOTS = Math.min(Number(process.env.MAX_SHOTS || 40), Math.max(0, TOTAL_CAP - existingCount));
+  if (MAX_SHOTS <= 0) {
+    console.log(`Screenshot total cap reached (${existingCount}/${TOTAL_CAP} on disk) — skipping generation.`);
+    return;
+  }
+
+  console.log(`Taking up to ${MAX_SHOTS} new screenshots (${existingCount}/${TOTAL_CAP} on disk, ${WIDTH}x${HEIGHT})...\n`);
 
   const chromePath = resolveChrome();
   if (!chromePath) {
@@ -55,10 +65,6 @@ async function main() {
     return;
   }
 
-  // Local screenshots are best-effort and capped per run so CI never times out on
-  // a bulk import of thousands — the feed uses remote previews for the rest, and
-  // subsequent runs backfill more (cached ones are skipped).
-  const MAX_SHOTS = Number(process.env.MAX_SHOTS || 40);
   let fetched = 0, skipped = 0, failed = 0;
 
   for (const p of toFetch) {

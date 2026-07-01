@@ -68,6 +68,16 @@ function createCard(product) {
   const localScreenshot = `/screenshots/${product.id}.jpg`;
   const ogImage = product.og_image || '';
 
+  // Provenance: where the product was sourced from, linking to its page there.
+  const src = product.source === 'producthunt'
+      ? { label: 'Product Hunt', url: product.ph_url || 'https://www.producthunt.com' }
+    : product.source === 'trustmrr'
+      ? { label: 'TrustMRR', url: product.source_url || 'https://trustmrr.com' }
+    : null;
+  const sourceHtml = src
+    ? ` · <a href="${src.url}" target="_blank" rel="noopener" class="card-info-source">via ${src.label} ↗</a>`
+    : '';
+
   card.innerHTML = `
     <div class="card-hero">
       <div class="card-hero-shimmer" id="shimmer-${product.id}"></div>
@@ -88,7 +98,7 @@ function createCard(product) {
         </div>
         <div class="card-info-text">
           <div class="card-info-name">${product.name}${product.verified ? ' <span class="verified-badge" title="Verified maker">✓</span>' : ''}</div>
-          <div class="card-info-category">${product.category}</div>
+          <div class="card-info-category">${product.category}${sourceHtml}</div>
         </div>
       </div>
       <div class="card-info-tagline">${product.tagline}</div>

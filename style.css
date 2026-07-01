@@ -352,6 +352,13 @@ body {
   text-shadow: 0 1px 6px rgba(0,0,0,0.8);
 }
 
+.card-info-source {
+  color: var(--accent);
+  text-decoration: none;
+  opacity: 0.9;
+}
+.card-info-source:hover { text-decoration: underline; opacity: 1; }
+
 .card-info-tagline {
   font-size: 13px;
   color: var(--text-secondary);

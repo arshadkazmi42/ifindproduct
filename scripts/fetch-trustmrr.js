@@ -114,23 +114,32 @@ async function main() {
     console.log('No existing products.json, starting fresh');
   }
 
-  // Existing rows (incl. their og:image URLs) are kept; only genuinely new
-  // startups are appended (dedup by domain). No wholesale refresh — that would
-  // wipe the enriched og:image URLs every run.
-  const existingDomains = new Set(existing.map(p => p.domain).filter(Boolean));
+  // Existing rows (incl. og:image URLs) are kept; new startups are appended.
+  // We also BACKFILL source_url (the TrustMRR page) onto already-listed rows.
+  const byDomain = new Map(existing.filter(p => p.domain).map(p => [p.domain, p]));
   const maxId = existing.reduce((max, p) => Math.max(max, p.id), 99);
   let nextId = Math.max(maxId + 1, 100);
 
   const save = () => fs.writeFileSync(OUTPUT, JSON.stringify(existing, null, 2));
 
-  let added = 0;
+  let added = 0, backfilled = 0;
   for (let i = 0; i < allStartups.length; i++) {
     const s = allStartups[i];
     const url = s.website || s.url || '';
     if (!url) continue;
 
     const domain = extractDomain(url);
-    if (!domain || existingDomains.has(domain)) continue;
+    if (!domain) continue;
+
+    const slug = s.slug || '';
+    const sourceUrl = slug ? `https://trustmrr.com/startup/${slug}` : '';
+
+    const existingP = byDomain.get(domain);
+    if (existingP) {
+      // Already listed — just backfill its TrustMRR page link if missing.
+      if (sourceUrl && !existingP.source_url) { existingP.source_url = sourceUrl; backfilled++; }
+      continue;
+    }
 
     const mrrUsd = Math.round((s.revenue && s.revenue.mrr ? s.revenue.mrr : 0) / 100); // API returns cents
     const handle = s.xHandle ? String(s.xHandle).replace(/^@/, '') : '';
@@ -152,17 +161,18 @@ async function main() {
       tags: inferTags(s),
       problem: s.tagline || s.description || '',
       source: 'trustmrr',
+      source_url: sourceUrl,
       mrr: mrrUsd,
     };
 
     existing.push(product);
-    existingDomains.add(domain);
+    byDomain.set(domain, product);
     added++;
-    if (added % 100 === 0) save(); // progressive checkpoint
+    if ((added + backfilled) % 100 === 0) save(); // progressive checkpoint
   }
 
   save();
-  console.log(`Added ${added} new products from TrustMRR. Wrote ${existing.length} total to ${OUTPUT}`);
+  console.log(`Added ${added} new, backfilled source_url on ${backfilled} existing. Total ${existing.length}.`);
 }
 
 main().catch(err => {

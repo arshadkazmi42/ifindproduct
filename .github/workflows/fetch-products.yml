@@ -51,21 +51,5 @@ jobs:
         if: always()
         run: |
           bash scripts/commit.sh "chore: og:image previews"
-
-      - name: Set up Chrome
-        id: setup-chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-        continue-on-error: true
-
-      - name: Fetch screenshots for new products
-        run: node scripts/fetch-screenshots.js
-        env:
-          PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
-        continue-on-error: true
-
-      - name: Commit screenshots
-        if: always()
-        run: |
-          bash scripts/commit.sh "chore: product screenshots"
+      # Note: full-page screenshots are generated on the server (see scripts/gen-screenshots.js)
+      # and served via the tunnel — intentionally NOT generated/committed in CI (repo stays small).

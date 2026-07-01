@@ -117,10 +117,10 @@ function createCard(product) {
 }
 
 function loadScreenshot(card) {
-  // Sources in order: og:image (blur-filled) → local screenshot (cover) → gradient.
+  // Sources in order: full-page local screenshot (cover) → og:image (blur-fill) → gradient.
   const sources = [];
-  if (card.dataset.ogImage) sources.push({ url: card.dataset.ogImage, mode: 'blur' });
   if (card.dataset.localScreenshot) sources.push({ url: card.dataset.localScreenshot, mode: 'cover' });
+  if (card.dataset.ogImage) sources.push({ url: card.dataset.ogImage, mode: 'blur' });
 
   const hero = card.querySelector('.card-hero');
   const fallback = card.querySelector('.card-hero-fallback');

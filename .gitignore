@@ -1,3 +1,6 @@
 .DS_Store
 node_modules/
 *.log
+# Full-page screenshots are generated on the server and served via the tunnel.
+# Kept out of git so the repo never bloats; regenerable if the box is wiped.
+screenshots/

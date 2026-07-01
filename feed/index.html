@@ -21,12 +21,27 @@
   <meta name="twitter:description" content="A TikTok-style feed of indie products. Swipe through tools built by real makers.">
   <meta name="twitter:image" content="/og-image.png">
   <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icons/icon-192.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <!-- Start the (~1MB) feed download in parallel with app.js parsing. -->
+  <link rel="preload" href="/data/products.json" as="fetch" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <!-- Splash: paints instantly on first frame so there's no black screen while
+       the ~4MB product feed downloads/parses. app.js cross-fades it out when ready. -->
+  <div class="app-splash" id="appSplash" role="status" aria-label="Loading iFound.today">
+    <div class="app-splash-inner">
+      <div class="app-splash-logo">◆</div>
+      <div class="app-splash-name">iFound<span class="app-splash-dot">.today</span></div>
+      <div class="app-splash-tagline">Discover indie products worth using</div>
+      <div class="app-splash-bar"><i></i></div>
+    </div>
+  </div>
+
   <div class="app-shell">
     <button class="filter-fab" id="filterFab">☰</button>
 
@@ -42,12 +57,6 @@
     <main class="feed" id="feed"></main>
   </div>
 
-  <script>
-    // Force clear old service worker cache
-    if ('serviceWorker' in navigator) {
-      caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
-    }
-  </script>
   <script src="/app.js"></script>
 
   <!-- Cookie consent + Microsoft Clarity (loads only after the user accepts) -->
@@ -74,7 +83,9 @@
 
     function showBanner() {
       var s = document.createElement('style');
-      s.textContent = '#cookie-banner{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:99999;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;max-width:min(680px,calc(100% - 24px));background:#111016;color:#f4f4f5;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 18px;font-family:Lexend,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;line-height:1.45;box-shadow:0 16px 50px rgba(0,0,0,.45)}#cookie-banner .cb-actions{display:flex;gap:10px;flex-shrink:0}#cookie-banner button{font:inherit;font-weight:600;cursor:pointer;border-radius:9px;padding:9px 16px;border:0}#cb-reject{background:transparent;color:#a1a1aa;border:1px solid rgba(255,255,255,.18)}#cb-accept{background:#a855f7;color:#0a0a0f}@media(max-width:520px){#cookie-banner{flex-direction:column;text-align:center}}';
+      /* Sits above the card's action row (fire/Visit buttons) — anchored at the very
+         bottom it covers them and swallows their taps until dismissed. */
+      s.textContent = '#cookie-banner{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 64px);transform:translateX(-50%);z-index:99999;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;max-width:min(680px,calc(100% - 24px));background:#111016;color:#f4f4f5;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 18px;font-family:Lexend,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;line-height:1.45;box-shadow:0 16px 50px rgba(0,0,0,.45)}#cookie-banner .cb-actions{display:flex;gap:10px;flex-shrink:0}#cookie-banner button{font:inherit;font-weight:600;cursor:pointer;border-radius:9px;padding:9px 16px;border:0}#cb-reject{background:transparent;color:#a1a1aa;border:1px solid rgba(255,255,255,.18)}#cb-accept{background:#a855f7;color:#0a0a0f}@media(max-width:520px){#cookie-banner{flex-direction:column;text-align:center}}';
       document.head.appendChild(s);
       var bar = document.createElement('div');
       bar.id = 'cookie-banner';

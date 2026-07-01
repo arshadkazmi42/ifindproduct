@@ -2,12 +2,58 @@ let PRODUCTS = [];
 const feed = document.getElementById('feed');
 let activeFilter = 'all';
 let reactions = JSON.parse(localStorage.getItem('ifound-reactions') || '{}');
-let seen = JSON.parse(localStorage.getItem('ifound-seen') || '[]');
+let seen = new Set(JSON.parse(localStorage.getItem('ifound-seen') || '[]'));
+
+// Splash shown from first paint (see index.html). Keep it up at least this long so
+// a fast/cached load doesn't flash it for a few frames, then cross-fade it away.
+const SPLASH_SHOWN_AT = performance.now();
+const SPLASH_MIN_MS = 450;
+
+function hideSplash() {
+  const splash = document.getElementById('appSplash');
+  if (!splash) return;
+  const wait = Math.max(0, SPLASH_MIN_MS - (performance.now() - SPLASH_SHOWN_AT));
+  setTimeout(() => {
+    splash.classList.add('hidden'); // fade out (cross-fades with the first card's entrance)
+    splash.addEventListener('transitionend', () => splash.remove(), { once: true });
+    setTimeout(() => splash.remove(), 700); // fallback if transitionend doesn't fire
+  }, wait);
+}
+
+// Product fields come from scraped sources (Product Hunt, TrustMRR) and public
+// submissions — treat them as untrusted before interpolating into innerHTML.
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
+
+function safeUrl(url) {
+  return /^https?:\/\//i.test(url || '') ? url : '';
+}
+
+function emptyStateHtml(emoji, title, message) {
+  return `
+    <div class="empty-state">
+      <div class="empty-inner">
+        <span class="empty-emoji">${emoji}</span>
+        <h2>${title}</h2>
+        <p>${message}</p>
+      </div>
+    </div>
+  `;
+}
 
 async function loadProducts() {
-  const res = await fetch('/data/products.json');
-  PRODUCTS = await res.json();
-  renderFeed();
+  try {
+    const res = await fetch('/data/products.json');
+    PRODUCTS = await res.json();
+    renderFeed();
+  } catch (e) {
+    feed.innerHTML = emptyStateHtml('📡', "Couldn't load the feed", 'Check your connection and try again.');
+  } finally {
+    hideSplash();
+  }
 }
 
 function shuffleArray(arr) {
@@ -26,15 +72,15 @@ function getFilteredProducts() {
       p.category.toLowerCase().includes(activeFilter.toLowerCase())
     );
   }
-  const unseen = products.filter(p => !seen.includes(p.id));
-  const seenP = products.filter(p => seen.includes(p.id));
+  const unseen = products.filter(p => !seen.has(p.id));
+  const seenP = products.filter(p => seen.has(p.id));
   return [...shuffleArray(unseen), ...shuffleArray(seenP)];
 }
 
 function markSeen(id) {
-  if (!seen.includes(id)) {
-    seen.push(id);
-    localStorage.setItem('ifound-seen', JSON.stringify(seen));
+  if (!seen.has(id)) {
+    seen.add(id);
+    localStorage.setItem('ifound-seen', JSON.stringify([...seen]));
   }
 }
 
@@ -49,8 +95,6 @@ function generatePattern(type, color) {
   return patterns[type] || patterns.dots;
 }
 
-const HIGHLIGHT_TAGS = ['solo maker', 'bootstrapped', 'open source', 'free'];
-
 // Crisp external-link glyph (Feather "external-link"). Inherits the link's color
 // via currentColor and scales with font-size — replaces the clunky ↗ arrow.
 const EXT_ICON = '<svg class="ext-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
@@ -62,162 +106,174 @@ function createCard(product) {
 
   const [c1, c2] = product.colors;
   const userReactions = reactions[product.id] || {};
-  const faviconUrl = `https://www.google.com/s2/favicons?domain=${product.domain}&sz=128`;
-  const fallbackLetter = product.name[0].toUpperCase();
+  const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(product.domain)}&sz=128`;
+  const fallbackLetter = (product.name || '?')[0].toUpperCase();
   const patternSvg = generatePattern(product.pattern, c1);
   // URL-encode the SVG so its quotes/angle brackets don't break out of the inline style="".
   const encodedPattern = `url('data:image/svg+xml,${encodeURIComponent(patternSvg)}')`;
-  // Preview: a live full-page screenshot of the landing page (rendered on demand by
-  // thum.io — nothing stored on our side) → else the product's og:image (blur-filled)
-  // → else the clean branded gradient.
-  const screenshot = liveScreenshotUrl(product);
-  const ogImage = product.og_image || '';
+  const productUrl = safeUrl(product.url);
+  // Preview: the product's og:image (blur-filled), else the clean branded gradient.
+  const ogImage = safeUrl(product.og_image);
 
   // Provenance: where the product was sourced from. Link to the product's page on
   // that source ONLY when we have its specific URL — never fall back to the source's
   // homepage (that sends people to the wrong place). Otherwise show plain attribution.
   const src = product.source === 'producthunt'
-      ? { label: 'Product Hunt', url: product.ph_url || '' }
+      ? { label: 'Product Hunt', url: safeUrl(product.ph_url) }
     : product.source === 'trustmrr'
-      ? { label: 'TrustMRR', url: product.source_url || '' }
+      ? { label: 'TrustMRR', url: safeUrl(product.source_url) }
     : null;
   const sourceHtml = src
     ? (src.url
-        ? ` · <a href="${src.url}" target="_blank" rel="noopener" class="card-info-source">via ${src.label}${EXT_ICON}</a>`
+        ? ` · <a href="${esc(src.url)}" target="_blank" rel="noopener" class="card-info-source">via ${src.label}${EXT_ICON}</a>`
         : ` · <span class="card-info-source no-link">via ${src.label}</span>`)
     : '';
 
   card.innerHTML = `
     <div class="card-hero">
-      <div class="card-hero-shimmer" id="shimmer-${product.id}"></div>
-      <div class="card-hero-fallback" id="fallback-${product.id}" style="background: linear-gradient(160deg, ${c1}18 0%, #0a0a0f 40%, ${c2}12 100%);">
+      <div class="card-hero-shimmer"></div>
+      <div class="card-hero-fallback" style="background: linear-gradient(160deg, ${esc(c1)}18 0%, #0a0a0f 40%, ${esc(c2)}12 100%);">
         <div class="card-hero-fallback-pattern" style="background-image: ${encodedPattern}; background-repeat: repeat;"></div>
         <div class="card-hero-fallback-logo">
-          <img src="${faviconUrl}" alt="${product.name}" onerror="this.parentElement.innerHTML='<span class=card-hero-fallback-logo-text>${fallbackLetter}</span>'">
+          <img src="${esc(faviconUrl)}" alt="${esc(product.name)}" loading="lazy" decoding="async">
         </div>
-        <div class="card-hero-fallback-name">${product.name}</div>
-        <span class="card-hero-fallback-url">${product.url.replace('https://', '')}</span>
+        <div class="card-hero-fallback-name">${esc(product.name)}</div>
+        <span class="card-hero-fallback-url">${esc((productUrl || product.domain || '').replace('https://', ''))}</span>
       </div>
     </div>
 
     <div class="card-info">
       <div class="card-info-header">
         <div class="card-info-logo">
-          <img src="${faviconUrl}" alt="" onerror="this.parentElement.innerHTML='<span class=card-info-logo-fallback>${fallbackLetter}</span>'">
+          <img src="${esc(faviconUrl)}" alt="" loading="lazy" decoding="async">
         </div>
         <div class="card-info-text">
-          <div class="card-info-name">${product.name}${product.verified ? ' <span class="verified-badge" title="Verified maker">✓</span>' : ''}</div>
-          <div class="card-info-category">${product.category}${sourceHtml}</div>
+          <div class="card-info-name">${esc(product.name)}${product.verified ? ' <span class="verified-badge" title="Verified maker">✓</span>' : ''}</div>
+          <div class="card-info-category">${esc(product.category)}${sourceHtml}</div>
         </div>
       </div>
-      <div class="card-info-tagline">${product.tagline}</div>
+      <div class="card-info-tagline">${esc(product.tagline)}</div>
       <div class="card-info-footer">
-        <span class="card-info-maker">by <strong>${product.maker}</strong></span>
-        <span class="card-info-price">${product.price}</span>
-        <button class="card-info-fire fire-btn ${userReactions.fire ? 'reacted' : ''}" data-product="${product.id}">🔥</button>
-        <a href="${product.url}" target="_blank" rel="noopener" class="card-info-visit">Visit${EXT_ICON}</a>
+        <span class="card-info-maker">by <strong>${esc(product.maker)}</strong></span>
+        <span class="card-info-price">${esc(product.price)}</span>
+        <button class="card-info-fire fire-btn ${userReactions.fire ? 'reacted' : ''}" data-product="${esc(product.id)}">🔥</button>
+        ${productUrl ? `<a href="${esc(productUrl)}" target="_blank" rel="noopener" class="card-info-visit">Visit${EXT_ICON}</a>` : ''}
       </div>
     </div>
   `;
 
-  card.dataset.screenshot = screenshot;
+  // Favicon failed → show the product's first letter instead.
+  const heroLogo = card.querySelector('.card-hero-fallback-logo img');
+  heroLogo.addEventListener('error', () => {
+    const span = document.createElement('span');
+    span.className = 'card-hero-fallback-logo-text';
+    span.textContent = fallbackLetter;
+    heroLogo.replaceWith(span);
+  }, { once: true });
+  const infoLogo = card.querySelector('.card-info-logo img');
+  infoLogo.addEventListener('error', () => {
+    const span = document.createElement('span');
+    span.className = 'card-info-logo-fallback';
+    span.textContent = fallbackLetter;
+    infoLogo.replaceWith(span);
+  }, { once: true });
+
   card.dataset.ogImage = ogImage;
   return card;
 }
 
-// Live screenshot of the product's landing page, rendered on demand. No image is
-// stored on our side — thum.io fetches, renders and caches it. We capture the top
-// ~1400px (crop) rather than the full scrollable page: ~9× smaller/faster, and the
-// card only shows the top portion anyway (cover-cropped from the top).
-function liveScreenshotUrl(product) {
-  const target = product.url || `https://${product.domain}`;
-  // thum.io takes the target URL raw (not percent-encoded) appended to the path.
-  return `https://image.thum.io/get/width/1000/crop/1400/${target}`;
-}
-
-function loadScreenshot(card) {
-  // Sources in order: live full-page landing-page screenshot (cover) → og:image (blur-fill) → gradient.
-  const sources = [];
-  if (card.dataset.screenshot) sources.push({ url: card.dataset.screenshot, mode: 'cover' });
-  if (card.dataset.ogImage) sources.push({ url: card.dataset.ogImage, mode: 'blur' });
+// Card preview: the product's og:image — a blurred, darkened copy fills the card
+// with the crisp copy centered on top. Missing/broken og:image → keep the branded
+// gradient fallback that's already rendered underneath.
+function loadPreview(card) {
+  const url = card.dataset.ogImage;
+  const shimmer = card.querySelector('.card-hero-shimmer');
+  const showFallback = () => { if (shimmer) shimmer.classList.add('hidden'); };
+  if (!url) { showFallback(); return; }
 
   const hero = card.querySelector('.card-hero');
   const fallback = card.querySelector('.card-hero-fallback');
-  const shimmer = card.querySelector('.card-hero-shimmer');
-
-  function reveal(nodes) {
-    nodes.forEach(n => hero.insertBefore(n, fallback));
+  const crisp = new Image();
+  crisp.alt = '';
+  crisp.onload = () => {
+    if (crisp.naturalWidth < 60) { showFallback(); return; } // broken/placeholder image
+    crisp.className = 'card-hero-crisp';
+    const blur = new Image();
+    blur.className = 'card-hero-blur';
+    blur.alt = '';
+    blur.src = url; // already cached from the crisp load
+    hero.insertBefore(blur, fallback);
+    hero.insertBefore(crisp, fallback);
     fallback.classList.add('hidden');
     if (shimmer) shimmer.classList.add('hidden');
-  }
-
-  function tryNext(i) {
-    if (i >= sources.length) {
-      if (shimmer) shimmer.classList.add('hidden'); // show the branded gradient fallback
-      return;
-    }
-    const src = sources[i];
-    const main = new Image();
-    main.alt = '';
-    main.onload = () => {
-      if (main.naturalWidth < 60) { tryNext(i + 1); return; } // skip broken/tiny
-      if (src.mode === 'blur') {
-        // og:image: blurred, darkened copy fills the card; crisp copy centered on top.
-        main.className = 'card-hero-crisp';
-        const blur = new Image();
-        blur.className = 'card-hero-blur';
-        blur.alt = '';
-        blur.src = src.url; // already cached from the crisp load
-        reveal([blur, main]);
-      } else {
-        main.className = 'card-hero-screenshot';
-        reveal([main]);
-      }
-    };
-    main.onerror = () => tryNext(i + 1);
-    main.src = src.url;
-  }
-
-  tryNext(0);
+  };
+  crisp.onerror = showFallback;
+  crisp.src = url;
 }
 
+// ── Incremental rendering ──
+// The feed holds thousands of products; building every card up-front means tens of
+// thousands of DOM nodes and an immediate favicon request per card. Instead, render
+// a small batch and append the next one when the user scrolls near the end (sentinel
+// observer). Cards are viewport-height, so BATCH_SIZE is "screens ahead".
+const BATCH_SIZE = 10;
+let renderQueue = [];
+let cardObserver = null;
+let sentinelObserver = null;
+let sentinel = null;
 
 function renderFeed() {
+  if (cardObserver) cardObserver.disconnect();
+  if (sentinelObserver) sentinelObserver.disconnect();
   feed.innerHTML = '';
-  const products = getFilteredProducts();
+  renderQueue = getFilteredProducts();
 
-  if (products.length === 0) {
-    feed.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-inner">
-          <span class="empty-emoji">🔭</span>
-          <h2>Nothing here</h2>
-          <p>No products match this filter.</p>
-        </div>
-      </div>
-    `;
+  if (renderQueue.length === 0) {
+    feed.innerHTML = emptyStateHtml('🔭', 'Nothing here', 'No products match this filter.');
     return;
   }
 
-  products.forEach(p => feed.appendChild(createCard(p)));
-  observeCards();
-}
-
-function observeCards() {
-  const observer = new IntersectionObserver((entries) => {
+  cardObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         markSeen(parseInt(entry.target.dataset.id));
 
-        if (!entry.target.dataset.screenshotLoaded) {
-          entry.target.dataset.screenshotLoaded = 'true';
-          loadScreenshot(entry.target);
+        if (!entry.target.dataset.previewLoaded) {
+          entry.target.dataset.previewLoaded = 'true';
+          loadPreview(entry.target);
         }
       }
     });
   }, { threshold: 0.3 });
-  document.querySelectorAll('.card').forEach(c => observer.observe(c));
+
+  sentinel = document.createElement('div');
+  sentinel.className = 'feed-sentinel';
+  feed.appendChild(sentinel);
+
+  appendNextBatch();
+
+  // Top up when the sentinel comes within a few screens of the viewport.
+  sentinelObserver = new IntersectionObserver((entries) => {
+    if (entries.some(e => e.isIntersecting)) appendNextBatch();
+  }, { rootMargin: '300% 0px' });
+  sentinelObserver.observe(sentinel);
+}
+
+function appendNextBatch() {
+  const batch = renderQueue.splice(0, BATCH_SIZE);
+  if (batch.length === 0) {
+    if (sentinelObserver) sentinelObserver.disconnect();
+    if (sentinel) sentinel.remove();
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  batch.forEach(p => {
+    const card = createCard(p);
+    frag.appendChild(card);
+    cardObserver.observe(card); // safe on detached nodes; fires once connected
+  });
+  feed.insertBefore(frag, sentinel);
 }
 
 // Filter panel

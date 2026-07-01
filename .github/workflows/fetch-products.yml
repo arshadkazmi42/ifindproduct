@@ -51,5 +51,5 @@ jobs:
         if: always()
         run: |
           bash scripts/commit.sh "chore: og:image previews"
-      # Note: landing-page previews are rendered live in the feed (thum.io) — no screenshots
+      # Note: card previews use each product's og:image (fetched above) — no screenshots
       # are generated, stored, or committed anywhere.

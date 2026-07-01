@@ -1,9 +1,7 @@
 name: Fetch Products
 
 on:
-  schedule:
-    - cron: '0 8 * * *'  # Daily at 8:00 UTC
-  workflow_dispatch: # Manual trigger
+  workflow_dispatch: # Manual trigger only (daily schedule intentionally disabled)
 
 permissions:
   contents: write

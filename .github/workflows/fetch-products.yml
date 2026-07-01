@@ -44,6 +44,16 @@ jobs:
         run: |
           bash scripts/commit.sh "chore: fetch TrustMRR products"
 
+      # Enrich only newly-added products with their og:image URL (fast; existing kept).
+      - name: Fetch og:images
+        run: node scripts/fetch-og.js
+        continue-on-error: true
+
+      - name: Commit og:images
+        if: always()
+        run: |
+          bash scripts/commit.sh "chore: og:image previews"
+
       - name: Set up Chrome
         id: setup-chrome
         uses: browser-actions/setup-chrome@v1

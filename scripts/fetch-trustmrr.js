@@ -114,15 +114,9 @@ async function main() {
     console.log('No existing products.json, starting fresh');
   }
 
-  // Refresh: drop prior TrustMRR rows so the corrected creator/MRR mapping is
-  // applied (dedup-by-domain would otherwise keep the old, wrong values).
-  // Manual (id<=99) and Product Hunt rows are kept.
-  const beforeLen = existing.length;
-  existing = existing.filter(p => p.source !== 'trustmrr');
-  if (beforeLen !== existing.length) {
-    console.log(`Dropped ${beforeLen - existing.length} old TrustMRR rows for refresh`);
-  }
-
+  // Existing rows (incl. their og:image URLs) are kept; only genuinely new
+  // startups are appended (dedup by domain). No wholesale refresh — that would
+  // wipe the enriched og:image URLs every run.
   const existingDomains = new Set(existing.map(p => p.domain).filter(Boolean));
   const maxId = existing.reduce((max, p) => Math.max(max, p.id), 99);
   let nextId = Math.max(maxId + 1, 100);

@@ -63,9 +63,10 @@ function createCard(product) {
   const patternSvg = generatePattern(product.pattern, c1);
   // URL-encode the SVG so its quotes/angle brackets don't break out of the inline style="".
   const encodedPattern = `url('data:image/svg+xml,${encodeURIComponent(patternSvg)}')`;
-  // Pre-generated local screenshot only — instant, no on-the-fly generation.
-  // Missing ones fall back to the clean branded gradient (also instant).
+  // Preview: the product's own og:image (blur-filled) if we have it → else a
+  // pre-generated local screenshot → else the clean branded gradient. All instant.
   const localScreenshot = `/screenshots/${product.id}.jpg`;
+  const ogImage = product.og_image || '';
 
   card.innerHTML = `
     <div class="card-hero">
@@ -101,32 +102,51 @@ function createCard(product) {
   `;
 
   card.dataset.localScreenshot = localScreenshot;
+  card.dataset.ogImage = ogImage;
   return card;
 }
 
 function loadScreenshot(card) {
-  // Pre-generated local screenshot, else the branded gradient fallback.
-  const sources = [card.dataset.localScreenshot].filter(Boolean);
+  // Sources in order: og:image (blur-filled) → local screenshot (cover) → gradient.
+  const sources = [];
+  if (card.dataset.ogImage) sources.push({ url: card.dataset.ogImage, mode: 'blur' });
+  if (card.dataset.localScreenshot) sources.push({ url: card.dataset.localScreenshot, mode: 'cover' });
+
   const hero = card.querySelector('.card-hero');
   const fallback = card.querySelector('.card-hero-fallback');
   const shimmer = card.querySelector('.card-hero-shimmer');
+
+  function reveal(nodes) {
+    nodes.forEach(n => hero.insertBefore(n, fallback));
+    fallback.classList.add('hidden');
+    if (shimmer) shimmer.classList.add('hidden');
+  }
 
   function tryNext(i) {
     if (i >= sources.length) {
       if (shimmer) shimmer.classList.add('hidden'); // show the branded gradient fallback
       return;
     }
-    const img = new Image();
-    img.className = 'card-hero-screenshot';
-    img.alt = '';
-    img.onload = () => {
-      if (img.naturalWidth < 60) { tryNext(i + 1); return; } // skip broken/tiny files
-      hero.insertBefore(img, fallback);
-      fallback.classList.add('hidden');
-      if (shimmer) shimmer.classList.add('hidden');
+    const src = sources[i];
+    const main = new Image();
+    main.alt = '';
+    main.onload = () => {
+      if (main.naturalWidth < 60) { tryNext(i + 1); return; } // skip broken/tiny
+      if (src.mode === 'blur') {
+        // og:image: blurred, darkened copy fills the card; crisp copy centered on top.
+        main.className = 'card-hero-crisp';
+        const blur = new Image();
+        blur.className = 'card-hero-blur';
+        blur.alt = '';
+        blur.src = src.url; // already cached from the crisp load
+        reveal([blur, main]);
+      } else {
+        main.className = 'card-hero-screenshot';
+        reveal([main]);
+      }
     };
-    img.onerror = () => tryNext(i + 1);
-    img.src = sources[i];
+    main.onerror = () => tryNext(i + 1);
+    main.src = src.url;
   }
 
   tryNext(0);

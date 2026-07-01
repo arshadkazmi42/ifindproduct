@@ -51,6 +51,10 @@ function generatePattern(type, color) {
 
 const HIGHLIGHT_TAGS = ['solo maker', 'bootstrapped', 'open source', 'free'];
 
+// Crisp external-link glyph (Feather "external-link"). Inherits the link's color
+// via currentColor and scales with font-size — replaces the clunky ↗ arrow.
+const EXT_ICON = '<svg class="ext-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
 function createCard(product) {
   const card = document.createElement('div');
   card.className = 'card';
@@ -63,19 +67,24 @@ function createCard(product) {
   const patternSvg = generatePattern(product.pattern, c1);
   // URL-encode the SVG so its quotes/angle brackets don't break out of the inline style="".
   const encodedPattern = `url('data:image/svg+xml,${encodeURIComponent(patternSvg)}')`;
-  // Preview: the product's own og:image (blur-filled) if we have it → else a
-  // pre-generated local screenshot → else the clean branded gradient. All instant.
-  const localScreenshot = `/screenshots/${product.id}.jpg`;
+  // Preview: a live full-page screenshot of the landing page (rendered on demand by
+  // thum.io — nothing stored on our side) → else the product's og:image (blur-filled)
+  // → else the clean branded gradient.
+  const screenshot = liveScreenshotUrl(product);
   const ogImage = product.og_image || '';
 
-  // Provenance: where the product was sourced from, linking to its page there.
+  // Provenance: where the product was sourced from. Link to the product's page on
+  // that source ONLY when we have its specific URL — never fall back to the source's
+  // homepage (that sends people to the wrong place). Otherwise show plain attribution.
   const src = product.source === 'producthunt'
-      ? { label: 'Product Hunt', url: product.ph_url || 'https://www.producthunt.com' }
+      ? { label: 'Product Hunt', url: product.ph_url || '' }
     : product.source === 'trustmrr'
-      ? { label: 'TrustMRR', url: product.source_url || 'https://trustmrr.com' }
+      ? { label: 'TrustMRR', url: product.source_url || '' }
     : null;
   const sourceHtml = src
-    ? ` · <a href="${src.url}" target="_blank" rel="noopener" class="card-info-source">via ${src.label} ↗</a>`
+    ? (src.url
+        ? ` · <a href="${src.url}" target="_blank" rel="noopener" class="card-info-source">via ${src.label}${EXT_ICON}</a>`
+        : ` · <span class="card-info-source no-link">via ${src.label}</span>`)
     : '';
 
   card.innerHTML = `
@@ -106,20 +115,30 @@ function createCard(product) {
         <span class="card-info-maker">by <strong>${product.maker}</strong></span>
         <span class="card-info-price">${product.price}</span>
         <button class="card-info-fire fire-btn ${userReactions.fire ? 'reacted' : ''}" data-product="${product.id}">🔥</button>
-        <a href="${product.url}" target="_blank" rel="noopener" class="card-info-visit">Visit ↗</a>
+        <a href="${product.url}" target="_blank" rel="noopener" class="card-info-visit">Visit${EXT_ICON}</a>
       </div>
     </div>
   `;
 
-  card.dataset.localScreenshot = localScreenshot;
+  card.dataset.screenshot = screenshot;
   card.dataset.ogImage = ogImage;
   return card;
 }
 
+// Live screenshot of the product's landing page, rendered on demand. No image is
+// stored on our side — thum.io fetches, renders and caches it. We capture the top
+// ~1400px (crop) rather than the full scrollable page: ~9× smaller/faster, and the
+// card only shows the top portion anyway (cover-cropped from the top).
+function liveScreenshotUrl(product) {
+  const target = product.url || `https://${product.domain}`;
+  // thum.io takes the target URL raw (not percent-encoded) appended to the path.
+  return `https://image.thum.io/get/width/1000/crop/1400/${target}`;
+}
+
 function loadScreenshot(card) {
-  // Sources in order: full-page local screenshot (cover) → og:image (blur-fill) → gradient.
+  // Sources in order: live full-page landing-page screenshot (cover) → og:image (blur-fill) → gradient.
   const sources = [];
-  if (card.dataset.localScreenshot) sources.push({ url: card.dataset.localScreenshot, mode: 'cover' });
+  if (card.dataset.screenshot) sources.push({ url: card.dataset.screenshot, mode: 'cover' });
   if (card.dataset.ogImage) sources.push({ url: card.dataset.ogImage, mode: 'blur' });
 
   const hero = card.querySelector('.card-hero');

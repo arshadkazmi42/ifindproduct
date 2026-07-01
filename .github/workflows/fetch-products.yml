@@ -51,5 +51,5 @@ jobs:
         if: always()
         run: |
           bash scripts/commit.sh "chore: og:image previews"
-      # Note: full-page screenshots are generated on the server (see scripts/gen-screenshots.js)
-      # and served via the tunnel — intentionally NOT generated/committed in CI (repo stays small).
+      # Note: landing-page previews are rendered live in the feed (thum.io) — no screenshots
+      # are generated, stored, or committed anywhere.

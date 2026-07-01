@@ -30,7 +30,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/products.json screenshots/
+          git add data/products.json
           git diff --cached --quiet && echo "No changes" && exit 0
           BRANCH="submission-${{ github.event.issue.number }}"
           git checkout -b "$BRANCH"

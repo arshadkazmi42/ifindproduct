@@ -55,7 +55,9 @@ self.addEventListener('fetch', e => {
       }
       return res;
     }).catch(() =>
-      caches.match(e.request).then(hit => {
+      // ignoreSearch: assets are referenced with ?v= cache-busting params; any
+      // cached copy of the same path is valid offline.
+      caches.match(e.request, { ignoreSearch: true }).then(hit => {
         if (hit) return hit;
         // Offline navigation to an uncached URL → nearest precached page.
         if (e.request.mode === 'navigate') {
